@@ -41,84 +41,84 @@ namespace WinFormsApp.Modulo_disciplina
 
             CarregarDisciplina();
 
-            //TelaPrincipalForm
-            //   .Instancia
-            //   .AtualizarRodape($"O registro de cliente \"{novocliente.Nome}\" foi criado com sucesso!");
+            TelaPrincipalForm
+               .Instancia
+               .AtualizarRodape($"O registro Da disciplina \"{novadisciplina.Nome}\" foi criado com sucesso!");
         }
 
         public override void Editar()
         {
             TelaDisciplinaForm telaDisciplina = new TelaDisciplinaForm();
 
-            //int idSelecionado = TabelaDisciplina.ObterRegistroSelecionado();
+            int idSelecionado = TabelaDisciplina.ObterRegistroSelecionado();
 
-           // Disciplina DisciplinaSelecionada = repositorioDisciplina.SelecionarPorId(idSelecionado);
+            Disciplina DisciplinaSelecionada = repositorioDisciplina.SelecionarPorId(idSelecionado);
 
-           // if (DisciplinaSelecionada == null)
-           // {
-           //     MessageBox.Show(
-           //         "Não é possível realizar esta ação sem um registro selecionado.",
-           //         "Aviso",
-           //         MessageBoxButtons.OK,
-           //         MessageBoxIcon.Warning
-           //     );
-           //     return;
-           // }
+            if (DisciplinaSelecionada == null)
+            {
+                MessageBox.Show(
+                    "Não é possível realizar esta ação sem um registro selecionado.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
 
-           // telaDisciplina.Disciplina = DisciplinaSelecionada;
+            telaDisciplina.Disciplina = DisciplinaSelecionada;
 
-           // DialogResult resultado = telaDisciplina.ShowDialog();
+            DialogResult resultado = telaDisciplina.ShowDialog();
 
-           // if (resultado != DialogResult.OK)
-           //     return;
+            if (resultado != DialogResult.OK)
+                return;
 
-           //Disciplina DisciplinaEditada = telaDisciplina.Disciplina;
+            Disciplina DisciplinaEditada = telaDisciplina.Disciplina;
 
-           // repositorioDisciplina.Editar(DisciplinaSelecionada.Id, DisciplinaEditada);
+            repositorioDisciplina.Editar(DisciplinaSelecionada.Id, DisciplinaEditada);
 
-           //CarregarDisciplina();
+            CarregarDisciplina();
 
-            //TelaPrincipalForm
-            //    .Instancia
-            //    .AtualizarRodape($"O registro \"{DisciplinaEditada.Nome}\" foi editado com sucesso!");
+            TelaPrincipalForm
+                .Instancia
+                .AtualizarRodape($"O registro \"{DisciplinaEditada.Nome}\" foi editado com sucesso!");
         }
 
         public override void Excluir()
         {
            TelaDisciplinaForm telaDisciplinaForm = new TelaDisciplinaForm();
 
-            //int idSelecionado = TabelaDisciplina.ObterRegistroSelecionado();
+            int idSelecionado = TabelaDisciplina.ObterRegistroSelecionado();
 
-           //Disciplina DisciplinaSelecionada = repositorioDisciplina.SelecionarPorId(idSelecionado);
+            Disciplina DisciplinaSelecionada = repositorioDisciplina.SelecionarPorId(idSelecionado);
 
-            //if (DisciplinaSelecionada == null)
-            //{
-            //    MessageBox.Show(
-            //        "Não é possível realizar esta ação sem um registro selecionado.",
-            //        "Aviso",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Warning
-            //    );
-            //    return;
-            //}
+            if (DisciplinaSelecionada == null)
+            {
+                MessageBox.Show(
+                    "Não é possível realizar esta ação sem um registro selecionado.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
 
-            //DialogResult resultado = MessageBox.Show(
-            //     $"Você deseja realmente excluir o registro \"{ClienteSelecionado.Nome}\"?",
-            //     "Confirmar Exclusão",
-            //     MessageBoxButtons.YesNo,
-            //     MessageBoxIcon.Warning
-            // );
+            DialogResult resultado = MessageBox.Show(
+                 $"Você deseja realmente excluir o registro \"{DisciplinaSelecionada.Nome}\"?",
+                 "Confirmar Exclusão",
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Warning
+             );
 
-            //if (resultado != DialogResult.Yes)
-            //    return;
+            if (resultado != DialogResult.Yes)
+                return;
 
-            //repositorioCliente.Excluir(ClienteSelecionado.Id);
+            repositorioDisciplina.Excluir(DisciplinaSelecionada.Id);
 
-            //CarregarCliente();
+           CarregarDisciplina();
 
-            //TelaPrincipalForm
-            //  .Instancia
-            //  .AtualizarRodape($"O registro \"{ClienteSelecionado.Nome}\" foi excluído com sucesso!");
+            TelaPrincipalForm
+              .Instancia
+              .AtualizarRodape($"O registro \"{DisciplinaSelecionada.Nome}\" foi excluído com sucesso!");
         }
 
         private void CarregarDisciplina()

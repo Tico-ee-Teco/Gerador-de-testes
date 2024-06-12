@@ -41,10 +41,10 @@
             btnAdicionar = new ToolStripButton();
             btnEditar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
-            toolTip1 = new ToolTip(components);
-            pnlRegistros = new Panel();
             toolStripSeparator1 = new ToolStripSeparator();
             lblTipoCadastro = new ToolStripLabel();
+            toolTip1 = new ToolTip(components);
+            pnlRegistros = new Panel();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -73,6 +73,7 @@
             disciplinaMenuItem.Name = "disciplinaMenuItem";
             disciplinaMenuItem.Size = new Size(180, 24);
             disciplinaMenuItem.Text = "Disciplinas";
+            disciplinaMenuItem.Click += disciplinaMenuItem_Click;
             // 
             // materiaMenuItem
             // 
@@ -129,6 +130,7 @@
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(28, 28);
             btnAdicionar.Text = "toolStripButton1";
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
             // btnEditar
             // 
@@ -139,6 +141,7 @@
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(28, 28);
             btnEditar.Text = "toolStripButton2";
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnExcluir
             // 
@@ -149,14 +152,7 @@
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(28, 28);
             btnExcluir.Text = "toolStripButton3";
-            // 
-            // pnlRegistros
-            // 
-            pnlRegistros.Dock = DockStyle.Fill;
-            pnlRegistros.Location = new Point(0, 71);
-            pnlRegistros.Name = "pnlRegistros";
-            pnlRegistros.Size = new Size(914, 449);
-            pnlRegistros.TabIndex = 3;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // toolStripSeparator1
             // 
@@ -168,6 +164,14 @@
             lblTipoCadastro.Name = "lblTipoCadastro";
             lblTipoCadastro.Size = new Size(123, 28);
             lblTipoCadastro.Text = "Tipo de Cadastro";
+            // 
+            // pnlRegistros
+            // 
+            pnlRegistros.Dock = DockStyle.Fill;
+            pnlRegistros.Location = new Point(0, 71);
+            pnlRegistros.Name = "pnlRegistros";
+            pnlRegistros.Size = new Size(914, 449);
+            pnlRegistros.TabIndex = 3;
             // 
             // TelaPrincipalForm
             // 

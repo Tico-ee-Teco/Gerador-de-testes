@@ -18,13 +18,13 @@ namespace WinFormsApp.Modulo_disciplina
         {
             get
             {
-                return Disciplina;
+                return disciplina;
             }
             set
             {
                 TxtID.Text = value.Id.ToString();
                 TxtNome.Text = value.Nome;
-               
+
             }
 
         }
@@ -33,16 +33,16 @@ namespace WinFormsApp.Modulo_disciplina
         {
 
             string nome = TxtNome.Text;
-           
 
-            Disciplina = new Disciplina(nome);
+
+            disciplina = new Disciplina(nome);
 
             List<string> erros = Disciplina.Validar();
 
             if (erros.Count > 0)
             {
-                //TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
-                //DialogResult = DialogResult.None;
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+                DialogResult = DialogResult.None;
             }
         }
 

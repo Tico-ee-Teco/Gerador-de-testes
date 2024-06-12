@@ -38,16 +38,20 @@
             // 
             // TxtID
             // 
+            TxtID.Enabled = false;
             TxtID.Location = new Point(87, 57);
+            TxtID.Multiline = true;
             TxtID.Name = "TxtID";
-            TxtID.Size = new Size(114, 23);
+            TxtID.PlaceholderText = "0";
+            TxtID.Size = new Size(322, 23);
             TxtID.TabIndex = 0;
             // 
             // TxtNome
             // 
             TxtNome.Location = new Point(87, 105);
+            TxtNome.Multiline = true;
             TxtNome.Name = "TxtNome";
-            TxtNome.Size = new Size(322, 23);
+            TxtNome.Size = new Size(322, 28);
             TxtNome.TabIndex = 1;
             // 
             // labelId
@@ -74,17 +78,20 @@
             // BtnGravar
             // 
             BtnGravar.BackColor = Color.Lime;
+            BtnGravar.DialogResult = DialogResult.OK;
             BtnGravar.Font = new Font("Segoe UI", 11.25F);
-            BtnGravar.Location = new Point(24, 176);
+            BtnGravar.Location = new Point(12, 176);
             BtnGravar.Name = "BtnGravar";
             BtnGravar.Size = new Size(94, 54);
             BtnGravar.TabIndex = 4;
             BtnGravar.Text = "Gravar";
             BtnGravar.UseVisualStyleBackColor = false;
+            BtnGravar.Click += btnGravar_Click;
             // 
             // BtnCancelar
             // 
             BtnCancelar.BackColor = Color.FromArgb(192, 0, 0);
+            BtnCancelar.DialogResult = DialogResult.Cancel;
             BtnCancelar.Font = new Font("Segoe UI", 11.25F);
             BtnCancelar.Location = new Point(387, 176);
             BtnCancelar.Name = "BtnCancelar";
@@ -93,7 +100,7 @@
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // TelaDisciplinaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -104,7 +111,7 @@
             Controls.Add(labelId);
             Controls.Add(TxtNome);
             Controls.Add(TxtID);
-            Name = "Form1";
+            Name = "TelaDisciplinaForm";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

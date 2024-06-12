@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FestasInfantis.WinApp.Compartilhado;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,8 +19,8 @@ namespace WinFormsApp.Modulo_disciplina
 
             grid.Columns.AddRange(ObterColunas());
 
-            //grid.ConfigurarGridSomenteLeitura();
-            //grid.ConfigurarGridZebrado();
+            grid.ConfigurarGridSomenteLeitura();
+            grid.ConfigurarGridZebrado();
         }
 
         public void AtualizarRegistros(List<Disciplina> disciplinas)
@@ -35,11 +36,11 @@ namespace WinFormsApp.Modulo_disciplina
             }
         }
 
-        //public int ObterRegistroSelecionado()
-        //{
-        //    return grid.SelecionarId();
+        public int ObterRegistroSelecionado()
+        {
+            return grid.SelecionarId();
 
-        //}
+        }
 
         private DataGridViewColumn[] ObterColunas()
         {

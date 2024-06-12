@@ -1,4 +1,5 @@
 using FestasInfantis.WinApp.Compartilhado;
+using WinFormsApp.Modulo_disciplina;
 
 namespace WinFormsApp
 {
@@ -6,7 +7,9 @@ namespace WinFormsApp
     {
         ControladorBase controlador;
 
-        ContextoDados contexto;        
+        ContextoDados contexto;
+
+        IRepositorioDisciplina repositorioDisciplina;
 
         public static TelaPrincipalForm Instancia { get; private set; }
 
@@ -17,15 +20,24 @@ namespace WinFormsApp
             lblTipoCadastro.Text = string.Empty;
             Instancia = this;
 
-            //contexto = new ContextoDados(carregarDados: true);            
 
+            contexto = new ContextoDados(carregarDados: true);
+            repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contexto);
+
+        }
+        private void disciplinaMenuItem_Click(object sender, EventArgs e)
+        {
+
+            controlador = new ControladorDisciplina(repositorioDisciplina);
+
+            ConfigurarTelaPrincipal(controlador);
         }
 
         public void AtualizarRodape(string texto)
         {
             statusLabelPrincipal.Text = texto;
-        } 
-       
+        }
+
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -38,7 +50,7 @@ namespace WinFormsApp
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             controlador.Excluir();
-        }        
+        }
 
         private void ConfigurarTelaPrincipal(ControladorBase controladorSelecionado)
         {
@@ -67,7 +79,7 @@ namespace WinFormsApp
 
             //if (controladorSelecionado is IControladorFiltravel controladorFiltravel)
             //    btnFiltro.ToolTipText = controladorFiltravel.ToolTipFiltrar;
-            
+
         }
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)
@@ -78,6 +90,6 @@ namespace WinFormsApp
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemContato);
         }
-        
+
     }
 }
