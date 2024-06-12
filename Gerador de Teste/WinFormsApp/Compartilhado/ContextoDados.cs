@@ -11,7 +11,7 @@ namespace FestasInfantis.WinApp.Compartilhado
         //public List<Tema> Temas { get; set; }
         //public List<Item> Items { get; set; }
 
-        //private string caminho = $"C:\\temp\\fetasInfantis\\dados.json";
+        private string caminho = $"C:\\temp\\fetasInfantis\\dados.json";
 
         //public ContextoDados()
         //{
