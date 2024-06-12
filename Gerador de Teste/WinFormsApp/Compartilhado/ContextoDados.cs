@@ -1,68 +1,70 @@
-﻿namespace FestasInfantis.WinApp.Compartilhado
+﻿
+using Microsoft.Win32;
+using System.Text.Json.Serialization;
+using System.Text.Json;
+using WinFormsApp.Modulo_disciplina;
+
+namespace FestasInfantis.WinApp.Compartilhado
 {
     public class ContextoDados
     {
-        //public List<Cliente> Clientes { get; set; }
-        //public List<Tema> Temas { get; set; }
-        //public List<Item> Items { get; set; }
+        public List<Disciplina> Disciplinas{ get; set; }
+      
 
-        private string caminho = $"C:\\temp\\fetasInfantis\\dados.json";
+        private string caminho = $"C:\\temp\\GeradorDeTestes\\dados.json";
 
-        //public ContextoDados()
-        //{
-        //    Clientes = new List<Cliente>();
+        public ContextoDados()
+        {
+            Disciplinas = new List<Disciplina>();
 
-        //    Temas = new List<Tema>();
+           
+        }
 
-        //    Items = new List<Item>();
-        //}
+        public ContextoDados(bool carregarDados) : this()
+        {
+            if (carregarDados)
+                CarregarDados();
+        }
 
-        //public ContextoDados(bool carregarDados) : this()
-        //{
-        //    if (carregarDados)
-        //        CarregarDados();
-        //}
+        public void Gravar()
+        {
+            FileInfo arquivos = new FileInfo(caminho);
 
-        //public void Gravar()
-        //{
-        //    FileInfo arquivos = new FileInfo(caminho);
+            arquivos.Directory.Create();
 
-        //    arquivos.Directory.Create();
+            JsonSerializerOptions options = new JsonSerializerOptions()
+            {
+                WriteIndented = true,
+                ReferenceHandler = ReferenceHandler.Preserve
+            };
 
-        //    JsonSerializerOptions options = new JsonSerializerOptions()
-        //    {
-        //        WriteIndented = true,
-        //        ReferenceHandler = ReferenceHandler.Preserve
-        //    };
+            byte[] registrosEmBytes = JsonSerializer.SerializeToUtf8Bytes(this, options);
 
-        //    byte[] registrosEmBytes = JsonSerializer.SerializeToUtf8Bytes(this, options);
+            File.WriteAllBytes(caminho, registrosEmBytes);
+        }
 
-        //    File.WriteAllBytes(caminho, registrosEmBytes);
-        //}
+        protected void CarregarDados()
+        {
+            FileInfo arquivo = new FileInfo(caminho);
 
-        //protected void CarregarDados()
-        //{
-        //    FileInfo arquivo = new FileInfo(caminho);
+            if (!arquivo.Exists)
+                return;
 
-        //    if (!arquivo.Exists)
-        //        return;
+            byte[] registrosEmBytes = File.ReadAllBytes(caminho);
 
-        //    byte[] registrosEmBytes = File.ReadAllBytes(caminho);
+            JsonSerializerOptions options = new JsonSerializerOptions()
+            {
+                ReferenceHandler = ReferenceHandler.Preserve
+            };
 
-        //    JsonSerializerOptions options = new JsonSerializerOptions()
-        //    {
-        //        ReferenceHandler = ReferenceHandler.Preserve
-        //    };
+            ContextoDados ctx = JsonSerializer.Deserialize<ContextoDados>(registrosEmBytes, options);
 
-        //    ContextoDados ctx = JsonSerializer.Deserialize<ContextoDados>(registrosEmBytes, options);
+            if (ctx == null) return;
 
-        //    if(ctx == null) return;
+            Disciplinas = ctx.Disciplinas;
+            
 
-        //    Clientes = ctx.Clientes;
-        //    Temas = ctx.Temas;
-        //    Items = ctx.Items;
-
-        //}
+        }
 
 
     }
