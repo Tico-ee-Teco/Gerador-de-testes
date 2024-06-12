@@ -11,7 +11,7 @@ namespace FestasInfantis.WinApp.Compartilhado
         public List<Disciplina> Disciplinas{ get; set; }
       
 
-        private string caminho = $"C:\\temp\\fetasInfantis\\dados.json";
+        private string caminho = $"C:\\temp\\GeradorDeTestes\\dados.json";
 
         public ContextoDados()
         {
