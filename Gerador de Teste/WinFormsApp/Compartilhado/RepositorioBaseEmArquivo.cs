@@ -16,40 +16,40 @@ namespace FestasInfantis.WinApp.Compartilhado
             this.contexto = contexto;
         }
 
-        //public void Cadastrar(T novoRegistro)
-        //{
-        //    novoRegistro.Id = contadorId++;
+        public void Cadastrar(T novoRegistro)
+        {
+            novoRegistro.Id = contadorId++;
 
-        //    ObterRegistros().Add(novoRegistro);
+            ObterRegistros().Add(novoRegistro);
 
-        //    contexto.Gravar();
-        //}
+            contexto.Gravar();
+        }
 
-        //public bool Editar(int id, T novaEntidade)
-        //{
-        //    T registro = SelecionarPorId(id);
+        public bool Editar(int id, T novaEntidade)
+        {
+            T registro = SelecionarPorId(id);
 
-        //    if (registro == null)
-        //        return false;
+            if (registro == null)
+                return false;
 
-        //    registro.AtualizarRegistro(novaEntidade);
+            registro.AtualizarRegistro(novaEntidade);
 
-        //    contexto.Gravar();
+            contexto.Gravar();
 
-        //    return true;
-        //}
+            return true;
+        }
 
-        //public virtual bool Excluir(int id)
-        //{
-        //    bool conseguiuExcluir = ObterRegistros().Remove(SelecionarPorId(id));
+        public virtual bool Excluir(int id)
+        {
+            bool conseguiuExcluir = ObterRegistros().Remove(SelecionarPorId(id));
 
-        //    if (!conseguiuExcluir)
-        //        return false;
+            if (!conseguiuExcluir)
+                return false;
 
-        //    contexto.Gravar();
+            contexto.Gravar();
 
-        //    return true;
-        //}
+            return true;
+        }
 
         public List<T> SelecionarTodos()
         {
