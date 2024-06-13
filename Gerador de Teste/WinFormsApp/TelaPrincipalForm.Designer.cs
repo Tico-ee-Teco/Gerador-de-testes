@@ -52,6 +52,7 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.AutoSize = false;
             menuStrip1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             menuStrip1.Items.AddRange(new ToolStripItem[] { cadastroMenuItem });
             menuStrip1.Location = new Point(0, 0);
@@ -71,27 +72,27 @@
             // disciplinaMenuItem
             // 
             disciplinaMenuItem.Name = "disciplinaMenuItem";
-            disciplinaMenuItem.Size = new Size(180, 24);
+            disciplinaMenuItem.Size = new Size(149, 24);
             disciplinaMenuItem.Text = "Disciplinas";
             disciplinaMenuItem.Click += disciplinaMenuItem_Click;
             // 
             // materiaMenuItem
             // 
             materiaMenuItem.Name = "materiaMenuItem";
-            materiaMenuItem.Size = new Size(180, 24);
+            materiaMenuItem.Size = new Size(149, 24);
             materiaMenuItem.Text = "Materias";
             materiaMenuItem.Click += materiaMenuItem_Click;
             // 
             // questõesMenuItem
             // 
             questõesMenuItem.Name = "questõesMenuItem";
-            questõesMenuItem.Size = new Size(180, 24);
+            questõesMenuItem.Size = new Size(149, 24);
             questõesMenuItem.Text = "Questões";
             // 
             // testesMenuItem
             // 
             testesMenuItem.Name = "testesMenuItem";
-            testesMenuItem.Size = new Size(180, 24);
+            testesMenuItem.Size = new Size(149, 24);
             testesMenuItem.Text = "Testes";
             // 
             // statusStrip1
@@ -168,6 +169,7 @@
             // 
             // pnlRegistros
             // 
+            pnlRegistros.AutoSize = true;
             pnlRegistros.Dock = DockStyle.Fill;
             pnlRegistros.Location = new Point(0, 71);
             pnlRegistros.Name = "pnlRegistros";

@@ -1,11 +1,4 @@
-﻿
-using Microsoft.Win32;
-using System.Text.Json.Serialization;
-using System.Text.Json;
-using WinFormsApp.Modulo_disciplina;
-using WinFormsApp.ModuloMateria;
-
-namespace FestasInfantis.WinApp.Compartilhado
+﻿namespace WinFormsApp.Compartilhado
 {
     public class ContextoDados
     {

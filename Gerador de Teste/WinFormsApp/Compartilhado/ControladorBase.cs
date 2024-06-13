@@ -1,4 +1,4 @@
-﻿namespace FestasInfantis.WinApp.Compartilhado
+﻿namespace WinFormsApp.Compartilhado
 {
     public abstract class ControladorBase
     {

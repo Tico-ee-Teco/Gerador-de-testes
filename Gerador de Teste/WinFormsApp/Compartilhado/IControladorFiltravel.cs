@@ -1,4 +1,4 @@
-﻿namespace FestasInfantis.WinApp.Compartilhado
+﻿namespaceWinFormsApp.Compartilhado
 {
     public interface IControladorFiltravel
     {

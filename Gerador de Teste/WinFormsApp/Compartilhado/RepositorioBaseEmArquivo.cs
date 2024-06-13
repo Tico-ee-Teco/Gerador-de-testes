@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace FestasInfantis.WinApp.Compartilhado
+namespace WinFormsApp.Compartilhado
 {
     public abstract class RepositorioBaseEmArquivo<T> where T : EntidadeBase
     {
