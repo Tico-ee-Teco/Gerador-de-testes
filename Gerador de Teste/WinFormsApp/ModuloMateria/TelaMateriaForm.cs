@@ -50,12 +50,6 @@ namespace WinFormsApp.ModuloMateria
                 return;
             }
 
-            //ToDo Conversar com o Gustavo
-            //if (!contexto.Materias.Contains(materia))
-            //    contexto.Materias.Add(materia);
-
-            //contexto.Gravar();
-            //DialogResult = DialogResult.OK;
         }
     }
 }

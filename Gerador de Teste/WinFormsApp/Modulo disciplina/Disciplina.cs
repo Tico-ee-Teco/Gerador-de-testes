@@ -31,7 +31,7 @@ namespace WinFormsApp.Modulo_disciplina
 
         public override string ToString()
         {
-            return $"Disciplina: {Nome}";
+            return $"{Nome}";
         }
     }
 }
