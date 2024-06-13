@@ -1,13 +1,6 @@
-﻿using FestasInfantis.WinApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
+
+using WinFormsApp.Compartilhado;
 
 namespace WinFormsApp.ModuloMateria
 {
@@ -21,6 +14,7 @@ namespace WinFormsApp.ModuloMateria
 
             grid.ConfigurarGridSomenteLeitura();
             grid.ConfigurarGridZebrado();
+            //grid.ConfigurarAparenciaColunas();
         }
 
         public void AtualizarRegistros(List<Materia> materias)
@@ -41,7 +35,6 @@ namespace WinFormsApp.ModuloMateria
         public int ObterRegistroSelecionado()
         {
             return grid.SelecionarId();
-
         }
 
         private DataGridViewColumn[] ObterColunas()
@@ -50,9 +43,8 @@ namespace WinFormsApp.ModuloMateria
             {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome" },
-                 new DataGridViewTextBoxColumn { DataPropertyName = "Disciplina", HeaderText = "Disciplina" },
-                 new DataGridViewTextBoxColumn {DataPropertyName = "Serie", HeaderText = "Serie" }
-
+                new DataGridViewTextBoxColumn { DataPropertyName = "Disciplina", HeaderText = "Disciplina" },
+                new DataGridViewTextBoxColumn { DataPropertyName = "Serie", HeaderText = "Serie" }
             };
         }       
     }

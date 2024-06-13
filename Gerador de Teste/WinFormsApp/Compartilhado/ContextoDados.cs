@@ -1,4 +1,9 @@
-﻿namespace WinFormsApp.Compartilhado
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using WinFormsApp.Modulo_disciplina;
+using WinFormsApp.ModuloMateria;
+
+namespace WinFormsApp.Compartilhado
 {
     public class ContextoDados
     {
@@ -10,8 +15,7 @@
         public ContextoDados()
         {
             Disciplinas = new List<Disciplina>();
-            Materias = new List<Materia>();
-           
+            Materias = new List<Materia>();           
         }
 
         public ContextoDados(bool carregarDados) : this()
@@ -59,7 +63,6 @@
             Materias = ctx.Materias;
 
         }
-
 
     }
 }

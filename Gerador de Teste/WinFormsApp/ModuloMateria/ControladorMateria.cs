@@ -1,9 +1,5 @@
-﻿using FestasInfantis.WinApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WinFormsApp.Compartilhado;
+using WinFormsApp.Modulo_disciplina;
 
 namespace WinFormsApp.ModuloMateria
 {
@@ -11,14 +7,12 @@ namespace WinFormsApp.ModuloMateria
     {
         private TabelaMateriaControl TabelaMateria;
         private IRepositorioMateria repositorioMateria;
-        private ContextoDados contextoDados;
-
-        public ControladorMateria(IRepositorioMateria repositorioMateria)
+        private IRepositorioDisciplina repositorioDisciplina;       
+        public ControladorMateria(IRepositorioMateria repositorioMateria, IRepositorioDisciplina repositorioDisciplina)
         {
             this.repositorioMateria = repositorioMateria;
-           
+            this.repositorioDisciplina = repositorioDisciplina;           
         }
-
         public override string TipoCadastro { get { return "Matéria"; } }
         public override string ToolTipAdicionar { get { return "Cadastrar uma nova Matéria"; } }
         public override string ToolTipEditar { get { return "Editar uma Matéria existente"; } }
@@ -26,7 +20,7 @@ namespace WinFormsApp.ModuloMateria
 
         public override void Adicionar()
         {
-            TelaMateriaForm telaMateria = new TelaMateriaForm(contextoDados);
+            TelaMateriaForm telaMateria = new TelaMateriaForm(repositorioDisciplina.SelecionarTodos());
 
             DialogResult resultado = telaMateria.ShowDialog();
 
@@ -61,7 +55,7 @@ namespace WinFormsApp.ModuloMateria
                 return;
             }
 
-            TelaMateriaForm telaMateria = new TelaMateriaForm(contextoDados)
+            TelaMateriaForm telaMateria = new TelaMateriaForm(repositorioDisciplina.SelecionarTodos())
             {
                 Materia = materiaSelecionada
             };
@@ -81,7 +75,6 @@ namespace WinFormsApp.ModuloMateria
                 .Instancia
                 .AtualizarRodape($"O registro \"{materiaEditada.Nome}\" foi editado com sucesso!");
         }
-
         public override void Excluir()
         {
             int idSelecionado = TabelaMateria.ObterRegistroSelecionado();
@@ -134,6 +127,4 @@ namespace WinFormsApp.ModuloMateria
             return TabelaMateria;
         }
     }
-
-
 }

@@ -1,9 +1,4 @@
-﻿using FestasInfantis.WinApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WinFormsApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
 
 namespace WinFormsApp.ModuloMateria
@@ -14,6 +9,7 @@ namespace WinFormsApp.ModuloMateria
         public Disciplina Disciplina { get; set; } 
         public string Serie { get; set; } 
 
+        public Materia() { }
         public Materia(string nome, Disciplina disciplina, string serie)
         {
             Nome = nome;
@@ -45,8 +41,6 @@ namespace WinFormsApp.ModuloMateria
         public override string ToString()
         {
             return $"Materias: {Nome}, Disciplina: {Disciplina.Nome}, Serie: {Serie}";
-        }
-        
-
+        }  
     }
 }

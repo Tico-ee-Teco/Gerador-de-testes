@@ -35,9 +35,10 @@
             // grid
             // 
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid.Dock = DockStyle.Fill;
             grid.Location = new Point(0, 0);
             grid.Name = "grid";
-            grid.Size = new Size(1014, 537);
+            grid.Size = new Size(811, 518);
             grid.TabIndex = 0;
             // 
             // TabelaDisciplinaControl

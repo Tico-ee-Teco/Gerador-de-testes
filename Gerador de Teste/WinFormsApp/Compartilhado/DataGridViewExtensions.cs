@@ -63,6 +63,6 @@
                 return -1;
 
             return Convert.ToInt32(valorSelecionado);
-        }
+        }        
     }
 }

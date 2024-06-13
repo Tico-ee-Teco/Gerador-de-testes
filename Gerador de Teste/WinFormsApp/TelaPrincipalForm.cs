@@ -1,4 +1,4 @@
-using FestasInfantis.WinApp.Compartilhado;
+using WinFormsApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
 
@@ -22,7 +22,6 @@ namespace WinFormsApp
             lblTipoCadastro.Text = string.Empty;
             Instancia = this;
 
-
             contexto = new ContextoDados(carregarDados: true);
             repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contexto);
             repositorioMateria = new RepositorioMateriaEmArquivo(contexto);
@@ -30,26 +29,21 @@ namespace WinFormsApp
         }
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
         {
-
-            controlador = new ControladorDisciplina(repositorioDisciplina);
-         
+            controlador = new ControladorDisciplina(repositorioDisciplina);         
 
             ConfigurarTelaPrincipal(controlador);
         }
         private void materiaMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorMateria(repositorioMateria);
-
+            controlador = new ControladorMateria(repositorioMateria, repositorioDisciplina);
 
             ConfigurarTelaPrincipal(controlador);
         }
-
 
         public void AtualizarRodape(string texto)
         {
             statusLabelPrincipal.Text = texto;
         }
-
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -63,7 +57,6 @@ namespace WinFormsApp
         {
             controlador.Excluir();
         }
-
         private void ConfigurarTelaPrincipal(ControladorBase controladorSelecionado)
         {
             lblTipoCadastro.Text = "Cadastro de " + controladorSelecionado.TipoCadastro;
@@ -91,7 +84,6 @@ namespace WinFormsApp
 
             //if (controladorSelecionado is IControladorFiltravel controladorFiltravel)
             //    btnFiltro.ToolTipText = controladorFiltravel.ToolTipFiltrar;
-
         }
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)
@@ -102,6 +94,5 @@ namespace WinFormsApp
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemContato);
         }
-
     }
 }

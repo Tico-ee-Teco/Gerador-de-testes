@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WinFormsApp.Modulo_disciplina
+﻿namespace WinFormsApp.Modulo_disciplina
 {
-
     public partial class TelaDisciplinaForm : Form
     {
         private Disciplina disciplina;
@@ -24,16 +13,16 @@ namespace WinFormsApp.Modulo_disciplina
             {
                 TxtID.Text = value.Id.ToString();
                 TxtNome.Text = value.Nome;
-
             }
-
+        }
+        public TelaDisciplinaForm()
+        {
+            InitializeComponent();
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-
             string nome = TxtNome.Text;
-
 
             disciplina = new Disciplina(nome);
 
@@ -44,18 +33,7 @@ namespace WinFormsApp.Modulo_disciplina
                 TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
                 DialogResult = DialogResult.None;
             }
-        }
-
-
-        public TelaDisciplinaForm()
-        {
-            InitializeComponent();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+        }        
     }
 }
  

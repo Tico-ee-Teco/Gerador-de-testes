@@ -1,9 +1,4 @@
-﻿using FestasInfantis.WinApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using WinFormsApp.Compartilhado;
 
 namespace WinFormsApp.Modulo_disciplina
 {
@@ -14,9 +9,7 @@ namespace WinFormsApp.Modulo_disciplina
 
         public Disciplina(string nome)
         {
-
-            Nome = nome;
-          
+            Nome = nome;          
         }
 
         public override List<string> Validar()
@@ -24,9 +17,7 @@ namespace WinFormsApp.Modulo_disciplina
             List<string> erros = new List<string>();
 
             if (string.IsNullOrEmpty(Nome.Trim()))
-                erros.Add("O campo \"Nome\" é obrigatório");
-
-        
+                erros.Add("O campo \"Nome\" é obrigatório");       
 
             return erros;
         }
@@ -35,8 +26,7 @@ namespace WinFormsApp.Modulo_disciplina
         {
             Disciplina novaDisciplina = (Disciplina)novoRegistro;
 
-            Nome = novaDisciplina.Nome;
-            
+            Nome = novaDisciplina.Nome;            
         }
 
         public override string ToString()

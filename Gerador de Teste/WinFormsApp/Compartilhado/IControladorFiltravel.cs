@@ -1,9 +1,8 @@
-﻿namespaceWinFormsApp.Compartilhado
-{
-    public interface IControladorFiltravel
-    {
-        string ToolTipFiltrar { get; }
+﻿namespace WinFormsApp.Compartilhado;
 
-        void Filtrar();
-    }
+public interface IControladorFiltravel
+{
+    string ToolTipFiltrar { get; }
+
+    void Filtrar();
 }
