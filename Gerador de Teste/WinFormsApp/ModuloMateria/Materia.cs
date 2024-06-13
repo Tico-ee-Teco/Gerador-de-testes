@@ -1,4 +1,5 @@
-﻿using WinFormsApp.Compartilhado;
+﻿
+using WinFormsApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
 
 namespace WinFormsApp.ModuloMateria
@@ -28,7 +29,6 @@ namespace WinFormsApp.ModuloMateria
 
             return erros;
         }
-
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Materia novaMateria = (Materia)novoRegistro;
@@ -37,7 +37,6 @@ namespace WinFormsApp.ModuloMateria
             Disciplina = novaMateria.Disciplina;
             Serie = novaMateria.Serie;
         }
-
         public override string ToString()
         {
             return $"Materias: {Nome}, Disciplina: {Disciplina.Nome}, Serie: {Serie}";

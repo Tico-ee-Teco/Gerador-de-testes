@@ -1,4 +1,5 @@
-﻿using WinFormsApp.Compartilhado;
+﻿
+using WinFormsApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
 
 namespace WinFormsApp.ModuloMateria
@@ -123,7 +124,6 @@ namespace WinFormsApp.ModuloMateria
                 TabelaMateria = new TabelaMateriaControl();
 
             CarregarMaterias();
-
             return TabelaMateria;
         }
     }

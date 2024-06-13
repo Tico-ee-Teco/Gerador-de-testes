@@ -6,7 +6,6 @@ namespace WinFormsApp.Modulo_disciplina
     {
         public RepositorioDisciplinaEmArquivo(ContextoDados contexto) : base(contexto)
         {
-
         }
         protected override List<Disciplina> ObterRegistros()
         {

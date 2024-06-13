@@ -1,3 +1,4 @@
+
 using WinFormsApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
@@ -69,9 +70,7 @@ namespace WinFormsApp
         {
             btnAdicionar.Enabled = controladorSelecionado is ControladorBase;
             btnEditar.Enabled = controladorSelecionado is ControladorBase;
-            btnExcluir.Enabled = controladorSelecionado is ControladorBase;
-
-            //btnFiltro.Enabled = controladorSelecionado is IControladorFiltravel;           
+            btnExcluir.Enabled = controladorSelecionado is ControladorBase;        
 
             ConfigurarToolTips(controladorSelecionado);
         }
@@ -81,9 +80,6 @@ namespace WinFormsApp
             btnAdicionar.ToolTipText = controladorSelecionado.ToolTipAdicionar;
             btnEditar.ToolTipText = controladorSelecionado.ToolTipEditar;
             btnExcluir.ToolTipText = controladorSelecionado.ToolTipExcluir;
-
-            //if (controladorSelecionado is IControladorFiltravel controladorFiltravel)
-            //    btnFiltro.ToolTipText = controladorFiltravel.ToolTipFiltrar;
         }
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)

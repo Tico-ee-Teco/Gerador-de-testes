@@ -1,5 +1,4 @@
 ﻿
-
 using WinFormsApp.Compartilhado;
 
 namespace WinFormsApp.ModuloMateria
@@ -14,7 +13,7 @@ namespace WinFormsApp.ModuloMateria
 
             grid.ConfigurarGridSomenteLeitura();
             grid.ConfigurarGridZebrado();
-            //grid.ConfigurarAparenciaColunas();
+           
         }
 
         public void AtualizarRegistros(List<Materia> materias)

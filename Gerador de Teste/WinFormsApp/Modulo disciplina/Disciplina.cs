@@ -1,4 +1,5 @@
-﻿using WinFormsApp.Compartilhado;
+﻿
+using WinFormsApp.Compartilhado;
 
 namespace WinFormsApp.Modulo_disciplina
 {
@@ -21,14 +22,12 @@ namespace WinFormsApp.Modulo_disciplina
 
             return erros;
         }
-
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Disciplina novaDisciplina = (Disciplina)novoRegistro;
 
             Nome = novaDisciplina.Nome;            
         }
-
         public override string ToString()
         {
             return $"{Nome}";

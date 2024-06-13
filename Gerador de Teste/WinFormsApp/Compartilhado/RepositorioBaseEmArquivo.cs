@@ -1,4 +1,5 @@
-﻿namespace WinFormsApp.Compartilhado
+﻿
+namespace WinFormsApp.Compartilhado
 {
     public abstract class RepositorioBaseEmArquivo<T> where T : EntidadeBase
     {
