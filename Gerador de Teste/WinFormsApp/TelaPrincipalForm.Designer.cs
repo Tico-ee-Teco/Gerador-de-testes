@@ -80,6 +80,7 @@
             materiaMenuItem.Name = "materiaMenuItem";
             materiaMenuItem.Size = new Size(180, 24);
             materiaMenuItem.Text = "Materias";
+            materiaMenuItem.Click += materiaMenuItem_Click;
             // 
             // questõesMenuItem
             // 

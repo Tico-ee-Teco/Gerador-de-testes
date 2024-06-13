@@ -1,5 +1,6 @@
 using FestasInfantis.WinApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
+using WinFormsApp.ModuloMateria;
 
 namespace WinFormsApp
 {
@@ -10,6 +11,7 @@ namespace WinFormsApp
         ContextoDados contexto;
 
         IRepositorioDisciplina repositorioDisciplina;
+        IRepositorioMateria repositorioMateria;
 
         public static TelaPrincipalForm Instancia { get; private set; }
 
@@ -23,15 +25,25 @@ namespace WinFormsApp
 
             contexto = new ContextoDados(carregarDados: true);
             repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contexto);
+            repositorioMateria = new RepositorioMateriaEmArquivo(contexto);
 
         }
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
         {
 
             controlador = new ControladorDisciplina(repositorioDisciplina);
+         
 
             ConfigurarTelaPrincipal(controlador);
         }
+        private void materiaMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorMateria(repositorioMateria);
+
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
 
         public void AtualizarRodape(string texto)
         {

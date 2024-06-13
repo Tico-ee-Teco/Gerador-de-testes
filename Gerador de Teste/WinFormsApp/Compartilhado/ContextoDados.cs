@@ -3,20 +3,21 @@ using Microsoft.Win32;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using WinFormsApp.Modulo_disciplina;
+using WinFormsApp.ModuloMateria;
 
 namespace FestasInfantis.WinApp.Compartilhado
 {
     public class ContextoDados
     {
         public List<Disciplina> Disciplinas{ get; set; }
-      
-
+        public List<Materia> Materias { get; set; }
+ 
         private string caminho = $"C:\\temp\\GeradorDeTestes\\dados.json";
 
         public ContextoDados()
         {
             Disciplinas = new List<Disciplina>();
-
+            Materias = new List<Materia>();
            
         }
 
@@ -62,7 +63,7 @@ namespace FestasInfantis.WinApp.Compartilhado
             if (ctx == null) return;
 
             Disciplinas = ctx.Disciplinas;
-            
+            Materias = ctx.Materias;
 
         }
 

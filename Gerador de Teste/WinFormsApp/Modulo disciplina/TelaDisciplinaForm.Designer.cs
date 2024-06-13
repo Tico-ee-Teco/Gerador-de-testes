@@ -112,7 +112,7 @@
             Controls.Add(TxtNome);
             Controls.Add(TxtID);
             Name = "TelaDisciplinaForm";
-            Text = "Form1";
+            Text = "Cadastro De Disciplinas";
             ResumeLayout(false);
             PerformLayout();
         }
