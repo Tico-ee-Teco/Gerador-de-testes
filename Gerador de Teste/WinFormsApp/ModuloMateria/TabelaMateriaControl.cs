@@ -13,7 +13,6 @@ namespace WinFormsApp.ModuloMateria
 
             grid.ConfigurarGridSomenteLeitura();
             grid.ConfigurarGridZebrado();
-           
         }
 
         public void AtualizarRegistros(List<Materia> materias)

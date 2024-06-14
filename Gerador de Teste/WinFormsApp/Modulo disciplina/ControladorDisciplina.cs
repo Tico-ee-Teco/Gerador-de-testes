@@ -1,5 +1,6 @@
 ﻿
 using WinFormsApp.Compartilhado;
+using WinFormsApp.ModuloMateria;
 
 namespace WinFormsApp.Modulo_disciplina
 {
@@ -32,6 +33,17 @@ namespace WinFormsApp.Modulo_disciplina
                 return;
 
            Disciplina novadisciplina = telaDisciplina.Disciplina;
+
+            if (repositorioDisciplina.SelecionarTodos().Any(m => m.Nome.Equals(novadisciplina.Nome, StringComparison.OrdinalIgnoreCase)))
+            {
+                MessageBox.Show(
+                    $"Já existe uma matéria com o nome \"{novadisciplina.Nome}\".",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
 
             repositorioDisciplina.Cadastrar(novadisciplina);
 
