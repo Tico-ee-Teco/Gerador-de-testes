@@ -30,6 +30,17 @@ namespace WinFormsApp.ModuloMateria
 
             Materia novaMateria = telaMateria.Materia;
 
+            if (repositorioMateria.SelecionarTodos().Any(m => m.Nome.Equals(novaMateria.Nome, StringComparison.OrdinalIgnoreCase)))
+            {
+                MessageBox.Show(
+                    $"Já existe uma matéria com o nome \"{novaMateria.Nome}\".",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
+
             repositorioMateria.Cadastrar(novaMateria);
 
             CarregarMaterias();
