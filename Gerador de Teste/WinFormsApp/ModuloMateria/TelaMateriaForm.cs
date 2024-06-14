@@ -26,9 +26,9 @@ namespace WinFormsApp.ModuloMateria
                 TxtID.Text = value.Id.ToString();
                 TxtNome.Text = value.Nome;
                 CmbDisciplina.SelectedItem = value.Disciplina;
-                if (value.Serie == "Serie1")
+                if (value.Serie == "1 Serie")
                     RB1Serie.Checked = true;
-                else if (value.Serie == "Serie2")
+                else if (value.Serie == "2 Serie")
                     RB2Serie.Checked = true;
             }
         }
@@ -37,7 +37,7 @@ namespace WinFormsApp.ModuloMateria
         {
             string nome = TxtNome.Text;
             Disciplina disciplinaSelecionada = (Disciplina)CmbDisciplina.SelectedItem;
-            string serie = RB1Serie.Checked ? "Serie1" : RB2Serie.Checked ? "Serie2" : string.Empty;
+            string serie = RB1Serie.Checked ? "1 Serie" : RB2Serie.Checked ? "2 Serie" : string.Empty;
 
             materia = new Materia(nome, disciplinaSelecionada, serie);
 
