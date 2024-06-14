@@ -5,15 +5,6 @@ namespace WinFormsApp.ModuloMateria
     public partial class TelaMateriaForm : Form
     {
         private Materia materia;
-        
-        public TelaMateriaForm(List<Disciplina> disciplinas)
-        {
-            InitializeComponent();
-
-            CmbDisciplina.DataSource = disciplinas;
-            CmbDisciplina.DisplayMember = "Nome";
-        }         
-
         public Materia Materia
         {
             get
@@ -32,6 +23,13 @@ namespace WinFormsApp.ModuloMateria
                     RB2Serie.Checked = true;
             }
         }
+        public TelaMateriaForm(List<Disciplina> disciplinas)
+        {
+            InitializeComponent();
+
+            CmbDisciplina.DataSource = disciplinas;
+            CmbDisciplina.DisplayMember = "Nome";
+        }         
 
         private void btnGravar_Click(object sender, EventArgs e)
         {

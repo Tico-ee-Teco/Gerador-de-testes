@@ -72,27 +72,28 @@
             // disciplinaMenuItem
             // 
             disciplinaMenuItem.Name = "disciplinaMenuItem";
-            disciplinaMenuItem.Size = new Size(149, 24);
+            disciplinaMenuItem.Size = new Size(180, 24);
             disciplinaMenuItem.Text = "Disciplinas";
             disciplinaMenuItem.Click += disciplinaMenuItem_Click;
             // 
             // materiaMenuItem
             // 
             materiaMenuItem.Name = "materiaMenuItem";
-            materiaMenuItem.Size = new Size(149, 24);
+            materiaMenuItem.Size = new Size(180, 24);
             materiaMenuItem.Text = "Materias";
             materiaMenuItem.Click += materiaMenuItem_Click;
             // 
             // questõesMenuItem
             // 
             questõesMenuItem.Name = "questõesMenuItem";
-            questõesMenuItem.Size = new Size(149, 24);
+            questõesMenuItem.Size = new Size(180, 24);
             questõesMenuItem.Text = "Questões";
+            questõesMenuItem.Click += questõesMenuItem_Click;
             // 
             // testesMenuItem
             // 
             testesMenuItem.Name = "testesMenuItem";
-            testesMenuItem.Size = new Size(149, 24);
+            testesMenuItem.Size = new Size(180, 24);
             testesMenuItem.Text = "Testes";
             // 
             // statusStrip1

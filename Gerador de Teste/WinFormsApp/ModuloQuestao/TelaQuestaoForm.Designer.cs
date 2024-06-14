@@ -32,20 +32,21 @@
             cmbMateria = new ComboBox();
             label2 = new Label();
             txtEnunciado = new TextBox();
-            textBox1 = new TextBox();
+            txtResposta = new TextBox();
             label3 = new Label();
             btnAdicionarQuestao = new Button();
             groupBox1 = new GroupBox();
             btnRemoverAlternativa = new Button();
             button1 = new Button();
             button2 = new Button();
+            txtId = new TextBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(32, 48);
+            label1.Location = new Point(32, 71);
             label1.Name = "label1";
             label1.Size = new Size(63, 20);
             label1.TabIndex = 0;
@@ -54,7 +55,7 @@
             // cmbMateria
             // 
             cmbMateria.FormattingEnabled = true;
-            cmbMateria.Location = new Point(101, 45);
+            cmbMateria.Location = new Point(101, 68);
             cmbMateria.Name = "cmbMateria";
             cmbMateria.Size = new Size(151, 28);
             cmbMateria.TabIndex = 1;
@@ -62,7 +63,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(14, 119);
+            label2.Location = new Point(14, 132);
             label2.Name = "label2";
             label2.Size = new Size(81, 20);
             label2.TabIndex = 2;
@@ -70,20 +71,20 @@
             // 
             // txtEnunciado
             // 
-            txtEnunciado.Location = new Point(101, 101);
+            txtEnunciado.Location = new Point(101, 114);
             txtEnunciado.Multiline = true;
             txtEnunciado.Name = "txtEnunciado";
             txtEnunciado.PlaceholderText = "Quanto é 2 + 2?";
             txtEnunciado.Size = new Size(316, 60);
             txtEnunciado.TabIndex = 3;
             // 
-            // textBox1
+            // txtResposta
             // 
-            textBox1.Location = new Point(101, 185);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(182, 48);
-            textBox1.TabIndex = 5;
+            txtResposta.Location = new Point(101, 185);
+            txtResposta.Multiline = true;
+            txtResposta.Name = "txtResposta";
+            txtResposta.Size = new Size(182, 48);
+            txtResposta.TabIndex = 5;
             // 
             // label3
             // 
@@ -144,16 +145,27 @@
             button2.Text = "Cancelar";
             button2.UseVisualStyleBackColor = false;
             // 
+            // txtId
+            // 
+            txtId.Enabled = false;
+            txtId.Location = new Point(101, 22);
+            txtId.Name = "txtId";
+            txtId.PlaceholderText = "0";
+            txtId.Size = new Size(100, 27);
+            txtId.TabIndex = 10;
+            txtId.Visible = false;
+            // 
             // TelaQuestaoForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(435, 600);
+            Controls.Add(txtId);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(groupBox1);
             Controls.Add(btnAdicionarQuestao);
-            Controls.Add(textBox1);
+            Controls.Add(txtResposta);
             Controls.Add(label3);
             Controls.Add(txtEnunciado);
             Controls.Add(label2);
@@ -179,12 +191,13 @@
         private ComboBox cmbMateria;
         private Label label2;
         private TextBox txtEnunciado;
-        private TextBox textBox1;
+        private TextBox txtResposta;
         private Label label3;
         private Button btnAdicionarQuestao;
         private GroupBox groupBox1;
         private Button btnRemoverAlternativa;
         private Button button1;
         private Button button2;
+        private TextBox txtId;
     }
 }

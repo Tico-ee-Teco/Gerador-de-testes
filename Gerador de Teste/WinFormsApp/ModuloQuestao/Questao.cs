@@ -1,20 +1,27 @@
 ﻿using WinFormsApp.Compartilhado;
+using WinFormsApp.ModuloMateria;
 
 namespace WinFormsApp.ModuloQuestao
 {
     public class Questao : EntidadeBase
     {
-        //ToDo Materias
-
         public string Enunciado { get; set; }
 
-        //ToDo Alternativas
+        public string Resposta { get; set; }
+
+        public List<Alternativa> Alternativas { get; set; }
+
+        public Materia Materia { get; set; }
 
         public Questao() { }
 
-        public Questao(string enunciado)
+        public Questao(string enunciado, string resposta, Materia materia)
         {
             Enunciado = enunciado;
+            Resposta = resposta;
+            Materia = materia;
+
+            Alternativas = new List<Alternativa>();
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
@@ -30,6 +37,9 @@ namespace WinFormsApp.ModuloQuestao
 
             if (string.IsNullOrEmpty(Enunciado.Trim()))
                 erros.Add("O campo \"enunciado\" é obrigatório");
+
+            //if (Resposta > 5 || Resposta < 2)
+            //    erros.Add("O campo \"resposta\" é obrigatorio");
 
             return erros;
         }

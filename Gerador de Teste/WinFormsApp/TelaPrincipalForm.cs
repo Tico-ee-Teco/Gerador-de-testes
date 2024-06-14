@@ -1,6 +1,7 @@
 using WinFormsApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
+using WinFormsApp.ModuloQuestao;
 
 namespace WinFormsApp
 {
@@ -12,6 +13,7 @@ namespace WinFormsApp
 
         IRepositorioDisciplina repositorioDisciplina;
         IRepositorioMateria repositorioMateria;
+        IRepositorioQuestao repositorioQuestao;
 
         public static TelaPrincipalForm Instancia { get; private set; }
 
@@ -29,13 +31,20 @@ namespace WinFormsApp
         }
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorDisciplina(repositorioDisciplina);         
+            controlador = new ControladorDisciplina(repositorioDisciplina);
 
             ConfigurarTelaPrincipal(controlador);
         }
         private void materiaMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorMateria(repositorioMateria, repositorioDisciplina);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+         private void questõesMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorQuestao(repositorioQuestao);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -94,5 +103,7 @@ namespace WinFormsApp
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemContato);
         }
+
+       
     }
 }
