@@ -82,6 +82,17 @@ namespace WinFormsApp.Modulo_disciplina
 
             Disciplina DisciplinaEditada = telaDisciplina.Disciplina;
 
+            if (repositorioDisciplina.SelecionarTodos().Any(m => m.Nome.Equals(DisciplinaEditada.Nome, StringComparison.OrdinalIgnoreCase)))
+            {
+                MessageBox.Show(
+                    $"Já existe uma matéria com o nome \"{DisciplinaEditada.Nome}\".",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
+
             repositorioDisciplina.Editar(DisciplinaSelecionada.Id, DisciplinaEditada);
 
             CarregarDisciplina();
