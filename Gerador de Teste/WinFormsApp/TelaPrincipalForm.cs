@@ -27,6 +27,7 @@ namespace WinFormsApp
             contexto = new ContextoDados(carregarDados: true);
             repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contexto);
             repositorioMateria = new RepositorioMateriaEmArquivo(contexto);
+            repositorioQuestao = new RepositorioQuestaoEmArquivo(contexto);
 
         }
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
@@ -43,11 +44,11 @@ namespace WinFormsApp
         }
 
          private void questõesMenuItem_Click(object sender, EventArgs e)
-        {
-            controlador = new ControladorQuestao(repositorioQuestao);
+         {
+            controlador = new ControladorQuestao(repositorioQuestao,repositorioMateria);
 
             ConfigurarTelaPrincipal(controlador);
-        }
+         }
 
         public void AtualizarRodape(string texto)
         {

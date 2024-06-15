@@ -43,5 +43,12 @@ namespace WinFormsApp.ModuloQuestao
 
             return erros;
         }
+
+        public override string ToString()
+        {
+            return $"Enunciado: {Enunciado} - Materia: {Materia.Nome} - Resposta: {Resposta}";
+        }
+
+       
     }
 }

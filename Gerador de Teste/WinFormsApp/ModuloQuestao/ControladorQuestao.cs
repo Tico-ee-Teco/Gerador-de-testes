@@ -1,5 +1,6 @@
 ﻿using WinFormsApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
+using WinFormsApp.ModuloMateria;
 
 namespace WinFormsApp.ModuloQuestao
 {
@@ -7,6 +8,8 @@ namespace WinFormsApp.ModuloQuestao
     {
         private TabelaQuestaoControl tabelaQuestao;
         private IRepositorioQuestao repositorioQuestao;
+        private IRepositorioDisciplina repositorioDisciplina;
+        private IRepositorioMateria repositorioMateria;
         public override string TipoCadastro { get { return "Questão"; } }
 
         public override string ToolTipAdicionar { get { return "Cadastrar uma nova Questão"; } }
@@ -15,14 +18,15 @@ namespace WinFormsApp.ModuloQuestao
 
         public override string ToolTipExcluir { get { return "Excluir uma Questão existente"; } }
 
-        public ControladorQuestao(IRepositorioQuestao repositorioQuestao)
+        public ControladorQuestao(IRepositorioQuestao repositorioQuestao, IRepositorioMateria repositorioMateria)
         {
             this.repositorioQuestao = repositorioQuestao;
+            this.repositorioMateria = repositorioMateria;
         }
 
         public override void Adicionar()
         {
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm();
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos());
 
             DialogResult resultado = telaQuestao.ShowDialog();
 
@@ -37,12 +41,12 @@ namespace WinFormsApp.ModuloQuestao
 
             TelaPrincipalForm
                .Instancia
-               .AtualizarRodape($"O registro Da disciplina \"{novaQuestao.Enunciado}\" foi criado com sucesso!");
+               .AtualizarRodape($"O registro \"{novaQuestao.Enunciado}\" foi criado com sucesso!");
         }
 
         public override void Editar()
         {
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm();
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos());
 
             int idSelecionado = tabelaQuestao.ObterRegistroSelecionado();
 
@@ -79,7 +83,7 @@ namespace WinFormsApp.ModuloQuestao
 
         public override void Excluir()
         {
-            TelaQuestaoForm telaQuestaoForm = new TelaQuestaoForm();
+            TelaQuestaoForm telaQuestaoForm = new TelaQuestaoForm(repositorioMateria.SelecionarTodos());
 
             int idSelecionado = tabelaQuestao.ObterRegistroSelecionado();
 
@@ -118,6 +122,7 @@ namespace WinFormsApp.ModuloQuestao
         private void CarregarQuestao()
         {
             List<Questao> questoes = repositorioQuestao.SelecionarTodos();
+
             tabelaQuestao.AtualizarRegistros(questoes);
         }
 

@@ -3,31 +3,44 @@
 namespace WinFormsApp.ModuloQuestao
 {
     public class Alternativa : EntidadeBase
-    {
-        
-        public string Texto { get; set; }
-        public bool Correto {  get; set; }
+    {        
+        public char Letra { get; set; }
+        public string TextoAlternativa { get; set; }
+        public bool AlternativaCorreta {  get; set; }
 
         public Alternativa() { }
 
-        public Alternativa(string texto, bool correto)
+        public Alternativa(char letra, string textoAlternativa, bool alternativaCorreta)
         {
-            Texto = texto;
-            Correto = correto;
+            Letra = letra;
+            TextoAlternativa = textoAlternativa;
+            AlternativaCorreta = alternativaCorreta;
         }
+
+       
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Alternativa alternativa = (Alternativa)novoRegistro;
 
-            Texto = alternativa.Texto;
-            Correto = alternativa.Correto;
-
+            Letra = alternativa.Letra;
+            TextoAlternativa = alternativa.TextoAlternativa;
+            AlternativaCorreta = alternativa.AlternativaCorreta;
         }
 
         public override List<string> Validar()
         {
-            throw new NotImplementedException();
+            List<string> erros = new List<string>();
+
+            if (string.IsNullOrEmpty(TextoAlternativa.Trim()))
+                erros.Add("O campo \"enunciado\" é obrigatório");
+
+            return erros;
+        }
+
+        public override string ToString()
+        {
+            return $"({Letra}) -> {TextoAlternativa}";
         }
     }
 }

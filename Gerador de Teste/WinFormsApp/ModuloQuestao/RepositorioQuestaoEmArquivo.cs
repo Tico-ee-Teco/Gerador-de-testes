@@ -12,5 +12,7 @@ namespace WinFormsApp.ModuloQuestao
         {
             return contexto.Questoes;
         }
+
+        
     }
 }

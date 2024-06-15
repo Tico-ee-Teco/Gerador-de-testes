@@ -10,8 +10,8 @@ namespace WinFormsApp.Compartilhado
     {
         public List<Disciplina> Disciplinas{ get; set; }
         public List<Materia> Materias { get; set; }
-
         public List<Questao> Questoes { get; set; }
+        public List<Alternativa> Alternativas { get; set; }
         
  
         private string caminho = $"C:\\temp\\GeradorDeTestes\\dados.json";
@@ -21,6 +21,7 @@ namespace WinFormsApp.Compartilhado
             Disciplinas = new List<Disciplina>();
             Materias = new List<Materia>();  
             Questoes = new List<Questao>();
+            Alternativas = new List<Alternativa>();
         }
 
         public ContextoDados(bool carregarDados) : this()
@@ -67,6 +68,7 @@ namespace WinFormsApp.Compartilhado
             Disciplinas = ctx.Disciplinas;
             Materias = ctx.Materias;
             Questoes = ctx.Questoes;
+            Alternativas = ctx.Alternativas;
 
         }
 
