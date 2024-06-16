@@ -32,10 +32,10 @@
             txtTitulo = new TextBox();
             txtId = new TextBox();
             label2 = new Label();
-            comboBox1 = new ComboBox();
+            CmbDisciplina = new ComboBox();
             label3 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            comboBox2 = new ComboBox();
+            NuUD = new NumericUpDown();
+            CmbMateria = new ComboBox();
             label4 = new Label();
             chkProvaRecuperacao = new CheckBox();
             grpQuestoesSelecionadas = new GroupBox();
@@ -44,7 +44,7 @@
             btnSortearQuestoes = new Button();
             btnCancelar = new Button();
             btnGravar = new Button();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NuUD).BeginInit();
             grpQuestoesSelecionadas.SuspendLayout();
             SuspendLayout();
             // 
@@ -82,13 +82,13 @@
             label2.TabIndex = 3;
             label2.Text = "Disciplina:";
             // 
-            // comboBox1
+            // CmbDisciplina
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(95, 101);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(191, 28);
-            comboBox1.TabIndex = 4;
+            CmbDisciplina.FormattingEnabled = true;
+            CmbDisciplina.Location = new Point(95, 101);
+            CmbDisciplina.Name = "CmbDisciplina";
+            CmbDisciplina.Size = new Size(191, 28);
+            CmbDisciplina.TabIndex = 4;
             // 
             // label3
             // 
@@ -99,20 +99,20 @@
             label3.TabIndex = 5;
             label3.Text = "Qtde Questões:";
             // 
-            // numericUpDown1
+            // NuUD
             // 
-            numericUpDown1.Location = new Point(430, 102);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(56, 27);
-            numericUpDown1.TabIndex = 6;
+            NuUD.Location = new Point(430, 102);
+            NuUD.Name = "NuUD";
+            NuUD.Size = new Size(56, 27);
+            NuUD.TabIndex = 6;
             // 
-            // comboBox2
+            // CmbMateria
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(95, 154);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(191, 28);
-            comboBox2.TabIndex = 8;
+            CmbMateria.FormattingEnabled = true;
+            CmbMateria.Location = new Point(95, 154);
+            CmbMateria.Name = "CmbMateria";
+            CmbMateria.Size = new Size(191, 28);
+            CmbMateria.TabIndex = 8;
             // 
             // label4
             // 
@@ -132,6 +132,7 @@
             chkProvaRecuperacao.TabIndex = 9;
             chkProvaRecuperacao.Text = "Prova de Recuperação";
             chkProvaRecuperacao.UseVisualStyleBackColor = true;
+            chkProvaRecuperacao.Click += chkIncluirTodasMaterias_CheckedChanged;
             // 
             // grpQuestoesSelecionadas
             // 
@@ -171,6 +172,7 @@
             btnSortearQuestoes.TabIndex = 0;
             btnSortearQuestoes.Text = "Sortear Questões";
             btnSortearQuestoes.UseVisualStyleBackColor = true;
+            btnSortearQuestoes.Click += btnSortearQuestoes_Click;
             // 
             // btnCancelar
             // 
@@ -193,6 +195,7 @@
             btnGravar.TabIndex = 11;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = false;
+            btnGravar.Click += btnGravar_Click;
             // 
             // TelaTesteForm
             // 
@@ -203,11 +206,11 @@
             Controls.Add(btnGravar);
             Controls.Add(grpQuestoesSelecionadas);
             Controls.Add(chkProvaRecuperacao);
-            Controls.Add(comboBox2);
+            Controls.Add(CmbMateria);
             Controls.Add(label4);
-            Controls.Add(numericUpDown1);
+            Controls.Add(NuUD);
             Controls.Add(label3);
-            Controls.Add(comboBox1);
+            Controls.Add(CmbDisciplina);
             Controls.Add(label2);
             Controls.Add(txtId);
             Controls.Add(txtTitulo);
@@ -221,7 +224,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "Cadastro de Testes";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NuUD).EndInit();
             grpQuestoesSelecionadas.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -233,10 +236,10 @@
         private TextBox txtTitulo;
         private TextBox txtId;
         private Label label2;
-        private ComboBox comboBox1;
+        private ComboBox CmbDisciplina;
         private Label label3;
-        private NumericUpDown numericUpDown1;
-        private ComboBox comboBox2;
+        private NumericUpDown NuUD;
+        private ComboBox CmbMateria;
         private Label label4;
         private CheckBox chkProvaRecuperacao;
         private GroupBox grpQuestoesSelecionadas;

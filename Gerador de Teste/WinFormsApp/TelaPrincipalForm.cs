@@ -3,6 +3,7 @@ using WinFormsApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
 using WinFormsApp.ModuloQuestao;
+using WinFormsApp.ModuloTeste;
 
 namespace WinFormsApp
 {
@@ -15,6 +16,7 @@ namespace WinFormsApp
         IRepositorioDisciplina repositorioDisciplina;
         IRepositorioMateria repositorioMateria;
         IRepositorioQuestao repositorioQuestao;
+        IRepositorioTeste repositorioTeste;
 
         public static TelaPrincipalForm Instancia { get; private set; }
 
@@ -29,6 +31,7 @@ namespace WinFormsApp
             repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contexto);
             repositorioMateria = new RepositorioMateriaEmArquivo(contexto);
             repositorioQuestao = new RepositorioQuestaoEmArquivo(contexto);
+            repositorioTeste = new RepositorioTesteEmArquivo(contexto);
 
         }
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
@@ -43,13 +46,20 @@ namespace WinFormsApp
 
             ConfigurarTelaPrincipal(controlador);
         }
-
-         private void questõesMenuItem_Click(object sender, EventArgs e)
-         {
-            controlador = new ControladorQuestao(repositorioQuestao,repositorioMateria);
+        private void testesMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorTeste(repositorioTeste, repositorioMateria, repositorioDisciplina, repositorioQuestao);
 
             ConfigurarTelaPrincipal(controlador);
-         }
+
+        }
+
+        private void questõesMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorQuestao(repositorioQuestao, repositorioMateria);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
 
         public void AtualizarRodape(string texto)
         {
@@ -80,7 +90,7 @@ namespace WinFormsApp
         {
             btnAdicionar.Enabled = controladorSelecionado is ControladorBase;
             btnEditar.Enabled = controladorSelecionado is ControladorBase;
-            btnExcluir.Enabled = controladorSelecionado is ControladorBase;        
+            btnExcluir.Enabled = controladorSelecionado is ControladorBase;
 
             ConfigurarToolTips(controladorSelecionado);
         }
@@ -101,6 +111,5 @@ namespace WinFormsApp
             pnlRegistros.Controls.Add(listagemContato);
         }
 
-       
     }
 }
