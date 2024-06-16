@@ -6,8 +6,14 @@ namespace WinFormsApp.ModuloQuestao
     public class Questao : EntidadeBase
     {
         public string Enunciado { get; set; }
-
-        public string Resposta { get; set; }
+        public string Resposta
+        {
+            get
+            {
+                Alternativa alternativaCorreta = Alternativas.FirstOrDefault(a => a.AlternativaCorreta);
+                return alternativaCorreta != null ? alternativaCorreta.TextoAlternativa : string.Empty;
+            }
+        }       
 
         public List<Alternativa> Alternativas { get; set; }
 
@@ -15,14 +21,14 @@ namespace WinFormsApp.ModuloQuestao
 
         public Questao() { }
 
-        public Questao(string enunciado, string resposta, Materia materia)
+        public Questao(string enunciado, Materia materia)
         {
-            Enunciado = enunciado;
-            Resposta = resposta;
+            Enunciado = enunciado;            
             Materia = materia;
 
             Alternativas = new List<Alternativa>();
         }
+
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
@@ -38,8 +44,15 @@ namespace WinFormsApp.ModuloQuestao
             if (string.IsNullOrEmpty(Enunciado.Trim()))
                 erros.Add("O campo \"enunciado\" é obrigatório");
 
-            //if (Resposta > 5 || Resposta < 2)
-            //    erros.Add("O campo \"resposta\" é obrigatorio");
+            if (Materia == null)
+                erros.Add("O campo \"materia\" é obrigatório");
+
+            if (Alternativas == null || Alternativas.Count < 2 || Alternativas.Count > 4)
+                erros.Add("A questão deve ter pelo menos duas alternativas");
+
+            int corretas = Alternativas.Count(a => a.AlternativaCorreta);
+            if (corretas != 1)
+                erros.Add("A questão deve ter pelo menos uma alternativa correta");
 
             return erros;
         }

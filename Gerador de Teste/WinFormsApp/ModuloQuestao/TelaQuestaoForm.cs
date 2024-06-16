@@ -1,13 +1,10 @@
-﻿
-using WinFormsApp.Modulo_disciplina;
-using WinFormsApp.ModuloMateria;
+﻿using WinFormsApp.ModuloMateria;
 
 namespace WinFormsApp.ModuloQuestao
 {
     public partial class TelaQuestaoForm : Form
     {
-        private Questao questao;
-        private char proximaLetra = 'A';
+        private Questao questao;       
 
         public Questao Questao
         {
@@ -17,12 +14,19 @@ namespace WinFormsApp.ModuloQuestao
             }
             set
             {
-                //txtId.Text = value.Id.ToString();
-                //txtEnunciado.Text = value.Enunciado;
-                //cmbMateria.SelectedItem = value.Materia;
-                //txtResposta.Text = string.Empty;
-                questao = value;
+                txtId.Text = value.Id.ToString();
+                txtEnunciado.Text = value.Enunciado;
+                cmbMateria.SelectedItem = value.Materia;
+                txtResposta.Text = string.Empty;
+                
+                listAlternativa.Items.Clear();
 
+                listAlternativa.SelectedItem = value.Alternativas;
+
+                foreach(var alternativa in value.Alternativas)
+                {
+                    listAlternativa.Items.Add(alternativa, alternativa.AlternativaCorreta);
+                }
             }
         }
 
@@ -39,7 +43,8 @@ namespace WinFormsApp.ModuloQuestao
             InitializeComponent();
 
             cmbMateria.DataSource = materias;
-            cmbMateria.DisplayMember = "Nome";
+            cmbMateria.DisplayMember = "Nome";        
+
         }
 
 
@@ -47,9 +52,19 @@ namespace WinFormsApp.ModuloQuestao
         {
             string enunciado = txtEnunciado.Text;
             Materia materia = (Materia)cmbMateria.SelectedItem;
-            string resposta = txtResposta.Text;
+                     
 
-            questao = new Questao(enunciado, resposta, materia);
+            questao = new Questao(enunciado, materia);            
+
+            foreach (var item in listAlternativa.Items)
+            { 
+                Alternativa alternativas= item as Alternativa;
+                if (alternativas != null)
+                {
+                    alternativas.AlternativaCorreta = listAlternativa.CheckedItems.Contains(alternativas);
+                    questao.Alternativas.Add(alternativas);                
+                }
+            }
 
             List<string> erros = questao.Validar();
 
@@ -61,30 +76,18 @@ namespace WinFormsApp.ModuloQuestao
             }
         }
 
-
         private void btnAdicionarAlternativa_Click(object sender, EventArgs e)
         {
-            List<string> alternativas = AdicionarAlternativa.Select(x => x.TextoAlternativa).ToList();
 
-            if (alternativas.Contains(txtResposta.Text))
-                return;
+            char proximaLetra = (char)('A' + listAlternativa.Items.Count);
 
-            Alternativa alternativa = new Alternativa(proximaLetra, txtResposta.Text, false);
+            Alternativa alternativa = new(proximaLetra, txtResposta.Text, false);
 
-            listAlternativa.Items.Add(alternativa);
+            listAlternativa.Items.Add(alternativa, false);
 
-            proximaLetra++;
-
-            LimparResposta();
-
-        }
-
-
-
-        private void LimparResposta()
-        {
-            txtResposta.Text = null;
-        }
+            txtResposta.Clear();
+            
+        }       
 
         private void btnRemoverAlternativa_Click(object sender, EventArgs e)
         {
@@ -93,14 +96,15 @@ namespace WinFormsApp.ModuloQuestao
             foreach (var item in listAlternativa.CheckedItems)
             {
                 Alternativa alternativa = item as Alternativa;
+
                 if (alternativa != null)
                 {
                     itensRemover.Add(alternativa);
                 }
             }
 
-            foreach (Alternativa alternativa in listAlternativa.CheckedItems ) 
-            {
+            foreach (Alternativa alternativa in listAlternativa.CheckedItems) 
+            {                
                 listAlternativa.Items.Remove(alternativa);
             }               
             

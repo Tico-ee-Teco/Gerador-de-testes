@@ -26,7 +26,7 @@ namespace WinFormsApp.ModuloQuestao
 
         public override void Adicionar()
         {
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos());
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos()); //
 
             DialogResult resultado = telaQuestao.ShowDialog();
 
@@ -46,7 +46,7 @@ namespace WinFormsApp.ModuloQuestao
 
         public override void Editar()
         {
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos());
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos()); //
 
             int idSelecionado = tabelaQuestao.ObterRegistroSelecionado();
 
@@ -83,7 +83,7 @@ namespace WinFormsApp.ModuloQuestao
 
         public override void Excluir()
         {
-            TelaQuestaoForm telaQuestaoForm = new TelaQuestaoForm(repositorioMateria.SelecionarTodos());
+            TelaQuestaoForm telaQuestaoForm = new TelaQuestaoForm(repositorioMateria.SelecionarTodos()); //
 
             int idSelecionado = tabelaQuestao.ObterRegistroSelecionado();
 

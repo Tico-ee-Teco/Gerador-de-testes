@@ -41,7 +41,7 @@ namespace WinFormsApp.ModuloQuestao
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Enunciado", HeaderText = "Enunciado" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Materia", HeaderText = "Materia" },
-                new DataGridViewTextBoxColumn { DataPropertyName = "Resposta", HeaderText = "Resposta" }
+                new DataGridViewTextBoxColumn { DataPropertyName = "RespostaCorreta", HeaderText = "Resposta"}
             };
         }
 
