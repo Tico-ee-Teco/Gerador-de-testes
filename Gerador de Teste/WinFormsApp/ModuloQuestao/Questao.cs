@@ -1,21 +1,34 @@
 ﻿using WinFormsApp.Compartilhado;
+using WinFormsApp.ModuloMateria;
 
 namespace WinFormsApp.ModuloQuestao
 {
     public class Questao : EntidadeBase
     {
-        //ToDo Materias
-
         public string Enunciado { get; set; }
+        public string Resposta
+        {
+            get
+            {
+                Alternativa alternativaCorreta = Alternativas.FirstOrDefault(a => a.AlternativaCorreta);
+                return alternativaCorreta != null ? alternativaCorreta.TextoAlternativa : string.Empty;
+            }
+        }       
 
-        //ToDo Alternativas
+        public List<Alternativa> Alternativas { get; set; }
+
+        public Materia Materia { get; set; }
 
         public Questao() { }
 
-        public Questao(string enunciado)
+        public Questao(string enunciado, Materia materia)
         {
-            Enunciado = enunciado;
+            Enunciado = enunciado;            
+            Materia = materia;
+
+            Alternativas = new List<Alternativa>();
         }
+
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
@@ -31,7 +44,22 @@ namespace WinFormsApp.ModuloQuestao
             if (string.IsNullOrEmpty(Enunciado.Trim()))
                 erros.Add("O campo \"enunciado\" é obrigatório");
 
+            if (Materia == null)
+                erros.Add("O campo \"materia\" é obrigatório");
+             
+            int corretas = Alternativas.Count(a => a.AlternativaCorreta);
+            if (corretas != 1)
+                erros.Add("A questão deve ter no maximo uma alternativa Correta e no minimo uma Correta.");
+
             return erros;
         }
+
+        public override string ToString()
+        {
+            //return $"Enunciado: {Enunciado} - Materia: {Materia.Nome} - Resposta: {Resposta}";
+            return $"Enunciado: {Enunciado}";
+        }
+
+       
     }
 }

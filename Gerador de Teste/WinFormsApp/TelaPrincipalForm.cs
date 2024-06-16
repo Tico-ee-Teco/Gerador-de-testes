@@ -2,6 +2,7 @@
 using WinFormsApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
+using WinFormsApp.ModuloQuestao;
 
 namespace WinFormsApp
 {
@@ -13,6 +14,7 @@ namespace WinFormsApp
 
         IRepositorioDisciplina repositorioDisciplina;
         IRepositorioMateria repositorioMateria;
+        IRepositorioQuestao repositorioQuestao;
 
         public static TelaPrincipalForm Instancia { get; private set; }
 
@@ -26,11 +28,12 @@ namespace WinFormsApp
             contexto = new ContextoDados(carregarDados: true);
             repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contexto);
             repositorioMateria = new RepositorioMateriaEmArquivo(contexto);
+            repositorioQuestao = new RepositorioQuestaoEmArquivo(contexto);
 
         }
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorDisciplina(repositorioDisciplina);         
+            controlador = new ControladorDisciplina(repositorioDisciplina);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -40,6 +43,13 @@ namespace WinFormsApp
 
             ConfigurarTelaPrincipal(controlador);
         }
+
+         private void questõesMenuItem_Click(object sender, EventArgs e)
+         {
+            controlador = new ControladorQuestao(repositorioQuestao,repositorioMateria);
+
+            ConfigurarTelaPrincipal(controlador);
+         }
 
         public void AtualizarRodape(string texto)
         {
@@ -90,5 +100,7 @@ namespace WinFormsApp
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemContato);
         }
+
+       
     }
 }
