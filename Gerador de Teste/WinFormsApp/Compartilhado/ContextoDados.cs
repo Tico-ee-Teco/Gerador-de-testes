@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
 using WinFormsApp.ModuloQuestao;
+using WinFormsApp.ModuloTeste;
 
 namespace WinFormsApp.Compartilhado
 {
@@ -12,6 +13,7 @@ namespace WinFormsApp.Compartilhado
         public List<Materia> Materias { get; set; }
         public List<Questao> Questoes { get; set; }
         public List<Alternativa> Alternativas { get; set; }
+        public List<Teste> Testes { get; set; }
         
  
         private string caminho = $"C:\\temp\\GeradorDeTestes\\dados.json";
@@ -22,6 +24,7 @@ namespace WinFormsApp.Compartilhado
             Materias = new List<Materia>();  
             Questoes = new List<Questao>();
             Alternativas = new List<Alternativa>();
+            Testes = new List<Teste>();
         }
 
         public ContextoDados(bool carregarDados) : this()
@@ -69,7 +72,7 @@ namespace WinFormsApp.Compartilhado
             Materias = ctx.Materias;
             Questoes = ctx.Questoes;
             Alternativas = ctx.Alternativas;
-
+            Testes = ctx.Testes;
         }
 
     }

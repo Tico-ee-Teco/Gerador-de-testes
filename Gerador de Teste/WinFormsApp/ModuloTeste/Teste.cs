@@ -37,12 +37,14 @@ namespace WinFormsApp.ModuloTeste
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            throw new NotImplementedException();
+            Teste teste = (Teste)novoRegistro;
+
+            Titulo = teste.Titulo;
         }
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"{Titulo} {Disciplina.Nome} {Materia.Nome} {Materia.Serie} {QtdeQuestoes}";
         }
     }
 }
