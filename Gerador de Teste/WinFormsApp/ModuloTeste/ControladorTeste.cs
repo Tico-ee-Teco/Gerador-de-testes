@@ -64,45 +64,8 @@ namespace WinFormsApp.ModuloTeste
 
             TelaPrincipalForm
                .Instancia
-               .AtualizarRodape($"O registro do teste \"{novoTeste.Titulo}\" foi criado com sucesso!");
-        
-        //TelaTesteForm telaTeste = new TelaTesteForm(
-        //    repositorioDisciplina.SelecionarTodos(),
-        //    repositorioMateria.SelecionarTodos(),
-        //    repositorioQuestao.SelecionarTodos()
-        //);
-
-        //DialogResult resultado = telaTeste.ShowDialog();
-
-        //if (resultado != DialogResult.OK)
-        //    return;
-
-        //Teste novoTeste = telaTeste.Teste;
-
-        //if (novoTeste.ProvaRecuperacao)
-        //{
-        //    novoTeste.Materia = null; 
-        //}
-
-        //if (repositorioTeste.SelecionarTodos().Any(t => t.Titulo.Equals(novoTeste.Titulo, StringComparison.OrdinalIgnoreCase)))
-        //{
-        //    MessageBox.Show(
-        //        $"Já existe um teste com o título \"{novoTeste.Titulo}\".",
-        //        "Erro",
-        //        MessageBoxButtons.OK,
-        //        MessageBoxIcon.Error
-        //    );
-        //    return;
-        //}
-
-        //repositorioTeste.Cadastrar(novoTeste);
-
-        //CarregarTestes();
-
-        //TelaPrincipalForm
-        //   .Instancia
-        //   .AtualizarRodape($"O registro do teste \"{novoTeste.Titulo}\" foi criado com sucesso!");
-    }
+               .AtualizarRodape($"O registro do teste \"{novoTeste.Titulo}\" foi criado com sucesso!");      
+        }
 
         public override void Editar()
         {
