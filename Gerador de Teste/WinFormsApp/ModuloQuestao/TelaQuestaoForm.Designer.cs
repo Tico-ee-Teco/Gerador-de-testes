@@ -32,20 +32,22 @@
             cmbMateria = new ComboBox();
             label2 = new Label();
             txtEnunciado = new TextBox();
-            textBox1 = new TextBox();
+            txtResposta = new TextBox();
             label3 = new Label();
-            btnAdicionarQuestao = new Button();
+            btnAdicionarAlternativa = new Button();
             groupBox1 = new GroupBox();
+            listAlternativa = new CheckedListBox();
             btnRemoverAlternativa = new Button();
-            button1 = new Button();
-            button2 = new Button();
+            btnGravar = new Button();
+            btnCancelar = new Button();
+            txtId = new TextBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(32, 48);
+            label1.Location = new Point(32, 71);
             label1.Name = "label1";
             label1.Size = new Size(63, 20);
             label1.TabIndex = 0;
@@ -54,7 +56,7 @@
             // cmbMateria
             // 
             cmbMateria.FormattingEnabled = true;
-            cmbMateria.Location = new Point(101, 45);
+            cmbMateria.Location = new Point(101, 68);
             cmbMateria.Name = "cmbMateria";
             cmbMateria.Size = new Size(151, 28);
             cmbMateria.TabIndex = 1;
@@ -62,7 +64,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(14, 119);
+            label2.Location = new Point(14, 132);
             label2.Name = "label2";
             label2.Size = new Size(81, 20);
             label2.TabIndex = 2;
@@ -70,20 +72,20 @@
             // 
             // txtEnunciado
             // 
-            txtEnunciado.Location = new Point(101, 101);
+            txtEnunciado.Location = new Point(101, 114);
             txtEnunciado.Multiline = true;
             txtEnunciado.Name = "txtEnunciado";
             txtEnunciado.PlaceholderText = "Quanto é 2 + 2?";
             txtEnunciado.Size = new Size(316, 60);
             txtEnunciado.TabIndex = 3;
             // 
-            // textBox1
+            // txtResposta
             // 
-            textBox1.Location = new Point(101, 185);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(182, 48);
-            textBox1.TabIndex = 5;
+            txtResposta.Location = new Point(101, 185);
+            txtResposta.Multiline = true;
+            txtResposta.Name = "txtResposta";
+            txtResposta.Size = new Size(182, 48);
+            txtResposta.TabIndex = 5;
             // 
             // label3
             // 
@@ -94,17 +96,19 @@
             label3.TabIndex = 4;
             label3.Text = "Resposta:";
             // 
-            // btnAdicionarQuestao
+            // btnAdicionarAlternativa
             // 
-            btnAdicionarQuestao.Location = new Point(289, 185);
-            btnAdicionarQuestao.Name = "btnAdicionarQuestao";
-            btnAdicionarQuestao.Size = new Size(128, 48);
-            btnAdicionarQuestao.TabIndex = 6;
-            btnAdicionarQuestao.Text = "Adicionar";
-            btnAdicionarQuestao.UseVisualStyleBackColor = true;
+            btnAdicionarAlternativa.Location = new Point(289, 185);
+            btnAdicionarAlternativa.Name = "btnAdicionarAlternativa";
+            btnAdicionarAlternativa.Size = new Size(128, 48);
+            btnAdicionarAlternativa.TabIndex = 6;
+            btnAdicionarAlternativa.Text = "Adicionar";
+            btnAdicionarAlternativa.UseVisualStyleBackColor = true;
+            btnAdicionarAlternativa.Click += btnAdicionarAlternativa_Click;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(listAlternativa);
             groupBox1.Controls.Add(btnRemoverAlternativa);
             groupBox1.Location = new Point(14, 264);
             groupBox1.Name = "groupBox1";
@@ -112,6 +116,16 @@
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             groupBox1.Text = "Alternativas";
+            // 
+            // listAlternativa
+            // 
+            listAlternativa.BackColor = SystemColors.Control;
+            listAlternativa.BorderStyle = BorderStyle.None;
+            listAlternativa.FormattingEnabled = true;
+            listAlternativa.Location = new Point(6, 63);
+            listAlternativa.Name = "listAlternativa";
+            listAlternativa.Size = new Size(391, 154);
+            listAlternativa.TabIndex = 1;
             // 
             // btnRemoverAlternativa
             // 
@@ -121,39 +135,52 @@
             btnRemoverAlternativa.TabIndex = 0;
             btnRemoverAlternativa.Text = "Remover";
             btnRemoverAlternativa.UseVisualStyleBackColor = true;
+            btnRemoverAlternativa.Click += btnRemoverAlternativa_Click;
             // 
-            // button1
+            // btnGravar
             // 
-            button1.BackColor = Color.Lime;
-            button1.DialogResult = DialogResult.OK;
-            button1.Location = new Point(182, 539);
-            button1.Name = "button1";
-            button1.Size = new Size(111, 49);
-            button1.TabIndex = 8;
-            button1.Text = "Gravar";
-            button1.UseVisualStyleBackColor = false;
+            btnGravar.BackColor = Color.Lime;
+            btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.Location = new Point(182, 539);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new Size(111, 49);
+            btnGravar.TabIndex = 8;
+            btnGravar.Text = "Gravar";
+            btnGravar.UseVisualStyleBackColor = false;
+            btnGravar.Click += btnGravar_Click;
             // 
-            // button2
+            // btnCancelar
             // 
-            button2.BackColor = Color.FromArgb(192, 0, 0);
-            button2.DialogResult = DialogResult.Cancel;
-            button2.Location = new Point(306, 539);
-            button2.Name = "button2";
-            button2.Size = new Size(111, 49);
-            button2.TabIndex = 9;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = false;
+            btnCancelar.BackColor = Color.FromArgb(192, 0, 0);
+            btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.Location = new Point(306, 539);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(111, 49);
+            btnCancelar.TabIndex = 9;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // txtId
+            // 
+            txtId.Enabled = false;
+            txtId.Location = new Point(101, 22);
+            txtId.Name = "txtId";
+            txtId.PlaceholderText = "0";
+            txtId.Size = new Size(100, 27);
+            txtId.TabIndex = 10;
+            txtId.Visible = false;
             // 
             // TelaQuestaoForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(435, 600);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(txtId);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGravar);
             Controls.Add(groupBox1);
-            Controls.Add(btnAdicionarQuestao);
-            Controls.Add(textBox1);
+            Controls.Add(btnAdicionarAlternativa);
+            Controls.Add(txtResposta);
             Controls.Add(label3);
             Controls.Add(txtEnunciado);
             Controls.Add(label2);
@@ -179,12 +206,14 @@
         private ComboBox cmbMateria;
         private Label label2;
         private TextBox txtEnunciado;
-        private TextBox textBox1;
+        private TextBox txtResposta;
         private Label label3;
-        private Button btnAdicionarQuestao;
+        private Button btnAdicionarAlternativa;
         private GroupBox groupBox1;
         private Button btnRemoverAlternativa;
-        private Button button1;
-        private Button button2;
+        private Button btnGravar;
+        private Button btnCancelar;
+        private TextBox txtId;
+        private CheckedListBox listAlternativa;
     }
 }
