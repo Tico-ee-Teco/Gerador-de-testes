@@ -84,22 +84,20 @@ namespace WinFormsApp.ModuloQuestao
        
         private void btnAdicionarAlternativa_Click(object sender, EventArgs e)
         {
-
             char proximaLetra = (char)('A' + listAlternativa.Items.Count);
 
             Alternativa alternativa = new(proximaLetra, txtResposta.Text, false);
 
             listAlternativa.Items.Add(alternativa, false);
 
-            txtResposta.Clear();
-            
-        }
+            RecalcularLetrasAlternativas();
 
+            txtResposta.Clear();        
+        }
         private void btnRemoverAlternativa_Click(object sender, EventArgs e)
         {
             List<Alternativa> itensRemover = new List<Alternativa>();
-
-            
+  
             foreach (var item in listAlternativa.CheckedItems)
             {
                 Alternativa alternativa = item as Alternativa;
@@ -109,11 +107,23 @@ namespace WinFormsApp.ModuloQuestao
                     itensRemover.Add(alternativa);
                 }
             }
-
-            
+           
             foreach (Alternativa alternativa in itensRemover)
             {
                 listAlternativa.Items.Remove(alternativa);
+            }
+            RecalcularLetrasAlternativas();
+        }
+        private void RecalcularLetrasAlternativas()
+        {
+            for (int i = 0; i < listAlternativa.Items.Count; i++)
+            {
+                Alternativa alternativa = listAlternativa.Items[i] as Alternativa;
+                if (alternativa != null)
+                {
+                    alternativa.Letra = (char)('A' + i);
+                    listAlternativa.Items[i] = alternativa; 
+                }
             }
         }
     }
