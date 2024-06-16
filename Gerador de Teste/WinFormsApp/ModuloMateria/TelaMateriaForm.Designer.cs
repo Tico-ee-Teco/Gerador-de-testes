@@ -112,10 +112,10 @@
             RB1Serie.Location = new Point(116, 219);
             RB1Serie.Margin = new Padding(3, 4, 3, 4);
             RB1Serie.Name = "RB1Serie";
-            RB1Serie.Size = new Size(72, 24);
+            RB1Serie.Size = new Size(82, 24);
             RB1Serie.TabIndex = 7;
             RB1Serie.TabStop = true;
-            RB1Serie.Text = "1 Serie";
+            RB1Serie.Text = "1ª  Serie";
             RB1Serie.UseVisualStyleBackColor = true;
             // 
             // RB2Serie
@@ -124,10 +124,10 @@
             RB2Serie.Location = new Point(240, 219);
             RB2Serie.Margin = new Padding(3, 4, 3, 4);
             RB2Serie.Name = "RB2Serie";
-            RB2Serie.Size = new Size(72, 24);
+            RB2Serie.Size = new Size(82, 24);
             RB2Serie.TabIndex = 8;
             RB2Serie.TabStop = true;
-            RB2Serie.Text = "2 Serie";
+            RB2Serie.Text = "2ª  Serie";
             RB2Serie.UseVisualStyleBackColor = true;
             // 
             // BtnGravar
