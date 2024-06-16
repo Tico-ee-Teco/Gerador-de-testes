@@ -4,8 +4,8 @@ namespace WinFormsApp.ModuloQuestao
 {
     public partial class TelaQuestaoForm : Form
     {
-        private Questao questao;       
-
+        private Questao questao;
+        public List<Alternativa> Alternativas { get; set; }
         public Questao Questao
         {
             get
@@ -18,12 +18,12 @@ namespace WinFormsApp.ModuloQuestao
                 txtEnunciado.Text = value.Enunciado;
                 cmbMateria.SelectedItem = value.Materia;
                 txtResposta.Text = string.Empty;
-                
+
                 listAlternativa.Items.Clear();
 
                 listAlternativa.SelectedItem = value.Alternativas;
 
-                foreach(var alternativa in value.Alternativas)
+                foreach (var alternativa in value.Alternativas)
                 {
                     listAlternativa.Items.Add(alternativa, alternativa.AlternativaCorreta);
                 }
@@ -43,39 +43,45 @@ namespace WinFormsApp.ModuloQuestao
             InitializeComponent();
 
             cmbMateria.DataSource = materias;
-            cmbMateria.DisplayMember = "Nome";        
+            cmbMateria.DisplayMember ="Nome" + "Serie";
 
         }
 
-
         private void btnGravar_Click(object sender, EventArgs e)
-        {
+        {           
             string enunciado = txtEnunciado.Text;
             Materia materia = (Materia)cmbMateria.SelectedItem;
-                     
 
-            questao = new Questao(enunciado, materia);            
-
+            questao = new Questao(enunciado, materia);
+          
             foreach (var item in listAlternativa.Items)
-            { 
-                Alternativa alternativas= item as Alternativa;
+            {
+                Alternativa alternativas = item as Alternativa;
                 if (alternativas != null)
                 {
                     alternativas.AlternativaCorreta = listAlternativa.CheckedItems.Contains(alternativas);
-                    questao.Alternativas.Add(alternativas);                
+                    questao.Alternativas.Add(alternativas);
                 }
             }
-
+            ControladorQuestao controlador = new ControladorQuestao(null, null);
             List<string> erros = questao.Validar();
 
             if (erros.Count > 0)
             {
-                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
-
-                DialogResult = DialogResult.None;
+                MessageBox.Show(
+                    string.Join("\n", erros),
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                DialogResult = DialogResult.None; 
+            }
+            else
+            {
+                DialogResult = DialogResult.OK;
             }
         }
-
+       
         private void btnAdicionarAlternativa_Click(object sender, EventArgs e)
         {
 
@@ -87,12 +93,13 @@ namespace WinFormsApp.ModuloQuestao
 
             txtResposta.Clear();
             
-        }       
+        }
 
         private void btnRemoverAlternativa_Click(object sender, EventArgs e)
         {
             List<Alternativa> itensRemover = new List<Alternativa>();
 
+            
             foreach (var item in listAlternativa.CheckedItems)
             {
                 Alternativa alternativa = item as Alternativa;
@@ -103,11 +110,11 @@ namespace WinFormsApp.ModuloQuestao
                 }
             }
 
-            foreach (Alternativa alternativa in listAlternativa.CheckedItems) 
-            {                
-                listAlternativa.Items.Remove(alternativa);
-            }               
             
+            foreach (Alternativa alternativa in itensRemover)
+            {
+                listAlternativa.Items.Remove(alternativa);
+            }
         }
     }
 }

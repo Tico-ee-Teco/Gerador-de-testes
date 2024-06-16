@@ -10,6 +10,7 @@ namespace WinFormsApp.ModuloQuestao
         private IRepositorioQuestao repositorioQuestao;
         private IRepositorioDisciplina repositorioDisciplina;
         private IRepositorioMateria repositorioMateria;
+        public List<Alternativa> Alternativas { get; set; }
         public override string TipoCadastro { get { return "Questão"; } }
 
         public override string ToolTipAdicionar { get { return "Cadastrar uma nova Questão"; } }
@@ -23,10 +24,21 @@ namespace WinFormsApp.ModuloQuestao
             this.repositorioQuestao = repositorioQuestao;
             this.repositorioMateria = repositorioMateria;
         }
+        public List<string> ValidarQuestao(Questao questao)
+        {
+            List<string> erros = questao.Validar();
+         
+            int totalAlternativas = questao.Alternativas.Count;
+            if (totalAlternativas < 2 || totalAlternativas > 4)
+            {
+                erros.Add("A questão deve ter pelo menos duas alternativas e no máximo quatro alternativas.");
+            }
 
+            return erros;
+        }
         public override void Adicionar()
         {
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos()); //
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos()); 
 
             DialogResult resultado = telaQuestao.ShowDialog();
 
@@ -35,6 +47,17 @@ namespace WinFormsApp.ModuloQuestao
 
             Questao novaQuestao = telaQuestao.Questao;
 
+            List<string> erros = ValidarQuestao(novaQuestao);
+            if (erros.Count > 0)
+            {
+                MessageBox.Show(
+                    string.Join("\n", erros),
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
             repositorioQuestao.Cadastrar(novaQuestao);
 
             CarregarQuestao();

@@ -46,13 +46,10 @@ namespace WinFormsApp.ModuloQuestao
 
             if (Materia == null)
                 erros.Add("O campo \"materia\" é obrigatório");
-
-            if (Alternativas == null || Alternativas.Count < 2 || Alternativas.Count > 4)
-                erros.Add("A questão deve ter pelo menos duas alternativas");
-
+             
             int corretas = Alternativas.Count(a => a.AlternativaCorreta);
             if (corretas != 1)
-                erros.Add("A questão deve ter pelo menos uma alternativa correta");
+                erros.Add("A questão deve ter no maximo uma alternativa Correta e no minimo uma Correta.");
 
             return erros;
         }

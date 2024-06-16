@@ -40,7 +40,7 @@ namespace WinFormsApp.ModuloMateria
 
         public override string ToString()
         {
-            return $"Materias: {Nome}, Disciplina: {Disciplina.Nome}, Serie: {Serie}";
+            return $" {Nome} {Serie}";
         }  
     }
 }
