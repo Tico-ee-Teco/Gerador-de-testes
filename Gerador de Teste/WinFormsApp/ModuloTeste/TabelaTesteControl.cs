@@ -13,9 +13,8 @@ namespace WinFormsApp.ModuloTeste
             grid.ConfigurarGridSomenteLeitura();
             grid.ConfigurarGridZebrado();
         }
-
         public void AtualizarRegistros(List<Teste> testes)
-        {            
+        {
             grid.Rows.Clear();
 
             foreach (Teste t in testes)
@@ -25,6 +24,7 @@ namespace WinFormsApp.ModuloTeste
 
                 grid.Rows.Add(
                     t.Id.ToString(),
+                    t.Titulo.ToString(),
                     t.Disciplina.Nome,
                     materiaNome,
                     t.QtdeQuestoes
@@ -42,9 +42,10 @@ namespace WinFormsApp.ModuloTeste
             return new DataGridViewColumn[]
             {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id" },
+                new DataGridViewTextBoxColumn  {DataPropertyName = "Titulo", HeaderText = "Titulo" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Disciplina", HeaderText = "Disciplina" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Materia", HeaderText = "Materia" },
-                new DataGridViewTextBoxColumn { DataPropertyName = "QtdeQuestoes", HeaderText = "Qtde de Questões"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "Qtde de Questoes", HeaderText = "Qtde de Questões"}
             };
         }
     }

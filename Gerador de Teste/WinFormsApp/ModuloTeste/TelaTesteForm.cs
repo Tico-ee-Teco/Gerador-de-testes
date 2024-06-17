@@ -34,11 +34,12 @@ namespace WinFormsApp.ModuloTeste
 
             CmbDisciplina.DataSource = disciplinas;
             CmbDisciplina.DisplayMember = "Nome";
+
             todasMaterias = materias;
             todasQuestoes = questaos;
 
-            CmbDisciplina.SelectedIndexChanged += CmbDisciplina_SelectedIndexChanged;
             CmbMateria.SelectedIndexChanged += CmbMateria_SelectedIndexChanged;
+            CmbDisciplina.SelectedIndexChanged += CmbDisciplina_SelectedIndexChanged;
             btnSortearQuestoes.Click += btnSortearQuestoes_Click;
             chkProvaRecuperacao.CheckedChanged += chkIncluirTodasMaterias_CheckedChanged;
             
@@ -51,11 +52,11 @@ namespace WinFormsApp.ModuloTeste
         {
             AtualizarMaterias();
             AtualizarListaQuestoes();
+        
         }
-
         private void CmbMateria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AtualizarListaQuestoes();
+        AtualizarListaQuestoes();
         }
 
         private void AtualizarMaterias()
@@ -65,11 +66,13 @@ namespace WinFormsApp.ModuloTeste
             if (disciplinaSelecionada != null)
             {
                 var materiasFiltradas = todasMaterias.Where(m => m.Disciplina.Id == disciplinaSelecionada.Id).ToList();
+
                 CmbMateria.DataSource = materiasFiltradas;
                 CmbMateria.DisplayMember = "Nome";
             }
-        }
 
+        }
+       
         private void AtualizarListaQuestoes()
         {
             List<Questao> questoesFiltradas;

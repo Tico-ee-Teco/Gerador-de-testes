@@ -4,7 +4,7 @@ using WinFormsApp.ModuloMateria;
 using WinFormsApp.ModuloQuestao;
 
 namespace WinFormsApp.ModuloTeste
-{    
+{
     public class Teste : EntidadeBase
     {
         public string Titulo { get; set; }
@@ -34,7 +34,7 @@ namespace WinFormsApp.ModuloTeste
             if (!ProvaRecuperacao && Materia == null)
                 erros.Add("O campo \"materia\" é obrigatório");
             if (QtdeQuestoes <= 0)
-                erros.Add("O campo \"quantidade de questoes\" deve ser maior do que zero");
+                erros.Add("O campo \"Quantidade de questoes\" deve ser maior do que zero");
 
             return erros;
         }
