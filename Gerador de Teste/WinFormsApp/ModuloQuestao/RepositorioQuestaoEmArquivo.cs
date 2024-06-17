@@ -1,4 +1,5 @@
 ﻿using WinFormsApp.Compartilhado;
+using WinFormsApp.ModuloTeste;
 
 namespace WinFormsApp.ModuloQuestao
 {
@@ -12,7 +13,22 @@ namespace WinFormsApp.ModuloQuestao
         {
             return contexto.Questoes;
         }
+        public bool EstaEmTeste(int idQuestao)
+        {
+            List<Teste> testes = contexto.Testes;
 
-        
+            foreach (Teste teste in testes)
+            {
+                foreach (Questao questao in teste.Questoes)
+                {
+                    if (questao.Id == idQuestao)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false; 
+        }
+
     }
 }

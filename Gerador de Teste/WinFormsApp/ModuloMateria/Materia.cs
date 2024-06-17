@@ -11,6 +11,7 @@ namespace WinFormsApp.ModuloMateria
         public string Serie { get; set; } 
 
         public Materia() { }
+
         public Materia(string nome, Disciplina disciplina, string serie)
         {
             Nome = nome;

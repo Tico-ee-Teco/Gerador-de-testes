@@ -1,5 +1,3 @@
-using WinFormsApp.ModuloQuestao;
-
 namespace WinFormsApp
 {
     internal static class Program

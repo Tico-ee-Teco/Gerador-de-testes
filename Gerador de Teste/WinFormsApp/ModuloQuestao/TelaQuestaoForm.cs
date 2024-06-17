@@ -74,11 +74,13 @@ namespace WinFormsApp.ModuloQuestao
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
-                DialogResult = DialogResult.None; 
+               DialogResult = DialogResult.None;
+               return;
             }
             else
             {
-                DialogResult = DialogResult.OK;
+                this.DialogResult = DialogResult.OK; 
+                this.Close();
             }
         }
        

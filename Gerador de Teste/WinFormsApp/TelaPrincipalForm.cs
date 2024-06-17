@@ -3,6 +3,7 @@ using WinFormsApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
 using WinFormsApp.ModuloQuestao;
+using WinFormsApp.ModuloTeste;
 
 namespace WinFormsApp
 {
@@ -15,6 +16,7 @@ namespace WinFormsApp
         IRepositorioDisciplina repositorioDisciplina;
         IRepositorioMateria repositorioMateria;
         IRepositorioQuestao repositorioQuestao;
+        IRepositorioTeste repositorioTeste;
 
         public static TelaPrincipalForm Instancia { get; private set; }
 
@@ -29,6 +31,7 @@ namespace WinFormsApp
             repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contexto);
             repositorioMateria = new RepositorioMateriaEmArquivo(contexto);
             repositorioQuestao = new RepositorioQuestaoEmArquivo(contexto);
+            repositorioTeste = new RepositorioTesteEmArquivo(contexto);
 
         }
         private void disciplinaMenuItem_Click(object sender, EventArgs e)
@@ -43,13 +46,20 @@ namespace WinFormsApp
 
             ConfigurarTelaPrincipal(controlador);
         }
-
-         private void questõesMenuItem_Click(object sender, EventArgs e)
-         {
-            controlador = new ControladorQuestao(repositorioQuestao,repositorioMateria);
+        private void testesMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorTeste(repositorioTeste, repositorioMateria, repositorioDisciplina, repositorioQuestao);
 
             ConfigurarTelaPrincipal(controlador);
-         }
+
+        }
+
+        private void questõesMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorQuestao(repositorioQuestao, repositorioMateria);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
 
         public void AtualizarRodape(string texto)
         {
@@ -68,6 +78,18 @@ namespace WinFormsApp
         {
             controlador.Excluir();
         }
+
+        private void btnVisualizar_Click(object sender, EventArgs e)
+        {
+            if (controlador is IControladorVisualizavel controladorVisualizavel)
+                controladorVisualizavel.VisualizarTeste();
+        }
+
+        private void btnDuplicar_Click(object sender, EventArgs e)
+        {
+            if(controlador is IControladorDuplicavel controladorDuplicavel)
+                controladorDuplicavel.DuplicarTeste();
+        }
         private void ConfigurarTelaPrincipal(ControladorBase controladorSelecionado)
         {
             lblTipoCadastro.Text = "Cadastro de " + controladorSelecionado.TipoCadastro;
@@ -80,7 +102,10 @@ namespace WinFormsApp
         {
             btnAdicionar.Enabled = controladorSelecionado is ControladorBase;
             btnEditar.Enabled = controladorSelecionado is ControladorBase;
-            btnExcluir.Enabled = controladorSelecionado is ControladorBase;        
+            btnExcluir.Enabled = controladorSelecionado is ControladorBase;
+
+            btnVisualizar.Enabled = controladorSelecionado is IControladorVisualizavel;
+            btnDuplicar.Enabled = controladorSelecionado is IControladorDuplicavel;
 
             ConfigurarToolTips(controladorSelecionado);
         }
@@ -90,6 +115,12 @@ namespace WinFormsApp
             btnAdicionar.ToolTipText = controladorSelecionado.ToolTipAdicionar;
             btnEditar.ToolTipText = controladorSelecionado.ToolTipEditar;
             btnExcluir.ToolTipText = controladorSelecionado.ToolTipExcluir;
+
+            if (controladorSelecionado is IControladorVisualizavel controladorVisualizavel)
+                btnVisualizar.ToolTipText = controladorVisualizavel.ToolTipVisualizar;
+
+            if (controladorSelecionado is IControladorDuplicavel controladorDuplicavel)
+                btnDuplicar.ToolTipText = controladorDuplicavel.ToolTipDuplicar;
         }
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)

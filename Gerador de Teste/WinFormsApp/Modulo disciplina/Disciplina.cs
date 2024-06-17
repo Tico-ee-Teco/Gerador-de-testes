@@ -7,7 +7,7 @@ namespace WinFormsApp.Modulo_disciplina
     {
         public string Nome { get; set; }
        
-
+        public Disciplina () { }
         public Disciplina(string nome)
         {
             Nome = nome;          
