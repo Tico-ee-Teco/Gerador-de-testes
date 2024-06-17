@@ -87,9 +87,22 @@ namespace WinFormsApp
 
         private void btnDuplicar_Click(object sender, EventArgs e)
         {
-            if(controlador is IControladorDuplicavel controladorDuplicavel)
+            if (controlador is IControladorDuplicavel controladorDuplicavel)
                 controladorDuplicavel.DuplicarTeste();
         }
+
+        private void btnCriarPdf_Click(object sender, EventArgs e)
+        {
+            if (controlador is IControladorGeraPdf controladorGeraPdf)
+                controladorGeraPdf.GerarTestePDF();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (controlador is IControladorGeraPdf controladorGeraPdf)
+                controladorGeraPdf.GerarGabaritoPDF();
+        }
+    
         private void ConfigurarTelaPrincipal(ControladorBase controladorSelecionado)
         {
             lblTipoCadastro.Text = "Cadastro de " + controladorSelecionado.TipoCadastro;
@@ -106,6 +119,8 @@ namespace WinFormsApp
 
             btnVisualizar.Enabled = controladorSelecionado is IControladorVisualizavel;
             btnDuplicar.Enabled = controladorSelecionado is IControladorDuplicavel;
+            btnCriarPdf.Enabled = controladorSelecionado is IControladorGeraPdf;
+            btnPdfGabarito.Enabled = controladorSelecionado is IControladorGeraPdf;
 
             ConfigurarToolTips(controladorSelecionado);
         }
@@ -121,6 +136,12 @@ namespace WinFormsApp
 
             if (controladorSelecionado is IControladorDuplicavel controladorDuplicavel)
                 btnDuplicar.ToolTipText = controladorDuplicavel.ToolTipDuplicar;
+
+            if (controladorSelecionado is IControladorGeraPdf controladorGeraPdf)
+            {
+                btnCriarPdf.ToolTipText = controladorGeraPdf.ToolTipGeradorPDFTeste;
+                btnPdfGabarito.ToolTipText = controladorGeraPdf.ToolTipGeradorPDFGabarito;
+            }
         }
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)
