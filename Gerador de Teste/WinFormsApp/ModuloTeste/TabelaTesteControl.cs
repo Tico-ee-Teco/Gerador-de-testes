@@ -15,22 +15,12 @@ namespace WinFormsApp.ModuloTeste
         }
 
         public void AtualizarRegistros(List<Teste> testes)
-        {
-            //grid.Rows.Clear();
-
-            //foreach (Teste t in testes)
-            //{
-            //    grid.Rows.Add(
-            //        t.Id.ToString(),
-            //        t.Disciplina,
-            //        t.Materia,
-            //        t.QtdeQuestoes
-            //        );
-            //}
+        {            
             grid.Rows.Clear();
 
             foreach (Teste t in testes)
             {
+
                 string materiaNome = t.Materia != null ? t.Materia.Nome : "Prova de Recuperação";
 
                 grid.Rows.Add(

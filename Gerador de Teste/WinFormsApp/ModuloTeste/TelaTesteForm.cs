@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
 using WinFormsApp.ModuloQuestao;
@@ -33,6 +24,7 @@ namespace WinFormsApp.ModuloTeste
                 txtTitulo.Text = value.Titulo;
                 CmbDisciplina.SelectedItem = value.Disciplina;
                 CmbMateria.SelectedItem = value.Materia;
+
             }
         }
 
@@ -49,6 +41,7 @@ namespace WinFormsApp.ModuloTeste
             CmbMateria.SelectedIndexChanged += CmbMateria_SelectedIndexChanged;
             btnSortearQuestoes.Click += btnSortearQuestoes_Click;
             chkProvaRecuperacao.CheckedChanged += chkIncluirTodasMaterias_CheckedChanged;
+            
 
             AtualizarMaterias();
             AtualizarListaQuestoes();
@@ -137,31 +130,7 @@ namespace WinFormsApp.ModuloTeste
             string titulo = txtTitulo.Text;
             Disciplina disciplinaSelecionada = CmbDisciplina.SelectedItem as Disciplina;
             Materia materiaselecionada = CmbMateria.SelectedItem as Materia;
-            List<Questao> questoesSelecionadas = listQuestao.Items.OfType<Questao>().ToList();
-
-            int quantidadeQuestoes = (int)NuUD.Value;
-
-            if (questoesSelecionadas.Count > quantidadeQuestoes)
-            {
-                MessageBox.Show(
-                    $"Você só pode adicionar no máximo {quantidadeQuestoes} questões.",
-                    "Erro",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                return;
-            }
-
-            if (disciplinaSelecionada == null || (!chkProvaRecuperacao.Checked && materiaselecionada == null) || !questoesSelecionadas.Any())
-            {
-                MessageBox.Show(
-                    "Certifique-se de que todos os campos foram preenchidos corretamente.",
-                    "Erro",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                return;
-            }
+            List<Questao> questoesSelecionadas = listQuestao.Items.OfType<Questao>().ToList();                       
 
             Teste = new Teste(titulo, disciplinaSelecionada, materiaselecionada, questoesSelecionadas);
 

@@ -45,6 +45,10 @@
             lblTipoCadastro = new ToolStripLabel();
             toolTip1 = new ToolTip(components);
             pnlRegistros = new Panel();
+            toolStripButton1 = new ToolStripButton();
+            toolStripButton2 = new ToolStripButton();
+            toolStripButton3 = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -72,28 +76,28 @@
             // disciplinaMenuItem
             // 
             disciplinaMenuItem.Name = "disciplinaMenuItem";
-            disciplinaMenuItem.Size = new Size(180, 24);
+            disciplinaMenuItem.Size = new Size(149, 24);
             disciplinaMenuItem.Text = "Disciplinas";
             disciplinaMenuItem.Click += disciplinaMenuItem_Click;
             // 
             // materiaMenuItem
             // 
             materiaMenuItem.Name = "materiaMenuItem";
-            materiaMenuItem.Size = new Size(180, 24);
+            materiaMenuItem.Size = new Size(149, 24);
             materiaMenuItem.Text = "Materias";
             materiaMenuItem.Click += materiaMenuItem_Click;
             // 
             // questõesMenuItem
             // 
             questõesMenuItem.Name = "questõesMenuItem";
-            questõesMenuItem.Size = new Size(180, 24);
+            questõesMenuItem.Size = new Size(149, 24);
             questõesMenuItem.Text = "Questões";
             questõesMenuItem.Click += questõesMenuItem_Click;
             // 
             // testesMenuItem
             // 
             testesMenuItem.Name = "testesMenuItem";
-            testesMenuItem.Size = new Size(180, 24);
+            testesMenuItem.Size = new Size(149, 24);
             testesMenuItem.Text = "Testes";
             testesMenuItem.Click += testesMenuItem_Click;
             // 
@@ -117,7 +121,7 @@
             // toolStrip1
             // 
             toolStrip1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdicionar, btnEditar, btnExcluir, toolStripSeparator1, lblTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdicionar, btnEditar, btnExcluir, toolStripSeparator1, toolStripButton1, toolStripButton3, toolStripSeparator2, toolStripButton2, lblTipoCadastro });
             toolStrip1.Location = new Point(0, 30);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Padding = new Padding(5);
@@ -178,6 +182,41 @@
             pnlRegistros.Size = new Size(914, 449);
             pnlRegistros.TabIndex = 3;
             // 
+            // toolStripButton1
+            // 
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = Properties.Resources.btnDuplicar;
+            toolStripButton1.ImageScaling = ToolStripItemImageScaling.None;
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(28, 28);
+            toolStripButton1.Text = "toolStripButton3";
+            // 
+            // toolStripButton2
+            // 
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = Properties.Resources.btnVisualizar;
+            toolStripButton2.ImageScaling = ToolStripItemImageScaling.None;
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(28, 28);
+            toolStripButton2.Text = "toolStripButton3";
+            // 
+            // toolStripButton3
+            // 
+            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton3.Image = Properties.Resources.btnPDF;
+            toolStripButton3.ImageScaling = ToolStripItemImageScaling.None;
+            toolStripButton3.ImageTransparentColor = Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new Size(28, 28);
+            toolStripButton3.Text = "toolStripButton3";
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 31);
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -224,5 +263,9 @@
         private ToolStripMenuItem testesMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripLabel lblTipoCadastro;
+        private ToolStripButton toolStripButton1;
+        private ToolStripButton toolStripButton2;
+        private ToolStripButton toolStripButton3;
+        private ToolStripSeparator toolStripSeparator2;
     }
 }

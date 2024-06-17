@@ -42,10 +42,11 @@ namespace WinFormsApp.ModuloTeste
 
             Teste novoTeste = telaTeste.Teste;
 
-            if (novoTeste.ProvaRecuperacao)
-            {
-                novoTeste.Materia = null; 
-            }
+
+            //if (novoTeste.ProvaRecuperacao)
+            //{
+            //    novoTeste.Materia = null;
+            //}
 
             if (repositorioTeste.SelecionarTodos().Any(t => t.Titulo.Equals(novoTeste.Titulo, StringComparison.OrdinalIgnoreCase)))
             {
