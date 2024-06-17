@@ -19,9 +19,8 @@ namespace WinFormsApp.ModuloTeste
 
             foreach (Teste t in testes)
             {
-
-                string materiaNome = t.Materia != null ? t.Materia.Nome : "Prova de Recuperação";
-
+                string materiaNome = t.Materia != null ? t.Materia.Nome : t.ProvaRecuperacao.ToString();
+                //string materiaNome = t.ProvaRecuperacao.ToString() ? "Prova de Recuperação" : t.Materia?.Nome;
                 grid.Rows.Add(
                     t.Id.ToString(),
                     t.Titulo.ToString(),
@@ -42,7 +41,7 @@ namespace WinFormsApp.ModuloTeste
             return new DataGridViewColumn[]
             {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id" },
-                new DataGridViewTextBoxColumn  {DataPropertyName = "Titulo", HeaderText = "Titulo" },
+                new DataGridViewTextBoxColumn { DataPropertyName = "Titulo", HeaderText = "Titulo" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Disciplina", HeaderText = "Disciplina" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Materia", HeaderText = "Materia" },
                 new DataGridViewTextBoxColumn { DataPropertyName = "Qtde de Questoes", HeaderText = "Qtde de Questões"}

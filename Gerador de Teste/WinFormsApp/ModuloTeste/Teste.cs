@@ -13,7 +13,8 @@ namespace WinFormsApp.ModuloTeste
         public int QtdeQuestoes { get; set; }
         public bool ProvaRecuperacao { get; set; }
         public List<Questao> Questoes { get; set; }
-        public Teste() { }
+        public Teste() { }      
+
         public Teste(string titulo, Disciplina disciplina, Materia materia, List<Questao> questoes)
         {
             Titulo = titulo;
@@ -31,7 +32,7 @@ namespace WinFormsApp.ModuloTeste
                 erros.Add("O campo \"titulo\" é obrigatório");
             if (Disciplina == null)
                 erros.Add("O campo \"disciplina\" é obrigatório");
-            if (!ProvaRecuperacao && Materia == null)
+            if (ProvaRecuperacao && Materia == null)
                 erros.Add("O campo \"materia\" é obrigatório");
             if (QtdeQuestoes <= 0)
                 erros.Add("O campo \"Quantidade de questoes\" deve ser maior do que zero");
@@ -49,7 +50,7 @@ namespace WinFormsApp.ModuloTeste
             Questoes = teste.Questoes;
             QtdeQuestoes = teste.QtdeQuestoes;
             ProvaRecuperacao = teste.ProvaRecuperacao;
-        }
+        }              
 
         public override string ToString()
         {

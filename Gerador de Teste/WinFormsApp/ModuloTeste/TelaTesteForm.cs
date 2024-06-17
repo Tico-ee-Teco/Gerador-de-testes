@@ -24,7 +24,7 @@ namespace WinFormsApp.ModuloTeste
                 txtTitulo.Text = value.Titulo;
                 CmbDisciplina.SelectedItem = value.Disciplina;
                 CmbMateria.SelectedItem = value.Materia;
-
+                chkProvaRecuperacao.Checked = value.ProvaRecuperacao;
             }
         }
 
@@ -69,7 +69,6 @@ namespace WinFormsApp.ModuloTeste
                 CmbMateria.DataSource = materiasFiltradas;
                 CmbMateria.DisplayMember = "Nome";
             }
-
         }
        
         private void AtualizarListaQuestoes()
@@ -131,10 +130,16 @@ namespace WinFormsApp.ModuloTeste
         {
             string titulo = txtTitulo.Text;
             Disciplina disciplinaSelecionada = CmbDisciplina.SelectedItem as Disciplina;
-            Materia materiaselecionada = CmbMateria.SelectedItem as Materia;
-            List<Questao> questoesSelecionadas = listQuestao.Items.OfType<Questao>().ToList();                       
+            Materia materiaSelecionada = CmbMateria.SelectedItem as Materia;
+            List<Questao> questoesSelecionadas = listQuestao.Items.OfType<Questao>().ToList();            
+            bool ProvaRecuperacao = chkProvaRecuperacao.Checked;
 
-            Teste = new Teste(titulo, disciplinaSelecionada, materiaselecionada, questoesSelecionadas);
+            if(ProvaRecuperacao)
+            {
+                materiaSelecionada = null;                
+            }
+
+            Teste = new Teste(titulo, disciplinaSelecionada, materiaSelecionada, questoesSelecionadas);
 
             List<string> erros = Teste.Validar();
 
