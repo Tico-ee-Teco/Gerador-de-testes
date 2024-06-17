@@ -35,8 +35,8 @@
             txtDisciplina = new TextBox();
             txtMateria = new TextBox();
             grpQuestoesSelecionadas = new GroupBox();
-            btnFechar = new Button();
             listQuestoes = new ListBox();
+            btnFechar = new Button();
             grpQuestoesSelecionadas.SuspendLayout();
             SuspendLayout();
             // 
@@ -72,7 +72,7 @@
             txtTitulo.BackColor = SystemColors.Control;
             txtTitulo.BorderStyle = BorderStyle.None;
             txtTitulo.Enabled = false;
-            txtTitulo.Location = new Point(104, 48);
+            txtTitulo.Location = new Point(104, 51);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(279, 20);
             txtTitulo.TabIndex = 3;
@@ -82,7 +82,7 @@
             txtDisciplina.BackColor = SystemColors.Control;
             txtDisciplina.BorderStyle = BorderStyle.None;
             txtDisciplina.Enabled = false;
-            txtDisciplina.Location = new Point(104, 111);
+            txtDisciplina.Location = new Point(104, 114);
             txtDisciplina.Name = "txtDisciplina";
             txtDisciplina.Size = new Size(279, 20);
             txtDisciplina.TabIndex = 4;
@@ -92,7 +92,7 @@
             txtMateria.BackColor = SystemColors.Control;
             txtMateria.BorderStyle = BorderStyle.None;
             txtMateria.Enabled = false;
-            txtMateria.Location = new Point(104, 168);
+            txtMateria.Location = new Point(104, 171);
             txtMateria.Name = "txtMateria";
             txtMateria.Size = new Size(279, 20);
             txtMateria.TabIndex = 5;
@@ -107,6 +107,18 @@
             grpQuestoesSelecionadas.TabStop = false;
             grpQuestoesSelecionadas.Text = "Questões Selecionadas";
             // 
+            // listQuestoes
+            // 
+            listQuestoes.BackColor = SystemColors.Control;
+            listQuestoes.BorderStyle = BorderStyle.None;
+            listQuestoes.Dock = DockStyle.Fill;
+            listQuestoes.FormattingEnabled = true;
+            listQuestoes.ItemHeight = 20;
+            listQuestoes.Location = new Point(3, 23);
+            listQuestoes.Name = "listQuestoes";
+            listQuestoes.Size = new Size(428, 286);
+            listQuestoes.TabIndex = 0;
+            // 
             // btnFechar
             // 
             btnFechar.BackColor = Color.FromArgb(192, 0, 0);
@@ -117,17 +129,6 @@
             btnFechar.TabIndex = 13;
             btnFechar.Text = "Fechar";
             btnFechar.UseVisualStyleBackColor = false;
-            // 
-            // listQuestoes
-            // 
-            listQuestoes.BackColor = SystemColors.Control;
-            listQuestoes.Dock = DockStyle.Fill;
-            listQuestoes.FormattingEnabled = true;
-            listQuestoes.ItemHeight = 20;
-            listQuestoes.Location = new Point(3, 23);
-            listQuestoes.Name = "listQuestoes";
-            listQuestoes.Size = new Size(428, 286);
-            listQuestoes.TabIndex = 0;
             // 
             // TelaVisualizaTesteForm
             // 

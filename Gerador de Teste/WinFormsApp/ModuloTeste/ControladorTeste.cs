@@ -190,7 +190,7 @@ namespace WinFormsApp.ModuloTeste
                 return;
             }
 
-            TelaDuplicaTesteForm telaVisualizar = new TelaDuplicaTesteForm();
+            TelaVisualizaTesteForm telaVisualizar = new TelaVisualizaTesteForm(testeSelecionado);
 
             DialogResult resultado = telaVisualizar.ShowDialog();
 

@@ -57,7 +57,7 @@ namespace WinFormsApp.ModuloQuestao
         public override string ToString()
         {
             //return $"Enunciado: {Enunciado} - Materia: {Materia.Nome} - Resposta: {Resposta}";
-            return $"Enunciado: {Enunciado}";
+            return $"{Enunciado}";
         }
 
        

@@ -108,6 +108,9 @@ namespace WinFormsApp
             btnAdicionar.ToolTipText = controladorSelecionado.ToolTipAdicionar;
             btnEditar.ToolTipText = controladorSelecionado.ToolTipEditar;
             btnExcluir.ToolTipText = controladorSelecionado.ToolTipExcluir;
+
+            if (controladorSelecionado is IControladorVisualizavel controladorVisualizavel)
+                btnVisualizar.ToolTipText = controladorVisualizavel.ToolTipVisualizar;
         }
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)
