@@ -36,22 +36,14 @@ namespace WinFormsApp.ModuloTeste
                 repositorioQuestao.SelecionarTodos()
              
             );
-            //TelaDuplicaTesteForm telaTesteduplica = new TelaDuplicaTesteForm(
-            //     repositorioDisciplina.SelecionarTodos(),
-            //    repositorioMateria.SelecionarTodos(),
-            //    repositorioQuestao.SelecionarTodos()
-            //);         
+                              
             DialogResult resultado = telaTeste.ShowDialog();
-            //DialogResult resultadoduplica = telaTesteduplica.ShowDialog();
-
+           
             if (resultado != DialogResult.OK)
-                return;
-            //if (resultadoduplica != DialogResult.OK) 
-            //    return;
+                return;      
 
             Teste novoTeste = telaTeste.Teste;
-            //Teste novoteste = telaTesteduplica.Teste;
-
+            
             if (repositorioTeste.SelecionarTodos().Any(t => t.Titulo.Equals(novoTeste.Titulo, StringComparison.OrdinalIgnoreCase)))
             {
                 MessageBox.Show(
@@ -88,16 +80,15 @@ namespace WinFormsApp.ModuloTeste
                 );
                 return;
             }
-
             TelaTesteForm telaTeste = new TelaTesteForm(
-           repositorioDisciplina.SelecionarTodos(),
-           repositorioMateria.SelecionarTodos(),
-           repositorioQuestao.SelecionarTodos()
-          )
-            {
-                Teste = testeSelecionado
-            };
-
+                 repositorioDisciplina.SelecionarTodos(),
+                 repositorioMateria.SelecionarTodos(),
+                 repositorioQuestao.SelecionarTodos()
+               )
+                 {
+                 Teste = testeSelecionado
+                 };
+             
             DialogResult resultado = telaTeste.ShowDialog();
 
             if (resultado != DialogResult.OK)

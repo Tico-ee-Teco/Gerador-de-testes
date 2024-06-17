@@ -17,8 +17,6 @@ namespace WinFormsApp.ModuloQuestao
             AlternativaCorreta = alternativaCorreta;
         }
 
-       
-
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Alternativa alternativa = (Alternativa)novoRegistro;

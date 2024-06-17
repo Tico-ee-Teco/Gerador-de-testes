@@ -46,17 +46,24 @@ namespace WinFormsApp.ModuloQuestao
 
             if (Materia == null)
                 erros.Add("O campo \"materia\" é obrigatório");
-             
+            int numAlternativas = Alternativas.Count;
+
+            if (numAlternativas < 2)
+                erros.Add("A questão deve ter pelo menos duas alternativas cadastradas.");
+            else if (numAlternativas > 4)
+                erros.Add("A questão deve ter no máximo quatro alternativas cadastradas.");
+
             int corretas = Alternativas.Count(a => a.AlternativaCorreta);
-            if (corretas != 1)
-                erros.Add("A questão deve ter no maximo uma alternativa Correta e no minimo uma Correta.");
+            if (corretas == 0)
+                erros.Add("A questão deve ter pelo menos uma alternativa correta.");
+            else if (corretas > 1)
+                erros.Add("A questão deve ter no máximo uma alternativa correta.");
 
             return erros;
         }
 
         public override string ToString()
-        {
-            //return $"Enunciado: {Enunciado} - Materia: {Materia.Nome} - Resposta: {Resposta}";
+        {         
             return $"{Enunciado}";
         }
 

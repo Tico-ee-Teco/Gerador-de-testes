@@ -8,7 +8,6 @@ namespace WinFormsApp.ModuloQuestao
     {
         private TabelaQuestaoControl tabelaQuestao;
         private IRepositorioQuestao repositorioQuestao;
-        private IRepositorioDisciplina repositorioDisciplina;
         private IRepositorioMateria repositorioMateria;
         public List<Alternativa> Alternativas { get; set; }
         public override string TipoCadastro { get { return "Questão"; } }
@@ -28,11 +27,11 @@ namespace WinFormsApp.ModuloQuestao
         {
             List<string> erros = questao.Validar();
          
-            int totalAlternativas = questao.Alternativas.Count;
-            if (totalAlternativas < 2 || totalAlternativas > 4)
-            {
-                erros.Add("A questão deve ter pelo menos duas alternativas e no máximo quatro alternativas.");
-            }
+            //int totalAlternativas = questao.Alternativas.Count;
+            //if (totalAlternativas < 2 || totalAlternativas > 4)
+            //{
+            //    erros.Add("A questão deve ter pelo menos duas alternativas e no máximo quatro alternativas.");
+            //}
 
             return erros;
         }
