@@ -13,7 +13,8 @@ namespace WinFormsApp.ModuloTeste
         public int QtdeQuestoes { get; set; }
         public bool ProvaRecuperacao { get; set; }
         public List<Questao> Questoes { get; set; }
-        public Teste() { }
+        public Teste() { }      
+
         public Teste(string titulo, Disciplina disciplina, Materia materia, List<Questao> questoes)
         {
             Titulo = titulo;
@@ -49,7 +50,7 @@ namespace WinFormsApp.ModuloTeste
             Questoes = teste.Questoes;
             QtdeQuestoes = teste.QtdeQuestoes;
             ProvaRecuperacao = teste.ProvaRecuperacao;
-        }
+        }              
 
         public override string ToString()
         {

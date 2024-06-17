@@ -16,8 +16,10 @@ namespace WinFormsApp.ModuloTeste
             }
             set
             {
+                txtDuplicacaoTitulo.Text = value.Titulo;
                 cmbDuplicacaoDisciplina.SelectedItem = value.Disciplina;
                 cmbDuplicidadeMateria.SelectedItem = value.Materia;
+                nudQtdeDuplicidade.Value = value.QtdeQuestoes;
             }
         }
        
