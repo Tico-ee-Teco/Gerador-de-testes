@@ -42,11 +42,12 @@ namespace WinFormsApp.ModuloTeste
 
             CmbDisciplina.DataSource = disciplinas;
             CmbDisciplina.DisplayMember = "Nome";
+
             todasMaterias = materias;
             todasQuestoes = questaos;
 
-            CmbDisciplina.SelectedIndexChanged += CmbDisciplina_SelectedIndexChanged;
             CmbMateria.SelectedIndexChanged += CmbMateria_SelectedIndexChanged;
+            CmbDisciplina.SelectedIndexChanged += CmbDisciplina_SelectedIndexChanged;
             btnSortearQuestoes.Click += btnSortearQuestoes_Click;
             chkProvaRecuperacao.CheckedChanged += chkIncluirTodasMaterias_CheckedChanged;
 
@@ -58,11 +59,11 @@ namespace WinFormsApp.ModuloTeste
         {
             AtualizarMaterias();
             AtualizarListaQuestoes();
+        
         }
-
         private void CmbMateria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AtualizarListaQuestoes();
+        AtualizarListaQuestoes();
         }
 
         private void AtualizarMaterias()
@@ -72,11 +73,13 @@ namespace WinFormsApp.ModuloTeste
             if (disciplinaSelecionada != null)
             {
                 var materiasFiltradas = todasMaterias.Where(m => m.Disciplina.Id == disciplinaSelecionada.Id).ToList();
+
                 CmbMateria.DataSource = materiasFiltradas;
                 CmbMateria.DisplayMember = "Nome";
             }
-        }
 
+        }
+       
         private void AtualizarListaQuestoes()
         {
             List<Questao> questoesFiltradas;
@@ -138,31 +141,11 @@ namespace WinFormsApp.ModuloTeste
             Disciplina disciplinaSelecionada = CmbDisciplina.SelectedItem as Disciplina;
             Materia materiaselecionada = CmbMateria.SelectedItem as Materia;
             List<Questao> questoesSelecionadas = listQuestao.Items.OfType<Questao>().ToList();
+            //bool provarecuperaçao = chkProvaRecuperacao.Checked;
 
-            int quantidadeQuestoes = (int)NuUD.Value;
-
-            if (questoesSelecionadas.Count > quantidadeQuestoes)
-            {
-                MessageBox.Show(
-                    $"Você só pode adicionar no máximo {quantidadeQuestoes} questões.",
-                    "Erro",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                return;
-            }
-
-            if (disciplinaSelecionada == null || (!chkProvaRecuperacao.Checked && materiaselecionada == null) || !questoesSelecionadas.Any())
-            {
-                MessageBox.Show(
-                    "Certifique-se de que todos os campos foram preenchidos corretamente.",
-                    "Erro",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                return;
-            }
-
+            //if (provarecuperaçao)
+            //    materiaselecionada = null;
+            
             Teste = new Teste(titulo, disciplinaSelecionada, materiaselecionada, questoesSelecionadas);
 
             List<string> erros = Teste.Validar();
