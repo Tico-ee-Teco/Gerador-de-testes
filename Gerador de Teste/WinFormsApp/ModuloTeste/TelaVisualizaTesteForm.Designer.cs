@@ -36,6 +36,8 @@
             txtMateria = new TextBox();
             grpQuestoesSelecionadas = new GroupBox();
             btnFechar = new Button();
+            listQuestoes = new ListBox();
+            grpQuestoesSelecionadas.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -97,6 +99,7 @@
             // 
             // grpQuestoesSelecionadas
             // 
+            grpQuestoesSelecionadas.Controls.Add(listQuestoes);
             grpQuestoesSelecionadas.Location = new Point(21, 234);
             grpQuestoesSelecionadas.Name = "grpQuestoesSelecionadas";
             grpQuestoesSelecionadas.Size = new Size(434, 312);
@@ -114,6 +117,17 @@
             btnFechar.TabIndex = 13;
             btnFechar.Text = "Fechar";
             btnFechar.UseVisualStyleBackColor = false;
+            // 
+            // listQuestoes
+            // 
+            listQuestoes.BackColor = SystemColors.Control;
+            listQuestoes.Dock = DockStyle.Fill;
+            listQuestoes.FormattingEnabled = true;
+            listQuestoes.ItemHeight = 20;
+            listQuestoes.Location = new Point(3, 23);
+            listQuestoes.Name = "listQuestoes";
+            listQuestoes.Size = new Size(428, 286);
+            listQuestoes.TabIndex = 0;
             // 
             // TelaVisualizaTesteForm
             // 
@@ -137,6 +151,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterParent;
             Text = "Visualização de Testes";
+            grpQuestoesSelecionadas.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -151,5 +166,6 @@
         private TextBox txtMateria;
         private GroupBox grpQuestoesSelecionadas;
         private Button btnFechar;
+        private ListBox listQuestoes;
     }
 }

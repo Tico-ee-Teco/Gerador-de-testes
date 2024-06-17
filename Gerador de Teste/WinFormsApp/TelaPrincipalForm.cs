@@ -78,6 +78,12 @@ namespace WinFormsApp
         {
             controlador.Excluir();
         }
+
+        private void btnVisualizar_Click(object sender, EventArgs e)
+        {
+            if (controlador is IControladorVisualizavel controladorVisualizavel)
+                controladorVisualizavel.VisualizarTeste();
+        }
         private void ConfigurarTelaPrincipal(ControladorBase controladorSelecionado)
         {
             lblTipoCadastro.Text = "Cadastro de " + controladorSelecionado.TipoCadastro;
@@ -91,6 +97,8 @@ namespace WinFormsApp
             btnAdicionar.Enabled = controladorSelecionado is ControladorBase;
             btnEditar.Enabled = controladorSelecionado is ControladorBase;
             btnExcluir.Enabled = controladorSelecionado is ControladorBase;
+
+            btnVisualizar.Enabled = controladorSelecionado is IControladorVisualizavel;
 
             ConfigurarToolTips(controladorSelecionado);
         }
@@ -111,5 +119,6 @@ namespace WinFormsApp
             pnlRegistros.Controls.Add(listagemContato);
         }
 
+      
     }
 }

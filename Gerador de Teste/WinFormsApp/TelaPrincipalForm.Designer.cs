@@ -42,13 +42,13 @@
             btnEditar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
+            btnDuplicar = new ToolStripButton();
+            btnCriarPdf = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
+            btnVisualizar = new ToolStripButton();
             lblTipoCadastro = new ToolStripLabel();
             toolTip1 = new ToolTip(components);
             pnlRegistros = new Panel();
-            btnDuplicar = new ToolStripButton();
-            btnVisualizar = new ToolStripButton();
-            btnCriarPdf = new ToolStripButton();
-            toolStripSeparator2 = new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -167,21 +167,6 @@
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 31);
             // 
-            // lblTipoCadastro
-            // 
-            lblTipoCadastro.Name = "lblTipoCadastro";
-            lblTipoCadastro.Size = new Size(123, 28);
-            lblTipoCadastro.Text = "Tipo de Cadastro";
-            // 
-            // pnlRegistros
-            // 
-            pnlRegistros.AutoSize = true;
-            pnlRegistros.Dock = DockStyle.Fill;
-            pnlRegistros.Location = new Point(0, 71);
-            pnlRegistros.Name = "pnlRegistros";
-            pnlRegistros.Size = new Size(914, 449);
-            pnlRegistros.TabIndex = 3;
-            // 
             // btnDuplicar
             // 
             btnDuplicar.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -191,16 +176,6 @@
             btnDuplicar.Name = "btnDuplicar";
             btnDuplicar.Size = new Size(28, 28);
             btnDuplicar.Text = "toolStripButton3";
-            // 
-            // btnVisualizar
-            // 
-            btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnVisualizar.Image = Properties.Resources.btnVisualizar;
-            btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
-            btnVisualizar.ImageTransparentColor = Color.Magenta;
-            btnVisualizar.Name = "btnVisualizar";
-            btnVisualizar.Size = new Size(28, 28);
-            btnVisualizar.Text = "toolStripButton3";
             // 
             // btnCriarPdf
             // 
@@ -216,6 +191,32 @@
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(6, 31);
+            // 
+            // btnVisualizar
+            // 
+            btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnVisualizar.Image = Properties.Resources.btnVisualizar;
+            btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
+            btnVisualizar.ImageTransparentColor = Color.Magenta;
+            btnVisualizar.Name = "btnVisualizar";
+            btnVisualizar.Size = new Size(28, 28);
+            btnVisualizar.Text = "toolStripButton3";
+            btnVisualizar.Click += btnVisualizar_Click;
+            // 
+            // lblTipoCadastro
+            // 
+            lblTipoCadastro.Name = "lblTipoCadastro";
+            lblTipoCadastro.Size = new Size(123, 28);
+            lblTipoCadastro.Text = "Tipo de Cadastro";
+            // 
+            // pnlRegistros
+            // 
+            pnlRegistros.AutoSize = true;
+            pnlRegistros.Dock = DockStyle.Fill;
+            pnlRegistros.Location = new Point(0, 71);
+            pnlRegistros.Name = "pnlRegistros";
+            pnlRegistros.Size = new Size(914, 449);
+            pnlRegistros.TabIndex = 3;
             // 
             // TelaPrincipalForm
             // 

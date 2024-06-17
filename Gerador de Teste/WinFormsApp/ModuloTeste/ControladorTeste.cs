@@ -5,7 +5,7 @@ using WinFormsApp.ModuloQuestao;
 
 namespace WinFormsApp.ModuloTeste
 {
-    public class ControladorTeste : ControladorBase
+    public class ControladorTeste : ControladorBase, IControladorVisualizavel
     {
         private TabelaTesteControl TabelaTeste;
         private IRepositorioTeste repositorioTeste;
@@ -25,6 +25,7 @@ namespace WinFormsApp.ModuloTeste
         public override string ToolTipAdicionar { get { return "Cadastrar um novo Teste"; } }
         public override string ToolTipEditar { get { return "Editar um Teste existente"; } }
         public override string ToolTipExcluir { get { return "Excluir um Teste existente"; } }
+        public string ToolTipVisualizar { get { return "Duplicar Teste"; } }
 
         public override void Adicionar()
         {
@@ -170,6 +171,31 @@ namespace WinFormsApp.ModuloTeste
 
             CarregarTestes();
             return TabelaTeste;
+        }
+
+        public void VisualizarTeste()
+        {
+            int idSelecionado = TabelaTeste.ObterRegistroSelecionado();
+
+            Teste testeSelecionado = repositorioTeste.SelecionarPorId(idSelecionado);
+
+            if (testeSelecionado == null)
+            {
+                MessageBox.Show(
+                    "Não é possível realizar esta ação sem um registro selecionado.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            TelaDuplicaTesteForm telaVisualizar = new TelaDuplicaTesteForm();
+
+            DialogResult resultado = telaVisualizar.ShowDialog();
+
+            if (resultado != DialogResult.OK)
+                return;
         }
     }
 }
