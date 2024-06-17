@@ -31,7 +31,7 @@ namespace WinFormsApp.ModuloTeste
                 erros.Add("O campo \"titulo\" é obrigatório");
             if (Disciplina == null)
                 erros.Add("O campo \"disciplina\" é obrigatório");
-            if (!ProvaRecuperacao && Materia == null)
+            if (ProvaRecuperacao && Materia == null)
                 erros.Add("O campo \"materia\" é obrigatório");
             if (QtdeQuestoes <= 0)
                 erros.Add("O campo \"Quantidade de questoes\" deve ser maior do que zero");

@@ -112,7 +112,7 @@
             CmbMateria.Location = new Point(95, 154);
             CmbMateria.Name = "CmbMateria";
             CmbMateria.Size = new Size(191, 28);
-            CmbMateria.TabIndex = 8;
+            CmbMateria.TabIndex = 8;         
             // 
             // label4
             // 
