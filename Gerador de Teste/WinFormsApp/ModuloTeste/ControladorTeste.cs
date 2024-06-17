@@ -25,7 +25,7 @@ namespace WinFormsApp.ModuloTeste
         public override string ToolTipAdicionar { get { return "Cadastrar um novo Teste"; } }
         public override string ToolTipEditar { get { return "Editar um Teste existente"; } }
         public override string ToolTipExcluir { get { return "Excluir um Teste existente"; } }
-        public string ToolTipVisualizar { get { return "Duplicar Teste"; } }
+        public string ToolTipVisualizar { get { return "Visualizar Teste"; } }
 
         public override void Adicionar()
         {

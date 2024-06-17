@@ -72,6 +72,7 @@
             txtTitulo.BackColor = SystemColors.Control;
             txtTitulo.BorderStyle = BorderStyle.None;
             txtTitulo.Enabled = false;
+            txtTitulo.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtTitulo.Location = new Point(104, 51);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(279, 20);
@@ -82,6 +83,7 @@
             txtDisciplina.BackColor = SystemColors.Control;
             txtDisciplina.BorderStyle = BorderStyle.None;
             txtDisciplina.Enabled = false;
+            txtDisciplina.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtDisciplina.Location = new Point(104, 114);
             txtDisciplina.Name = "txtDisciplina";
             txtDisciplina.Size = new Size(279, 20);
@@ -92,6 +94,7 @@
             txtMateria.BackColor = SystemColors.Control;
             txtMateria.BorderStyle = BorderStyle.None;
             txtMateria.Enabled = false;
+            txtMateria.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtMateria.Location = new Point(104, 171);
             txtMateria.Name = "txtMateria";
             txtMateria.Size = new Size(279, 20);
