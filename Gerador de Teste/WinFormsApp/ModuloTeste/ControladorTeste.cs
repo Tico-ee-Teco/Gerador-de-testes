@@ -46,7 +46,6 @@ namespace WinFormsApp.ModuloTeste
 
             Teste novoTeste = telaTeste.Teste;
 
-
             //if (novoTeste.ProvaRecuperacao)
             //{
             //    novoTeste.Materia = null;

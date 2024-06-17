@@ -27,6 +27,8 @@ namespace WinFormsApp.ModuloTeste
                 CmbMateria.Enabled = value.Materia != null;
                 CmbMateria.SelectedItem = value.Materia;
                 chkProvaRecuperacao.Checked = value.ProvaRecuperacao;
+                NuUD.Value = value.QtdeQuestoes;
+                
             }
         }
 
@@ -45,6 +47,7 @@ namespace WinFormsApp.ModuloTeste
             btnSortearQuestoes.Click += btnSortearQuestoes_Click;
             chkProvaRecuperacao.CheckedChanged += chkIncluirTodasMaterias_CheckedChanged;
             btnGravar.Enabled = false;
+            
 
             AtualizarMaterias();
             AtualizarListaQuestoes();
