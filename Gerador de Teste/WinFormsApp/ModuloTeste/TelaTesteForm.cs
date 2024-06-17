@@ -56,6 +56,7 @@ namespace WinFormsApp.ModuloTeste
             AtualizarListaQuestoes();
             CmbMateria.SelectedIndex = -1;
             VerificarHabilitarBotaoGravar();
+            VerificarHabilitarComboBoxMaterias();
         }
         private void CmbMateria_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -72,7 +73,26 @@ namespace WinFormsApp.ModuloTeste
             {
                 btnGravar.Enabled = false; 
             }
-        }       
+        }
+        private void VerificarHabilitarComboBoxMaterias()
+        {
+            Disciplina disciplinaSelecionada = CmbDisciplina.SelectedItem as Disciplina;
+
+            if (disciplinaSelecionada != null)
+            {
+                var materiasFiltradas = todasMaterias.Where(m => m.Disciplina.Id == disciplinaSelecionada.Id).ToList();
+
+                if (materiasFiltradas.Count == 0)
+                {
+                    CmbMateria.Enabled = false;
+                    MessageBox.Show("Não há matérias associadas a esta disciplina.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    CmbMateria.Enabled = true;
+                }
+            }
+        }
         private void AtualizarMaterias()
         {
             Disciplina disciplinaSelecionada = CmbDisciplina.SelectedItem as Disciplina;
@@ -85,6 +105,7 @@ namespace WinFormsApp.ModuloTeste
                 CmbMateria.DisplayMember = "Nome";
             }
         }
+
         private void AtualizarListaQuestoes()
         {
             List<Questao> questoesFiltradas;
@@ -150,7 +171,8 @@ namespace WinFormsApp.ModuloTeste
             else
             {
                 CmbMateria.SelectedIndex = -1; 
-                AtualizarMaterias(); 
+                AtualizarMaterias();
+                VerificarHabilitarComboBoxMaterias();
             }
 
             CmbMateria.Enabled = !chkProvaRecuperacao.Checked;

@@ -26,12 +26,6 @@ namespace WinFormsApp.ModuloQuestao
         public List<string> ValidarQuestao(Questao questao)
         {
             List<string> erros = questao.Validar();
-         
-            //int totalAlternativas = questao.Alternativas.Count;
-            //if (totalAlternativas < 2 || totalAlternativas > 4)
-            //{
-            //    erros.Add("A questão deve ter pelo menos duas alternativas e no máximo quatro alternativas.");
-            //}
 
             return erros;
         }
@@ -115,6 +109,17 @@ namespace WinFormsApp.ModuloQuestao
             {
                 MessageBox.Show(
                     "Não é possível realizar esta ação sem um registro selecionado.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            if (repositorioQuestao.EstaEmTeste(questaoSelecionada.Id))
+            {
+                MessageBox.Show(
+                    "Não é possível excluir esta questão porque ela está associada a um teste existente.",
                     "Aviso",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning

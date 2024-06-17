@@ -7,5 +7,6 @@
         bool Excluir(int id);
         Questao SelecionarPorId(int idSelecionado);
         List<Questao> SelecionarTodos();
+        bool EstaEmTeste(int idQuestao);
     }
 }
