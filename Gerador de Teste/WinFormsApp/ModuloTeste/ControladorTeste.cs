@@ -29,26 +29,28 @@ namespace WinFormsApp.ModuloTeste
         public string ToolTipDuplicar { get { return "Duplicar Teste"; } }
 
         public override void Adicionar()
-        {
-         
+        {        
             TelaTesteForm telaTeste = new TelaTesteForm(
                 repositorioDisciplina.SelecionarTodos(),
                 repositorioMateria.SelecionarTodos(),
                 repositorioQuestao.SelecionarTodos()
+             
             );
-
+            //TelaDuplicaTesteForm telaTesteduplica = new TelaDuplicaTesteForm(
+            //     repositorioDisciplina.SelecionarTodos(),
+            //    repositorioMateria.SelecionarTodos(),
+            //    repositorioQuestao.SelecionarTodos()
+            //);         
             DialogResult resultado = telaTeste.ShowDialog();
+            //DialogResult resultadoduplica = telaTesteduplica.ShowDialog();
 
             if (resultado != DialogResult.OK)
                 return;
+            //if (resultadoduplica != DialogResult.OK) 
+            //    return;
 
             Teste novoTeste = telaTeste.Teste;
-
-
-            //if (novoTeste.ProvaRecuperacao)
-            //{
-            //    novoTeste.Materia = null;
-            //}
+            //Teste novoteste = telaTesteduplica.Teste;
 
             if (repositorioTeste.SelecionarTodos().Any(t => t.Titulo.Equals(novoTeste.Titulo, StringComparison.OrdinalIgnoreCase)))
             {
@@ -223,11 +225,21 @@ namespace WinFormsApp.ModuloTeste
                     repositorioMateria.SelecionarTodos(),
                     repositorioQuestao.SelecionarTodos()
                 ) ;
+            DialogResult resultadoduplica = telaDuplica.ShowDialog();
 
-            DialogResult resultado = telaDuplica.ShowDialog();
-
-            if (resultado != DialogResult.OK)
+            if (resultadoduplica != DialogResult.OK)
                 return;
+
+            Teste novoTesteduplicado = telaDuplica.teste;
+
+            repositorioTeste.Cadastrar(novoTesteduplicado);
+
+            CarregarTestes();
+
+            TelaPrincipalForm
+               .Instancia
+               .AtualizarRodape($"O registro do teste \"{novoTesteduplicado.Titulo}\" foi criado com sucesso!");
+
         }
     }
 }

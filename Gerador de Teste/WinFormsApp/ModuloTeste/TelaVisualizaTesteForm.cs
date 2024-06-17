@@ -13,15 +13,21 @@
 
         private void ExibirDetalhesTeste()
         {
-            txtTitulo.Text = teste.Titulo;
-            txtDisciplina.Text = teste.Disciplina.Nome;
-            txtMateria.Text = teste.Materia.Nome;
+            txtTitulo.Text = teste.Titulo;           
+            txtDisciplina.Text = teste.Disciplina.Nome;          
+            if (teste.Materia != null)
+            {
+                txtMateria.Text = teste.Materia.Nome;
+            }
+            else
+            {
+                txtMateria.Text = "Teste de Recuperação";
+            }
 
-            foreach(var questao in teste.Questoes)
+            foreach (var questao in teste.Questoes)
             {
                 listQuestoes.Items.Add(questao);
             }
-
         }
     }
 }

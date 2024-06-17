@@ -69,6 +69,7 @@
             btnGravar.TabIndex = 24;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = false;
+            btnGravar.Click += btnGravar_Click;
             // 
             // grpDuplicidadeQuestoesSelecionadas
             // 
@@ -102,7 +103,7 @@
             // 
             // btnDuplicidadeSortearQuestoes
             // 
-            btnDuplicidadeSortearQuestoes.Location = new Point(19, 26);
+            btnDuplicidadeSortearQuestoes.Location = new Point(9, 26);
             btnDuplicidadeSortearQuestoes.Name = "btnDuplicidadeSortearQuestoes";
             btnDuplicidadeSortearQuestoes.Size = new Size(145, 36);
             btnDuplicidadeSortearQuestoes.TabIndex = 0;
