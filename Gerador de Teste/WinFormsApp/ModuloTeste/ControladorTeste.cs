@@ -5,7 +5,7 @@ using WinFormsApp.ModuloQuestao;
 
 namespace WinFormsApp.ModuloTeste
 {
-    public class ControladorTeste : ControladorBase, IControladorVisualizavel
+    public class ControladorTeste : ControladorBase, IControladorVisualizavel, IControladorDuplicavel
     {
         private TabelaTesteControl TabelaTeste;
         private IRepositorioTeste repositorioTeste;
@@ -25,7 +25,8 @@ namespace WinFormsApp.ModuloTeste
         public override string ToolTipAdicionar { get { return "Cadastrar um novo Teste"; } }
         public override string ToolTipEditar { get { return "Editar um Teste existente"; } }
         public override string ToolTipExcluir { get { return "Excluir um Teste existente"; } }
-        public string ToolTipVisualizar { get { return "Duplicar Teste"; } }
+        public string ToolTipVisualizar { get { return "Visualizar Teste"; } }
+        public string ToolTipDuplicar { get { return "Duplicar Teste"; } }
 
         public override void Adicionar()
         {
@@ -193,6 +194,31 @@ namespace WinFormsApp.ModuloTeste
             TelaVisualizaTesteForm telaVisualizar = new TelaVisualizaTesteForm(testeSelecionado);
 
             DialogResult resultado = telaVisualizar.ShowDialog();
+
+            if (resultado != DialogResult.OK)
+                return;
+        }
+
+        public void DuplicarTeste()
+        {
+            int idSelecionado = TabelaTeste.ObterRegistroSelecionado();
+
+            Teste testeSelecionado = repositorioTeste.SelecionarPorId(idSelecionado);
+
+            if (testeSelecionado == null)
+            {
+                MessageBox.Show(
+                    "Não é possível realizar esta ação sem um registro selecionado.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+            TelaDuplicaTesteForm telaDuplica = new TelaDuplicaTesteForm(testeSelecionado);
+
+            DialogResult resultado = telaDuplica.ShowDialog();
 
             if (resultado != DialogResult.OK)
                 return;
