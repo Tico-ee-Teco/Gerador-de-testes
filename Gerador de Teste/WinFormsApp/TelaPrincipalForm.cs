@@ -84,6 +84,12 @@ namespace WinFormsApp
             if (controlador is IControladorVisualizavel controladorVisualizavel)
                 controladorVisualizavel.VisualizarTeste();
         }
+
+        private void btnDuplicar_Click(object sender, EventArgs e)
+        {
+            if(controlador is IControladorDuplicavel controladorDuplicavel)
+                controladorDuplicavel.DuplicarTeste();
+        }
         private void ConfigurarTelaPrincipal(ControladorBase controladorSelecionado)
         {
             lblTipoCadastro.Text = "Cadastro de " + controladorSelecionado.TipoCadastro;
@@ -99,6 +105,7 @@ namespace WinFormsApp
             btnExcluir.Enabled = controladorSelecionado is ControladorBase;
 
             btnVisualizar.Enabled = controladorSelecionado is IControladorVisualizavel;
+            btnDuplicar.Enabled = controladorSelecionado is IControladorDuplicavel;
 
             ConfigurarToolTips(controladorSelecionado);
         }
@@ -111,6 +118,9 @@ namespace WinFormsApp
 
             if (controladorSelecionado is IControladorVisualizavel controladorVisualizavel)
                 btnVisualizar.ToolTipText = controladorVisualizavel.ToolTipVisualizar;
+
+            if (controladorSelecionado is IControladorDuplicavel controladorDuplicavel)
+                btnDuplicar.ToolTipText = controladorDuplicavel.ToolTipDuplicar;
         }
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)
@@ -122,6 +132,6 @@ namespace WinFormsApp
             pnlRegistros.Controls.Add(listagemContato);
         }
 
-      
+       
     }
 }

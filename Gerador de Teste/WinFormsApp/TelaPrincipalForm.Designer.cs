@@ -176,6 +176,7 @@
             btnDuplicar.Name = "btnDuplicar";
             btnDuplicar.Size = new Size(28, 28);
             btnDuplicar.Text = "toolStripButton3";
+            btnDuplicar.Click += btnDuplicar_Click;
             // 
             // btnCriarPdf
             // 

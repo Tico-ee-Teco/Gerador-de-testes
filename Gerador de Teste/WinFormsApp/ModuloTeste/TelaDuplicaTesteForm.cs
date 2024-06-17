@@ -1,20 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WinFormsApp.ModuloTeste
+﻿namespace WinFormsApp.ModuloTeste
 {
     public partial class TelaDuplicaTesteForm : Form
     {
-        public TelaDuplicaTesteForm()
+        public Teste teste { get; set; }
+        public TelaDuplicaTesteForm(Teste teste)
         {
             InitializeComponent();
+            this.teste = teste;
+
+            DuplicarTeste();
+        }
+
+        public void DuplicarTeste()
+        {
+            cmbDuplicacaoDisciplina.SelectedItem = teste.Disciplina;
+            cmbDuplicidadeMateria.SelectedItem = teste.Materia;
+            nudQtdeDuplicidade.Value = teste.QtdeQuestoes;
         }
     }
 }
