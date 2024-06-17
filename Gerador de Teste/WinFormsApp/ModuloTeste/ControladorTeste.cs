@@ -216,7 +216,12 @@ namespace WinFormsApp.ModuloTeste
                 return;
             }
 
-            TelaDuplicaTesteForm telaDuplica = new TelaDuplicaTesteForm(testeSelecionado);
+            TelaDuplicaTesteForm telaDuplica = new TelaDuplicaTesteForm
+                (
+                    testeSelecionado, 
+                    repositorioDisciplina.SelecionarTodos(),
+                    repositorioMateria.SelecionarTodos()
+                );
 
             DialogResult resultado = telaDuplica.ShowDialog();
 

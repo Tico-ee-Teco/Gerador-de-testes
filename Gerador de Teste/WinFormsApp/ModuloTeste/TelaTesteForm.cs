@@ -51,12 +51,11 @@ namespace WinFormsApp.ModuloTeste
         private void CmbDisciplina_SelectedIndexChanged(object sender, EventArgs e)
         {
             AtualizarMaterias();
-            AtualizarListaQuestoes();
-        
+            AtualizarListaQuestoes();        
         }
         private void CmbMateria_SelectedIndexChanged(object sender, EventArgs e)
         {
-        AtualizarListaQuestoes();
+            AtualizarListaQuestoes();          
         }
 
         private void AtualizarMaterias()
