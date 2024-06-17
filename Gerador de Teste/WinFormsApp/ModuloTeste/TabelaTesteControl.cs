@@ -13,14 +13,31 @@ namespace WinFormsApp.ModuloTeste
             grid.ConfigurarGridSomenteLeitura();
             grid.ConfigurarGridZebrado();
         }
+        //public void AtualizarRegistros(List<Teste> testes)
+        //{
+        //    grid.Rows.Clear();
+
+        //    foreach (Teste t in testes)
+        //    {
+
+        //        string materiaNome = t.Materia != null ? t.Materia.Nome : "Prova de Recuperação";
+
+        //        grid.Rows.Add(
+        //            t.Id.ToString(),
+        //            t.Titulo.ToString(),
+        //            t.Disciplina.Nome,
+        //            materiaNome,
+        //            t.QtdeQuestoes
+        //        );
+        //    }
+        //}
         public void AtualizarRegistros(List<Teste> testes)
         {
             grid.Rows.Clear();
 
             foreach (Teste t in testes)
             {
-
-                string materiaNome = t.Materia != null ? t.Materia.Nome : "Prova de Recuperação";
+                string materiaNome = t.Materia != null ? t.Materia.Nome : "Teste de Recuperação";
 
                 grid.Rows.Add(
                     t.Id.ToString(),

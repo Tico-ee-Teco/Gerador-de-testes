@@ -1,10 +1,12 @@
 ﻿using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
+using WinFormsApp.ModuloQuestao;
 
 namespace WinFormsApp.ModuloTeste
 {
     public partial class TelaDuplicaTesteForm : Form
     {
+        private List<Questao> todasQuestoes;
         public Teste teste { get; set; }
         public Teste Teste
         {
@@ -19,14 +21,32 @@ namespace WinFormsApp.ModuloTeste
             }
         }
        
-        public TelaDuplicaTesteForm(Teste teste, List<Disciplina> disciplinas, List<Materia> materias)
+        public TelaDuplicaTesteForm(Teste teste, List<Disciplina> disciplinas, List<Materia> materias,List<Questao> questaos)
         {
             InitializeComponent();
             this.teste = teste;
 
+            todasQuestoes = questaos;
+
             CarregarDisciplina(disciplinas);
             CarregarMateria(materias);
             DuplicarTeste();
+            //InitializeComponent();
+
+            //CmbDisciplina.DataSource = disciplinas;
+            //CmbDisciplina.DisplayMember = "Nome";
+
+            //todasMaterias = materias;
+            //todasQuestoes = questaos;
+
+            //CmbMateria.SelectedIndexChanged += CmbMateria_SelectedIndexChanged;
+            //CmbDisciplina.SelectedIndexChanged += CmbDisciplina_SelectedIndexChanged;
+            //btnSortearQuestoes.Click += btnSortearQuestoes_Click;
+            //chkProvaRecuperacao.CheckedChanged += chkIncluirTodasMaterias_CheckedChanged;
+            //btnGravar.Enabled = false;
+
+            //AtualizarMaterias();
+            //AtualizarListaQuestoes();
         }
 
         public void CarregarDisciplina(List<Disciplina> disciplinas)
@@ -52,8 +72,13 @@ namespace WinFormsApp.ModuloTeste
        
         public void DuplicarTeste()
         {
+            bool isRecuperacao = teste.Materia == null;
 
-            foreach(var item in cmbDuplicacaoDisciplina.Items)
+            chkDuplicadoRecuperacao.Checked = isRecuperacao;
+
+            cmbDuplicidadeMateria.Enabled = !isRecuperacao;
+
+            foreach (var item in cmbDuplicacaoDisciplina.Items)
             {
                 if (item is Disciplina disciplina && disciplina.Id == teste.Disciplina.Id)
                 {
@@ -61,15 +86,18 @@ namespace WinFormsApp.ModuloTeste
                     break;
                 }
             }
-
             foreach (var item in cmbDuplicidadeMateria.Items)
             {
-                if (item is Materia materia && materia.Id == teste.Materia.Id)
+                if (item is Materia materia)
                 {
-                    cmbDuplicidadeMateria.SelectedItem = item;
-                    break;
+                    if ((teste.Materia == null && materia == null) ||
+                        (teste.Materia != null && materia != null && materia.Id == teste.Materia.Id))
+                    {
+                        cmbDuplicidadeMateria.SelectedItem = item;
+                        break;
+                    }
                 }
-            }
+            }          
             nudQtdeDuplicidade.Value = teste.QtdeQuestoes;
         }
     }

@@ -72,8 +72,7 @@ namespace WinFormsApp.ModuloTeste
             {
                 btnGravar.Enabled = false; 
             }
-        }
-
+        }       
         private void AtualizarMaterias()
         {
             Disciplina disciplinaSelecionada = CmbDisciplina.SelectedItem as Disciplina;
@@ -143,6 +142,17 @@ namespace WinFormsApp.ModuloTeste
 
         private void chkIncluirTodasMaterias_CheckedChanged(object sender, EventArgs e)
         {
+            if (chkProvaRecuperacao.Checked)
+            {
+                CmbMateria.DataSource = null;
+                CmbMateria.Text = "Teste de Recuperação";
+            }
+            else
+            {
+                CmbMateria.SelectedIndex = -1; 
+                AtualizarMaterias(); 
+            }
+
             CmbMateria.Enabled = !chkProvaRecuperacao.Checked;
             AtualizarListaQuestoes();
 
@@ -154,6 +164,7 @@ namespace WinFormsApp.ModuloTeste
             {
                 VerificarHabilitarBotaoGravar(); 
             }
+
         }
         private void btnGravar_Click(object sender, EventArgs e)
         {

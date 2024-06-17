@@ -88,10 +88,10 @@ namespace WinFormsApp.ModuloTeste
             }
 
             TelaTesteForm telaTeste = new TelaTesteForm(
-                repositorioDisciplina.SelecionarTodos(),
-                repositorioMateria.SelecionarTodos(),
-                repositorioQuestao.SelecionarTodos()
-            )
+           repositorioDisciplina.SelecionarTodos(),
+           repositorioMateria.SelecionarTodos(),
+           repositorioQuestao.SelecionarTodos()
+          )
             {
                 Teste = testeSelecionado
             };
@@ -218,10 +218,11 @@ namespace WinFormsApp.ModuloTeste
 
             TelaDuplicaTesteForm telaDuplica = new TelaDuplicaTesteForm
                 (
-                    testeSelecionado, 
+                    testeSelecionado,
                     repositorioDisciplina.SelecionarTodos(),
-                    repositorioMateria.SelecionarTodos()
-                );
+                    repositorioMateria.SelecionarTodos(),
+                    repositorioQuestao.SelecionarTodos()
+                ) ;
 
             DialogResult resultado = telaDuplica.ShowDialog();
 
