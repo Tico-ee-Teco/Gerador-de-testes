@@ -45,17 +45,17 @@ namespace WinFormsApp.ModuloQuestao
             InitializeComponent();
 
             cmbMateria.DataSource = materias;
-            cmbMateria.DisplayMember ="Nome" + "Serie";
+            cmbMateria.DisplayMember = "Nome" + "Serie";
 
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
-        {           
+        {
             string enunciado = txtEnunciado.Text;
             Materia materia = (Materia)cmbMateria.SelectedItem;
 
             questao = new Questao(enunciado, materia);
-          
+
             foreach (var item in listAlternativa.Items)
             {
                 Alternativa alternativas = item as Alternativa;
@@ -66,9 +66,9 @@ namespace WinFormsApp.ModuloQuestao
                 }
             }
 
-            ControladorQuestao controlador = new ControladorQuestao(null, null);            
+            ControladorQuestao controlador = new ControladorQuestao(null, null);
 
-            if(ExisteQuestao(enunciado))
+            if (ExisteQuestao(enunciado))
             {
                 MessageBox.Show(
                     "Já existe uma questão com esse enunciado.",
@@ -76,8 +76,8 @@ namespace WinFormsApp.ModuloQuestao
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
-                    DialogResult = DialogResult.None;
-                    return;
+                DialogResult = DialogResult.None;
+                return;
             }
 
             List<string> erros = questao.Validar();
@@ -90,16 +90,16 @@ namespace WinFormsApp.ModuloQuestao
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
-               DialogResult = DialogResult.None;
-               return;
+                DialogResult = DialogResult.None;
+                return;
             }
             else
             {
-                this.DialogResult = DialogResult.OK; 
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
-       
+
         private void btnAdicionarAlternativa_Click(object sender, EventArgs e)
         {
             char proximaLetra = (char)('A' + listAlternativa.Items.Count);
@@ -110,12 +110,12 @@ namespace WinFormsApp.ModuloQuestao
 
             RecalcularLetrasAlternativas();
 
-            txtResposta.Clear();        
+            txtResposta.Clear();
         }
         private void btnRemoverAlternativa_Click(object sender, EventArgs e)
         {
             List<Alternativa> itensRemover = new List<Alternativa>();
-  
+
             foreach (var item in listAlternativa.CheckedItems)
             {
                 Alternativa alternativa = item as Alternativa;
@@ -125,7 +125,7 @@ namespace WinFormsApp.ModuloQuestao
                     itensRemover.Add(alternativa);
                 }
             }
-           
+
             foreach (Alternativa alternativa in itensRemover)
             {
                 listAlternativa.Items.Remove(alternativa);
@@ -140,7 +140,7 @@ namespace WinFormsApp.ModuloQuestao
                 if (alternativa != null)
                 {
                     alternativa.Letra = (char)('A' + i);
-                    listAlternativa.Items[i] = alternativa; 
+                    listAlternativa.Items[i] = alternativa;
                 }
             }
         }
@@ -148,6 +148,11 @@ namespace WinFormsApp.ModuloQuestao
         public bool ExisteQuestao(string enunciado)
         {
             return questoes.Any(q => q.Enunciado == enunciado);
+        }
+
+        private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
