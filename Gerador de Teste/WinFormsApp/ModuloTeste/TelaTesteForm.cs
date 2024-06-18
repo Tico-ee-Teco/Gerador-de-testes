@@ -29,7 +29,6 @@ namespace WinFormsApp.ModuloTeste
                 chkProvaRecuperacao.Checked = value.ProvaRecuperacao;
             }
         }
-
         public TelaTesteForm(List<Disciplina> disciplinas, List<Materia> materias, List<Questao> questaos)
         {
             InitializeComponent();
@@ -48,13 +47,23 @@ namespace WinFormsApp.ModuloTeste
 
             AtualizarMaterias();
             AtualizarListaQuestoes();
+            VerificarHabilitarBotaoGravar();
         }
-
         private void CmbDisciplina_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AtualizarMaterias();
+            if (!chkProvaRecuperacao.Checked)
+            {
+                AtualizarMaterias();
+                CmbMateria.SelectedIndex = -1;
+                CmbMateria.Enabled = true; 
+            }
+            else
+            {
+                CmbMateria.DataSource = null;
+                CmbMateria.Text = "Teste de Recuperação";
+            }
+
             AtualizarListaQuestoes();
-            CmbMateria.SelectedIndex = -1;
             VerificarHabilitarBotaoGravar();
             VerificarHabilitarComboBoxMaterias();
         }
@@ -65,17 +74,23 @@ namespace WinFormsApp.ModuloTeste
         }
         private void VerificarHabilitarBotaoGravar()
         {
-            if (CmbMateria.SelectedItem != null && !chkProvaRecuperacao.Checked)
+            if (chkProvaRecuperacao.Checked)
             {
-                btnGravar.Enabled = true; 
+                btnGravar.Enabled = true;
             }
             else
             {
-                btnGravar.Enabled = false; 
+                btnGravar.Enabled = CmbMateria.SelectedItem != null && !string.IsNullOrEmpty(txtTitulo.Text);
             }
         }
         private void VerificarHabilitarComboBoxMaterias()
         {
+            if (chkProvaRecuperacao.Checked)
+            {
+                CmbMateria.Enabled = false;
+                return; 
+            }
+
             Disciplina disciplinaSelecionada = CmbDisciplina.SelectedItem as Disciplina;
 
             if (disciplinaSelecionada != null)
@@ -105,7 +120,6 @@ namespace WinFormsApp.ModuloTeste
                 CmbMateria.DisplayMember = "Nome";
             }
         }
-
         private void AtualizarListaQuestoes()
         {
             List<Questao> questoesFiltradas;
@@ -130,7 +144,6 @@ namespace WinFormsApp.ModuloTeste
             listQuestao.DataSource = questoesExibidas;
             listQuestao.DisplayMember = "Enunciado";
         }
-
         private void btnSortearQuestoes_Click(object sender, EventArgs e)
         {
             if (!chkProvaRecuperacao.Checked && CmbMateria.SelectedItem == null)
@@ -160,45 +173,35 @@ namespace WinFormsApp.ModuloTeste
             listQuestao.DataSource = questoesSorteadas;
             listQuestao.DisplayMember = "Enunciado";
         }
-
         private void chkIncluirTodasMaterias_CheckedChanged(object sender, EventArgs e)
         {
             if (chkProvaRecuperacao.Checked)
             {
                 CmbMateria.DataSource = null;
                 CmbMateria.Text = "Teste de Recuperação";
+                CmbMateria.Enabled = false;
             }
             else
             {
-                CmbMateria.SelectedIndex = -1; 
                 AtualizarMaterias();
+                CmbMateria.SelectedIndex = -1;
                 VerificarHabilitarComboBoxMaterias();
             }
 
-            CmbMateria.Enabled = !chkProvaRecuperacao.Checked;
             AtualizarListaQuestoes();
-
-            if (chkProvaRecuperacao.Checked)
-            {
-                btnGravar.Enabled = true; 
-            }
-            else
-            {
-                VerificarHabilitarBotaoGravar(); 
-            }
-
+            VerificarHabilitarBotaoGravar();
         }
         private void btnGravar_Click(object sender, EventArgs e)
         {
             string titulo = txtTitulo.Text;
             Disciplina disciplinaSelecionada = CmbDisciplina.SelectedItem as Disciplina;
             Materia materiaSelecionada = CmbMateria.SelectedItem as Materia;
-            List<Questao> questoesSelecionadas = listQuestao.Items.OfType<Questao>().ToList();            
+            List<Questao> questoesSelecionadas = listQuestao.Items.OfType<Questao>().ToList();
             bool ProvaRecuperacao = chkProvaRecuperacao.Checked;
 
-            if(ProvaRecuperacao)
+            if (ProvaRecuperacao)
             {
-                materiaSelecionada = null;                
+                materiaSelecionada = null;
             }
 
             Teste = new Teste(titulo, disciplinaSelecionada, materiaSelecionada, questoesSelecionadas);
