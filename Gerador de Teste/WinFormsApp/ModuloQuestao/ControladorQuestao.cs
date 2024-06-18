@@ -43,7 +43,7 @@ namespace WinFormsApp.ModuloQuestao
             if (repositorioQuestao.SelecionarTodos().Any(q => q.Enunciado.Equals(novaQuestao.Enunciado.Trim(), StringComparison.OrdinalIgnoreCase)))
             {
                 MessageBox.Show(
-                    $"Já existe uma matéria com o nome \"{novaQuestao.Enunciado}\".",
+                    $"Já existe uma Questao com o Enunciado \"{novaQuestao.Enunciado}\".",
                     "Erro",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -73,7 +73,7 @@ namespace WinFormsApp.ModuloQuestao
 
         public override void Editar()
         {
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos()); //
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos()); 
 
             int idSelecionado = tabelaQuestao.ObterRegistroSelecionado();
 
