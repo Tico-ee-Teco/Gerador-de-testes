@@ -6,6 +6,8 @@ namespace WinFormsApp.ModuloQuestao
     {
         private Questao questao;
         public List<Alternativa> Alternativas { get; set; }
+
+        private List<Questao> questoes;
         public Questao Questao
         {
             get
@@ -63,7 +65,21 @@ namespace WinFormsApp.ModuloQuestao
                     questao.Alternativas.Add(alternativas);
                 }
             }
-            ControladorQuestao controlador = new ControladorQuestao(null, null);
+
+            ControladorQuestao controlador = new ControladorQuestao(null, null);            
+
+            if(ExisteQuestao(enunciado))
+            {
+                MessageBox.Show(
+                    "Já existe uma questão com esse enunciado.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                    DialogResult = DialogResult.None;
+                    return;
+            }
+
             List<string> erros = questao.Validar();
 
             if (erros.Count > 0)
@@ -127,6 +143,11 @@ namespace WinFormsApp.ModuloQuestao
                     listAlternativa.Items[i] = alternativa; 
                 }
             }
+        }
+
+        public bool ExisteQuestao(string enunciado)
+        {
+            return questoes.Any(q => q.Enunciado == enunciado);
         }
     }
 }

@@ -122,6 +122,7 @@
             // 
             // cmbDuplicidadeMateria
             // 
+            cmbDuplicidadeMateria.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDuplicidadeMateria.FormattingEnabled = true;
             cmbDuplicidadeMateria.Location = new Point(135, 166);
             cmbDuplicidadeMateria.Name = "cmbDuplicidadeMateria";
@@ -155,6 +156,7 @@
             // 
             // cmbDuplicacaoDisciplina
             // 
+            cmbDuplicacaoDisciplina.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDuplicacaoDisciplina.FormattingEnabled = true;
             cmbDuplicacaoDisciplina.Location = new Point(135, 113);
             cmbDuplicacaoDisciplina.Name = "cmbDuplicacaoDisciplina";

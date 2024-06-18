@@ -84,6 +84,7 @@
             // 
             // CmbDisciplina
             // 
+            CmbDisciplina.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbDisciplina.FormattingEnabled = true;
             CmbDisciplina.Location = new Point(95, 101);
             CmbDisciplina.Name = "CmbDisciplina";
@@ -108,11 +109,12 @@
             // 
             // CmbMateria
             // 
+            CmbMateria.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbMateria.FormattingEnabled = true;
             CmbMateria.Location = new Point(95, 154);
             CmbMateria.Name = "CmbMateria";
             CmbMateria.Size = new Size(191, 28);
-            CmbMateria.TabIndex = 8;         
+            CmbMateria.TabIndex = 8;
             // 
             // label4
             // 
