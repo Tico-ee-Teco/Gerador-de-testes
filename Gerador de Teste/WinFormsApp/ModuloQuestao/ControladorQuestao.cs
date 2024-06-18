@@ -74,7 +74,7 @@ namespace WinFormsApp.ModuloQuestao
                     "Não é possível realizar esta ação sem um registro selecionado.",
                     "Aviso",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
+                    MessageBoxIcon.Error
                 );
                 return;
             }

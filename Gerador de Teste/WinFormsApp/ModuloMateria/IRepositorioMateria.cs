@@ -7,5 +7,7 @@
        bool Excluir(int id);
        Materia SelecionarPorId(int idSelecionado);
        List<Materia> SelecionarTodos();
-   }
+       bool ExisteTesteComMateria(int materiaId);
+
+    }
 }

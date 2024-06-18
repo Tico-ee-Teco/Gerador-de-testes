@@ -1,4 +1,5 @@
 ﻿using WinFormsApp.Compartilhado;
+using WinFormsApp.ModuloTeste;
 
 namespace WinFormsApp.Modulo_disciplina
 {
@@ -11,8 +12,19 @@ namespace WinFormsApp.Modulo_disciplina
         {
             return contexto.Disciplinas;
         }
+        public bool ExisteTesteComDisciplina(int Disciplinaid)
+        {
+            List<Teste> testes = contexto.Testes;
 
-
+            foreach (Teste teste in testes)
+            {
+                if (teste.Disciplina != null && teste.Disciplina.Id == Disciplinaid)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
         

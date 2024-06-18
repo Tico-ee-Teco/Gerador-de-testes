@@ -7,5 +7,6 @@
         bool Excluir(int id);
         Disciplina SelecionarPorId(int idSelecionado);
         List<Disciplina> SelecionarTodos();
+        bool ExisteTesteComDisciplina(int DiscipinaId);
     }    
 }

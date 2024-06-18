@@ -115,12 +115,23 @@ namespace WinFormsApp.ModuloMateria
                 return;
             }
 
+            if (repositorioMateria.ExisteTesteComMateria(materiaSelecionada.Id))
+            {
+                MessageBox.Show(
+                    "Não é possível excluir esta matéria pois ela está associada a um ou mais testes.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
+
             DialogResult resultado = MessageBox.Show(
                  $"Você deseja realmente excluir o registro \"{materiaSelecionada.Nome}\"?",
                  "Confirmar Exclusão",
                  MessageBoxButtons.YesNo,
                  MessageBoxIcon.Warning
-             );
+                );
 
             if (resultado != DialogResult.Yes)
                 return;
