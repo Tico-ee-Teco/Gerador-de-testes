@@ -233,7 +233,7 @@ namespace WinFormsApp.ModuloTeste
                .Instancia
                .AtualizarRodape($"O registro do teste \"{novoTesteduplicado.Titulo}\" foi criado com sucesso!");
 
-            if (resultado != DialogResult.OK)
+            if (resultadoduplica != DialogResult.OK)
                 return;
         }        
 

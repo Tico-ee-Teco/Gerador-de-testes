@@ -10,6 +10,7 @@ namespace WinFormsApp.ModuloTeste
         private Teste teste;
         private List<Questao> todasQuestoes;
         private List<Materia> todasMaterias;
+
         public Teste Teste
         {
             get
@@ -27,10 +28,9 @@ namespace WinFormsApp.ModuloTeste
                 CmbMateria.Enabled = value.Materia != null;
                 CmbMateria.SelectedItem = value.Materia;
                 chkProvaRecuperacao.Checked = value.ProvaRecuperacao;
-                NuUD.Value = value.QtdeQuestoes;
-                
             }
         }
+
         public TelaTesteForm(List<Disciplina> disciplinas, List<Materia> materias, List<Questao> questaos)
         {
             InitializeComponent();
@@ -45,13 +45,13 @@ namespace WinFormsApp.ModuloTeste
             CmbDisciplina.SelectedIndexChanged += CmbDisciplina_SelectedIndexChanged;
             btnSortearQuestoes.Click += btnSortearQuestoes_Click;
             chkProvaRecuperacao.CheckedChanged += chkIncluirTodasMaterias_CheckedChanged;
-            btnGravar.Enabled = false;
-            
+            btnGravar.Enabled = true;
 
             AtualizarMaterias();
             AtualizarListaQuestoes();
             VerificarHabilitarBotaoGravar();
         }
+
         private void CmbDisciplina_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!chkProvaRecuperacao.Checked)
@@ -70,22 +70,25 @@ namespace WinFormsApp.ModuloTeste
             VerificarHabilitarBotaoGravar();
             VerificarHabilitarComboBoxMaterias();
         }
+
         private void CmbMateria_SelectedIndexChanged(object sender, EventArgs e)
         {
             AtualizarListaQuestoes();
             VerificarHabilitarBotaoGravar();
         }
+
         private void VerificarHabilitarBotaoGravar()
-        {
+        {         
             if (chkProvaRecuperacao.Checked)
             {
-                btnGravar.Enabled = true;
+                btnGravar.Enabled = true; 
             }
             else
             {
-                btnGravar.Enabled = CmbMateria.SelectedItem != null && !string.IsNullOrEmpty(txtTitulo.Text);
+                btnGravar.Enabled = CmbDisciplina.SelectedItem != null && CmbMateria.SelectedItem != null;
             }
         }
+
         private void VerificarHabilitarComboBoxMaterias()
         {
             if (chkProvaRecuperacao.Checked)
@@ -111,6 +114,7 @@ namespace WinFormsApp.ModuloTeste
                 }
             }
         }
+
         private void AtualizarMaterias()
         {
             Disciplina disciplinaSelecionada = CmbDisciplina.SelectedItem as Disciplina;
@@ -123,6 +127,7 @@ namespace WinFormsApp.ModuloTeste
                 CmbMateria.DisplayMember = "Nome";
             }
         }
+
         private void AtualizarListaQuestoes()
         {
             List<Questao> questoesFiltradas;
@@ -147,6 +152,7 @@ namespace WinFormsApp.ModuloTeste
             listQuestao.DataSource = questoesExibidas;
             listQuestao.DisplayMember = "Enunciado";
         }
+
         private void btnSortearQuestoes_Click(object sender, EventArgs e)
         {
             if (!chkProvaRecuperacao.Checked && CmbMateria.SelectedItem == null)
@@ -176,6 +182,7 @@ namespace WinFormsApp.ModuloTeste
             listQuestao.DataSource = questoesSorteadas;
             listQuestao.DisplayMember = "Enunciado";
         }
+
         private void chkIncluirTodasMaterias_CheckedChanged(object sender, EventArgs e)
         {
             if (chkProvaRecuperacao.Checked)
@@ -194,6 +201,7 @@ namespace WinFormsApp.ModuloTeste
             AtualizarListaQuestoes();
             VerificarHabilitarBotaoGravar();
         }
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
             string titulo = txtTitulo.Text;
