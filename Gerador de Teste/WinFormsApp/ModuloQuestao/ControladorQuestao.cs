@@ -1,5 +1,4 @@
 ﻿using WinFormsApp.Compartilhado;
-using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
 
 namespace WinFormsApp.ModuloQuestao
@@ -173,5 +172,6 @@ namespace WinFormsApp.ModuloQuestao
 
             return tabelaQuestao;
         }
+        
     }
 }
