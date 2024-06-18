@@ -40,6 +40,17 @@ namespace WinFormsApp.ModuloQuestao
 
             Questao novaQuestao = telaQuestao.Questao;
 
+            if (repositorioQuestao.SelecionarTodos().Any(q => q.Enunciado.Equals(novaQuestao.Enunciado.Trim(), StringComparison.OrdinalIgnoreCase)))
+            {
+                MessageBox.Show(
+                    $"Já existe uma matéria com o nome \"{novaQuestao.Enunciado}\".",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
+
             List<string> erros = ValidarQuestao(novaQuestao);
             if (erros.Count > 0)
             {
