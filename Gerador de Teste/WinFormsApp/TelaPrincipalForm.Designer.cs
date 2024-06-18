@@ -133,6 +133,7 @@
             // btnAdicionar
             // 
             btnAdicionar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnAdicionar.Enabled = false;
             btnAdicionar.Image = Properties.Resources.btnAdicionar;
             btnAdicionar.ImageScaling = ToolStripItemImageScaling.None;
             btnAdicionar.ImageTransparentColor = Color.Magenta;
@@ -144,6 +145,7 @@
             // btnEditar
             // 
             btnEditar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnEditar.Enabled = false;
             btnEditar.Image = Properties.Resources.btnEditar;
             btnEditar.ImageScaling = ToolStripItemImageScaling.None;
             btnEditar.ImageTransparentColor = Color.Magenta;
@@ -155,6 +157,7 @@
             // btnExcluir
             // 
             btnExcluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnExcluir.Enabled = false;
             btnExcluir.Image = Properties.Resources.btnExcluir;
             btnExcluir.ImageScaling = ToolStripItemImageScaling.None;
             btnExcluir.ImageTransparentColor = Color.Magenta;
@@ -171,6 +174,7 @@
             // btnDuplicar
             // 
             btnDuplicar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnDuplicar.Enabled = false;
             btnDuplicar.Image = Properties.Resources.btnDuplicar;
             btnDuplicar.ImageScaling = ToolStripItemImageScaling.None;
             btnDuplicar.ImageTransparentColor = Color.Magenta;
@@ -182,6 +186,7 @@
             // btnVisualizar
             // 
             btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnVisualizar.Enabled = false;
             btnVisualizar.Image = Properties.Resources.btnVisualizar;
             btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
             btnVisualizar.ImageTransparentColor = Color.Magenta;
@@ -198,6 +203,7 @@
             // btnCriarPdf
             // 
             btnCriarPdf.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnCriarPdf.Enabled = false;
             btnCriarPdf.Image = Properties.Resources.btnPDF;
             btnCriarPdf.ImageScaling = ToolStripItemImageScaling.None;
             btnCriarPdf.ImageTransparentColor = Color.Magenta;
@@ -209,6 +215,7 @@
             // btnPdfGabarito
             // 
             btnPdfGabarito.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnPdfGabarito.Enabled = false;
             btnPdfGabarito.Image = Properties.Resources.btnGabarito;
             btnPdfGabarito.ImageScaling = ToolStripItemImageScaling.None;
             btnPdfGabarito.ImageTransparentColor = Color.Magenta;
