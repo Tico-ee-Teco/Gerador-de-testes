@@ -43,9 +43,10 @@
             btnExcluir = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             btnDuplicar = new ToolStripButton();
-            btnCriarPdf = new ToolStripButton();
-            toolStripSeparator2 = new ToolStripSeparator();
             btnVisualizar = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
+            btnCriarPdf = new ToolStripButton();
+            btnPdfGabarito = new ToolStripButton();
             lblTipoCadastro = new ToolStripLabel();
             toolTip1 = new ToolTip(components);
             pnlRegistros = new Panel();
@@ -121,7 +122,7 @@
             // toolStrip1
             // 
             toolStrip1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdicionar, btnEditar, btnExcluir, toolStripSeparator1, btnDuplicar, btnCriarPdf, toolStripSeparator2, btnVisualizar, lblTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdicionar, btnEditar, btnExcluir, toolStripSeparator1, btnDuplicar, btnVisualizar, toolStripSeparator2, btnCriarPdf, btnPdfGabarito, lblTipoCadastro });
             toolStrip1.Location = new Point(0, 30);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Padding = new Padding(5);
@@ -137,7 +138,7 @@
             btnAdicionar.ImageTransparentColor = Color.Magenta;
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(28, 28);
-            btnAdicionar.Text = "toolStripButton1";
+            btnAdicionar.Text = "Adicionar";
             btnAdicionar.Click += btnAdicionar_Click;
             // 
             // btnEditar
@@ -148,7 +149,7 @@
             btnEditar.ImageTransparentColor = Color.Magenta;
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(28, 28);
-            btnEditar.Text = "toolStripButton2";
+            btnEditar.Text = "Editar";
             btnEditar.Click += btnEditar_Click;
             // 
             // btnExcluir
@@ -159,7 +160,7 @@
             btnExcluir.ImageTransparentColor = Color.Magenta;
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(28, 28);
-            btnExcluir.Text = "toolStripButton3";
+            btnExcluir.Text = "Excluir";
             btnExcluir.Click += btnExcluir_Click;
             // 
             // toolStripSeparator1
@@ -175,23 +176,8 @@
             btnDuplicar.ImageTransparentColor = Color.Magenta;
             btnDuplicar.Name = "btnDuplicar";
             btnDuplicar.Size = new Size(28, 28);
-            btnDuplicar.Text = "toolStripButton3";
+            btnDuplicar.Text = "Duplicar";
             btnDuplicar.Click += btnDuplicar_Click;
-            // 
-            // btnCriarPdf
-            // 
-            btnCriarPdf.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnCriarPdf.Image = Properties.Resources.btnPDF;
-            btnCriarPdf.ImageScaling = ToolStripItemImageScaling.None;
-            btnCriarPdf.ImageTransparentColor = Color.Magenta;
-            btnCriarPdf.Name = "btnCriarPdf";
-            btnCriarPdf.Size = new Size(28, 28);
-            btnCriarPdf.Text = "toolStripButton3";
-            // 
-            // toolStripSeparator2
-            // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 31);
             // 
             // btnVisualizar
             // 
@@ -201,8 +187,35 @@
             btnVisualizar.ImageTransparentColor = Color.Magenta;
             btnVisualizar.Name = "btnVisualizar";
             btnVisualizar.Size = new Size(28, 28);
-            btnVisualizar.Text = "toolStripButton3";
+            btnVisualizar.Text = "Visualizar";
             btnVisualizar.Click += btnVisualizar_Click;
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 31);
+            // 
+            // btnCriarPdf
+            // 
+            btnCriarPdf.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnCriarPdf.Image = Properties.Resources.btnPDF;
+            btnCriarPdf.ImageScaling = ToolStripItemImageScaling.None;
+            btnCriarPdf.ImageTransparentColor = Color.Magenta;
+            btnCriarPdf.Name = "btnCriarPdf";
+            btnCriarPdf.Size = new Size(28, 28);
+            btnCriarPdf.Text = "Gerar Teste em PDF";
+            btnCriarPdf.Click += btnCriarPdf_Click;
+            // 
+            // btnPdfGabarito
+            // 
+            btnPdfGabarito.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnPdfGabarito.Image = Properties.Resources.btnGabarito;
+            btnPdfGabarito.ImageScaling = ToolStripItemImageScaling.None;
+            btnPdfGabarito.ImageTransparentColor = Color.Magenta;
+            btnPdfGabarito.Name = "btnPdfGabarito";
+            btnPdfGabarito.Size = new Size(28, 28);
+            btnPdfGabarito.Text = "Gerar Gabarito em PDF";
+            btnPdfGabarito.Click += toolStripButton1_Click;
             // 
             // lblTipoCadastro
             // 
@@ -269,5 +282,6 @@
         private ToolStripButton btnVisualizar;
         private ToolStripButton btnCriarPdf;
         private ToolStripSeparator toolStripSeparator2;
+        private ToolStripButton btnPdfGabarito;
     }
 }

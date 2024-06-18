@@ -5,7 +5,7 @@ using WinFormsApp.ModuloQuestao;
 
 namespace WinFormsApp.ModuloTeste
 {
-    public class ControladorTeste : ControladorBase, IControladorVisualizavel, IControladorDuplicavel
+    public class ControladorTeste : ControladorBase, IControladorVisualizavel, IControladorDuplicavel, IControladorGeraPdf
     {
         private TabelaTesteControl TabelaTeste;
         private IRepositorioTeste repositorioTeste;
@@ -27,6 +27,8 @@ namespace WinFormsApp.ModuloTeste
         public override string ToolTipExcluir { get { return "Excluir um Teste existente"; } }
         public string ToolTipVisualizar { get { return "Visualizar Teste"; } }
         public string ToolTipDuplicar { get { return "Duplicar Teste"; } }
+        public string ToolTipGeradorPDFTeste { get { return "Gerar PDF Teste"; } }
+        public string ToolTipGeradorPDFGabarito { get { return "Gerar PDF Gabarito do Teste"; } }
 
         public override void Adicionar()
         {        
@@ -231,6 +233,41 @@ namespace WinFormsApp.ModuloTeste
                .Instancia
                .AtualizarRodape($"O registro do teste \"{novoTesteduplicado.Titulo}\" foi criado com sucesso!");
 
+            if (resultado != DialogResult.OK)
+                return;
+        }        
+
+        public void GerarGabaritoPDF()
+        {
+            int idSelecionado = TabelaTeste.ObterRegistroSelecionado();
+
+            Teste testeSelecionado = repositorioTeste.SelecionarPorId(idSelecionado);
+
+            string caminho = $"C:\\temp\\GeradorDeTestes\\gabarito {testeSelecionado.Titulo}.pdf";
+
+            GerarPdf gerarGabarito = new GerarPdf();
+            gerarGabarito.GerarPdfGabarito(testeSelecionado, caminho);
+
+            TelaPrincipalForm
+            .Instancia
+            .AtualizarRodape($"O gabarito do teste foi gerado com sucesso!");
+
+        }
+
+        public void GerarTestePDF()
+        {           
+            int idSelecionado = TabelaTeste.ObterRegistroSelecionado();
+
+            Teste testeSelecionado = repositorioTeste.SelecionarPorId(idSelecionado);
+
+            string caminho = $"C:\\temp\\GeradorDeTestes\\{testeSelecionado.Titulo}.pdf";            
+
+            GerarPdf gerarPdf = new GerarPdf();
+            gerarPdf.GerarPdfTeste(testeSelecionado, caminho);
+
+            TelaPrincipalForm
+             .Instancia
+             .AtualizarRodape($"O teste foi gerado com sucesso!");
         }
     }
 }
