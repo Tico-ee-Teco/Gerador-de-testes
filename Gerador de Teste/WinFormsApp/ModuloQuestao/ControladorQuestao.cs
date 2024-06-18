@@ -1,5 +1,4 @@
 ﻿using WinFormsApp.Compartilhado;
-using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
 
 namespace WinFormsApp.ModuloQuestao
@@ -31,7 +30,7 @@ namespace WinFormsApp.ModuloQuestao
         }
         public override void Adicionar()
         {
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos()); 
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos());
 
             DialogResult resultado = telaQuestao.ShowDialog();
 
@@ -39,6 +38,17 @@ namespace WinFormsApp.ModuloQuestao
                 return;
 
             Questao novaQuestao = telaQuestao.Questao;
+
+            if (repositorioQuestao.SelecionarTodos().Any(q => q.Enunciado.Equals(novaQuestao.Enunciado.Trim(), StringComparison.OrdinalIgnoreCase)))
+            {
+                MessageBox.Show(
+                    $"Já existe uma Questao com o Enunciado \"{novaQuestao.Enunciado}\".",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
 
             List<string> erros = ValidarQuestao(novaQuestao);
             if (erros.Count > 0)
@@ -62,7 +72,7 @@ namespace WinFormsApp.ModuloQuestao
 
         public override void Editar()
         {
-            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos()); //
+            TelaQuestaoForm telaQuestao = new TelaQuestaoForm(repositorioMateria.SelecionarTodos());
 
             int idSelecionado = tabelaQuestao.ObterRegistroSelecionado();
 
@@ -144,7 +154,7 @@ namespace WinFormsApp.ModuloQuestao
             TelaPrincipalForm
               .Instancia
               .AtualizarRodape($"O registro \"{questaoSelecionada.Enunciado}\" foi excluído com sucesso!");
-        }       
+        }
 
         private void CarregarQuestao()
         {

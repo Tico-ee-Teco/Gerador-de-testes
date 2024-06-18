@@ -99,6 +99,7 @@
             // 
             // CmbDisciplina
             // 
+            CmbDisciplina.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbDisciplina.FormattingEnabled = true;
             CmbDisciplina.Location = new Point(116, 157);
             CmbDisciplina.Margin = new Padding(3, 4, 3, 4);
