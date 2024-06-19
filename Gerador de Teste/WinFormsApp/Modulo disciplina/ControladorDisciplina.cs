@@ -34,7 +34,7 @@ namespace WinFormsApp.Modulo_disciplina
 
            Disciplina novadisciplina = telaDisciplina.Disciplina;
 
-            if (repositorioDisciplina.SelecionarTodos().Any(m => m.Nome.Equals(novadisciplina.Nome, StringComparison.OrdinalIgnoreCase)))
+            if (repositorioDisciplina.SelecionarTodos().Any(m => m.Nome.Equals(novadisciplina.Nome.Trim(), StringComparison.OrdinalIgnoreCase)))
             {
                 MessageBox.Show(
                     $"Já existe uma matéria com o nome \"{novadisciplina.Nome}\".",
@@ -82,7 +82,7 @@ namespace WinFormsApp.Modulo_disciplina
 
             Disciplina DisciplinaEditada = telaDisciplina.Disciplina;
 
-            if (repositorioDisciplina.SelecionarTodos().Any(m => m.Nome.Equals(DisciplinaEditada.Nome, StringComparison.OrdinalIgnoreCase)))
+            if (repositorioDisciplina.SelecionarTodos().Any(m => m.Nome.Equals(DisciplinaEditada.Nome.Trim(), StringComparison.OrdinalIgnoreCase)))
             {
                 MessageBox.Show(
                     $"Já existe uma matéria com o nome \"{DisciplinaEditada.Nome}\".",

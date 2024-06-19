@@ -79,7 +79,7 @@ namespace WinFormsApp.ModuloMateria
 
             Materia materiaEditada = telaMateria.Materia;
 
-            if (repositorioMateria.SelecionarTodos().Any(m => m.Nome.Equals(materiaEditada.Nome, StringComparison.OrdinalIgnoreCase)))
+            if (repositorioMateria.SelecionarTodos().Any(m => m.Nome.Equals(materiaEditada.Nome.Trim(), StringComparison.OrdinalIgnoreCase)))
             {
                 MessageBox.Show(
                     $"Já existe uma matéria com o nome \"{materiaEditada.Nome}\".",

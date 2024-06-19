@@ -46,7 +46,7 @@ namespace WinFormsApp.ModuloTeste
 
             Teste novoTeste = telaTeste.Teste;
             
-            if (repositorioTeste.SelecionarTodos().Any(t => t.Titulo.Equals(novoTeste.Titulo, StringComparison.OrdinalIgnoreCase)))
+            if (repositorioTeste.SelecionarTodos().Any(t => t.Titulo.Equals(novoTeste.Titulo.Trim(), StringComparison.OrdinalIgnoreCase)))
             {
                 MessageBox.Show(
                     $"Já existe um teste com o título \"{novoTeste.Titulo}\".",
@@ -98,7 +98,7 @@ namespace WinFormsApp.ModuloTeste
 
             Teste testeEditado = telaTeste.Teste;
 
-            if (repositorioTeste.SelecionarTodos().Any(t => t.Titulo.Equals(testeEditado.Titulo, StringComparison.OrdinalIgnoreCase) && t.Id != testeSelecionado.Id))
+            if (repositorioTeste.SelecionarTodos().Any(t => t.Titulo.Equals(testeEditado.Titulo.Trim(), StringComparison.OrdinalIgnoreCase) && t.Id != testeSelecionado.Id))
             {
                 MessageBox.Show(
                     $"Já existe um teste com o título \"{testeEditado.Titulo}\".",

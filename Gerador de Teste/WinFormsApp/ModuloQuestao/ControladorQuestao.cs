@@ -87,8 +87,7 @@ namespace WinFormsApp.ModuloQuestao
                     MessageBoxIcon.Error
                 );
                 return;
-            }
-
+            }          
             telaQuestao.Questao = questaoSelecionada;
 
             DialogResult resultado = telaQuestao.ShowDialog();
@@ -98,6 +97,27 @@ namespace WinFormsApp.ModuloQuestao
            
             Questao questaoEditada = telaQuestao.Questao;
 
+            if (repositorioQuestao.SelecionarTodos().Any(q => q.Enunciado.Equals(questaoEditada.Enunciado.Trim(), StringComparison.OrdinalIgnoreCase) && q.Id != questaoSelecionada.Id))
+            {
+                MessageBox.Show(
+                    $"Já existe uma questão com o enunciado \"{questaoEditada.Enunciado}\".",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
+            List<string> erros = ValidarQuestao(questaoEditada);
+            if (erros.Count > 0)
+            {
+                MessageBox.Show(
+                    string.Join("\n", erros),
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
             questaoSelecionada.Enunciado = questaoEditada.Enunciado;
             questaoSelecionada.Materia = questaoEditada.Materia;
 
@@ -117,9 +137,6 @@ namespace WinFormsApp.ModuloQuestao
                 .Instancia
                 .AtualizarRodape($"O registro \"{questaoEditada.Enunciado}\" foi editado com sucesso!");
         }
-
-        
-
         public override void Excluir()
         {
             TelaQuestaoForm telaQuestaoForm = new TelaQuestaoForm(repositorioMateria.SelecionarTodos()); //
@@ -138,7 +155,6 @@ namespace WinFormsApp.ModuloQuestao
                 );
                 return;
             }
-
             if (repositorioQuestao.EstaEmTeste(questaoSelecionada.Id))
             {
                 MessageBox.Show(
@@ -149,7 +165,6 @@ namespace WinFormsApp.ModuloQuestao
                 );
                 return;
             }
-
             DialogResult resultado = MessageBox.Show(
                  $"Você deseja realmente excluir o registro \"{questaoSelecionada.Enunciado}\"?",
                  "Confirmar Exclusão",
@@ -168,14 +183,12 @@ namespace WinFormsApp.ModuloQuestao
               .Instancia
               .AtualizarRodape($"O registro \"{questaoSelecionada.Enunciado}\" foi excluído com sucesso!");
         }
-
         private void CarregarQuestao()
         {
             List<Questao> questoes = repositorioQuestao.SelecionarTodos();
 
             tabelaQuestao.AtualizarRegistros(questoes);
         }
-
         public override UserControl ObterListagem()
         {
             if (tabelaQuestao == null)
@@ -185,7 +198,5 @@ namespace WinFormsApp.ModuloQuestao
 
             return tabelaQuestao;
         }
-
-
     }
 }
