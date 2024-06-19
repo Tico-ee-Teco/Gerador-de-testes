@@ -250,7 +250,7 @@ namespace WinFormsApp.ModuloTeste
 
             TelaPrincipalForm
             .Instancia
-            .AtualizarRodape($"O gabarito do teste foi gerado com sucesso!");
+            .AtualizarRodape($"O gabarito do teste foi gerado no com (C:\\temp\\GeradorDeTestes\\gabarito {testeSelecionado.Titulo}.pdf) sucesso!");
 
         }
 
@@ -267,7 +267,7 @@ namespace WinFormsApp.ModuloTeste
 
             TelaPrincipalForm
              .Instancia
-             .AtualizarRodape($"O teste foi gerado com sucesso!");
+             .AtualizarRodape($"O teste foi gerado no (C:\\temp\\GeradorDeTestes\\{testeSelecionado.Titulo}.pdf) com sucesso!");
         }
     }
 }
