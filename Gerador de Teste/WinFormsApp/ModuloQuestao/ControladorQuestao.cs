@@ -95,9 +95,20 @@ namespace WinFormsApp.ModuloQuestao
 
             if (resultado != DialogResult.OK)
                 return;
-
+           
             Questao questaoEditada = telaQuestao.Questao;
 
+            questaoSelecionada.Enunciado = questaoEditada.Enunciado;
+            questaoSelecionada.Materia = questaoEditada.Materia;
+
+            foreach(var alternativa in questaoEditada.Alternativas)
+            {
+                questaoSelecionada.Alternativas.Add(alternativa);
+            }
+
+            questaoSelecionada.Alternativas = new List<Alternativa>(questaoEditada.Alternativas);
+
+            repositorioQuestao.Atualizar(questaoSelecionada);
             repositorioQuestao.Editar(questaoSelecionada.Id, questaoEditada);
 
             CarregarQuestao();
@@ -106,6 +117,8 @@ namespace WinFormsApp.ModuloQuestao
                 .Instancia
                 .AtualizarRodape($"O registro \"{questaoEditada.Enunciado}\" foi editado com sucesso!");
         }
+
+        
 
         public override void Excluir()
         {
@@ -172,5 +185,7 @@ namespace WinFormsApp.ModuloQuestao
 
             return tabelaQuestao;
         }
+
+
     }
 }

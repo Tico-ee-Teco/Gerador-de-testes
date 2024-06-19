@@ -8,5 +8,6 @@
         Questao SelecionarPorId(int idSelecionado);
         List<Questao> SelecionarTodos();
         bool EstaEmTeste(int idQuestao);
+        void Atualizar(Questao questaoAtualizada);
     }
 }

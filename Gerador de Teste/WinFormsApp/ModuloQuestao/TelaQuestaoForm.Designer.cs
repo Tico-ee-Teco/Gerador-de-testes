@@ -60,8 +60,7 @@
             cmbMateria.Location = new Point(101, 68);
             cmbMateria.Name = "cmbMateria";
             cmbMateria.Size = new Size(182, 28);
-            cmbMateria.TabIndex = 1;
-            cmbMateria.SelectedIndexChanged += cmbMateria_SelectedIndexChanged;
+            cmbMateria.TabIndex = 1;            
             // 
             // label2
             // 
