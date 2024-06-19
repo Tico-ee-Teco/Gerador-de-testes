@@ -32,7 +32,7 @@ namespace WinFormsApp.ModuloQuestao
         public int ObterRegistroSelecionado()
         {
             return grid.SelecionarId();
-        }
+        }        
 
         private DataGridViewColumn[] ObterColunas()
         {

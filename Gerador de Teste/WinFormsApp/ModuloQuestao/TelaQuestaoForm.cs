@@ -36,6 +36,13 @@ namespace WinFormsApp.ModuloQuestao
                 return listAlternativa.Items.Cast<Alternativa>().ToList();
             }
         }
+        public List<Alternativa> AlternativaDesmarcadas
+        {
+            get
+            {
+                return listAlternativa.Items.Cast<Alternativa>().Except(AdicionarAlternativa).ToList();
+            }
+        }
 
         public TelaQuestaoForm(List<Materia> materias)
         {
@@ -47,10 +54,13 @@ namespace WinFormsApp.ModuloQuestao
         }
         private void btnGravar_Click(object sender, EventArgs e)
         {
+
             string enunciado = txtEnunciado.Text;
             Materia materia = (Materia)cmbMateria.SelectedItem;
 
             questao = new Questao(enunciado, materia);
+
+            questao.Alternativas = ObterAlternativasAtualizadas();
 
             foreach (var item in listAlternativa.Items)
             {
@@ -126,5 +136,16 @@ namespace WinFormsApp.ModuloQuestao
                 }
             }
         }
+
+        private List<Alternativa> ObterAlternativasAtualizadas()
+        {
+            // Implemente o método para obter a lista de alternativas atualizadas do formulário
+            List<Alternativa> alternativasAtualizadas = new List<Alternativa>();
+            // Adicione a lógica para preencher alternativasAtualizadas com os dados do formulário
+            return alternativasAtualizadas;
+        }
+
+
+
     }
 }
