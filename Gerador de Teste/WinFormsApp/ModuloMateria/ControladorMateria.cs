@@ -115,6 +115,16 @@ namespace WinFormsApp.ModuloMateria
                 return;
             }
 
+            if (repositorioMateria.ExisteMateriaComQuestao(materiaSelecionada.Id))
+            {
+                MessageBox.Show(
+                    "Não é possível excluir esta matéria pois ela está associada a uma ou mais Questoes.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
             if (repositorioMateria.ExisteTesteComMateria(materiaSelecionada.Id))
             {
                 MessageBox.Show(
@@ -125,7 +135,6 @@ namespace WinFormsApp.ModuloMateria
                 );
                 return;
             }
-
             DialogResult resultado = MessageBox.Show(
                  $"Você deseja realmente excluir o registro \"{materiaSelecionada.Nome}\"?",
                  "Confirmar Exclusão",

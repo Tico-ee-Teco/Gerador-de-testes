@@ -34,8 +34,8 @@ namespace WinFormsApp.Modulo_disciplina
 
             foreach (Materia materia in materias)
             {
-                if(materia.Id == DisciplinaId)
-                    {
+                if (materia.Disciplina != null && materia.Disciplina.Id == DisciplinaId)
+                {
                     return true;
                 }
             }

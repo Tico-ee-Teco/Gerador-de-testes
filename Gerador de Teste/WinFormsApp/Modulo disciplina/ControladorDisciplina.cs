@@ -123,7 +123,7 @@ namespace WinFormsApp.Modulo_disciplina
             if (repositorioDisciplina.ExisteTesteComDisciplina(DisciplinaSelecionada.Id))
             {
                 MessageBox.Show(
-                    "Não é possível excluir esta matéria pois ela está associada a um ou mais testes.",
+                    "Não é possível excluir esta Disciplina pois ela está associada a um ou mais testes.",
                     "Erro",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -133,7 +133,7 @@ namespace WinFormsApp.Modulo_disciplina
             if (repositorioDisciplina.ExisteDisciplinaComMateria(DisciplinaSelecionada.Id))
             {
                 MessageBox.Show(
-                    "Não é possível excluir esta matéria pois ela está associada a um ou mais disciplinas.",
+                    "Não é possível excluir esta Disciplina pois ela está associada a um ou mais Materias.",
                     "Erro",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error

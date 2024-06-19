@@ -6,7 +6,7 @@ namespace WinFormsApp.ModuloMateria
 {
     public class RepositorioMateriaEmArquivo : RepositorioBaseEmArquivo<Materia>, IRepositorioMateria
     {
-        public RepositorioMateriaEmArquivo( ContextoDados contexto) : base(contexto)
+        public RepositorioMateriaEmArquivo(ContextoDados contexto) : base(contexto)
         {
 
         }
@@ -27,14 +27,13 @@ namespace WinFormsApp.ModuloMateria
             }
             return false;
         }
-
         public bool ExisteMateriaComQuestao(int idMateria)
         {
             List<Questao> questoes = contexto.Questoes;
 
             foreach (Questao questao in questoes)
             {
-                if (questao.Id == idMateria)
+                if (questao.Materia != null && questao.Materia.Id == idMateria)
                 {
                     return true;
                 }
