@@ -32,13 +32,10 @@ namespace WinFormsApp.ModuloQuestao
 
         public void Atualizar(Questao questaoAtualizada)
         {
-
             Questao questaoExistente = SelecionarPorId(questaoAtualizada.Id);
             if (questaoExistente == null)
                 throw new KeyNotFoundException("Questão não encontrada!");
-
-            //questaoExistente.Enunciado = questaoAtualizada.Enunciado;
-            //questaoExistente.Materia = questaoAtualizada.Materia;
+            
             questaoExistente.Alternativas = new List<Alternativa>(questaoAtualizada.Alternativas);
             
             contexto.Gravar();

@@ -1,5 +1,4 @@
-﻿
-using WinFormsApp.Compartilhado;
+﻿using WinFormsApp.Compartilhado;
 using WinFormsApp.Modulo_disciplina;
 
 namespace WinFormsApp.ModuloMateria

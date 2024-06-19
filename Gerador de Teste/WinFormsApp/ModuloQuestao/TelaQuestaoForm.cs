@@ -138,10 +138,9 @@ namespace WinFormsApp.ModuloQuestao
         }
 
         private List<Alternativa> ObterAlternativasAtualizadas()
-        {
-            // Implemente o método para obter a lista de alternativas atualizadas do formulário
+        {           
             List<Alternativa> alternativasAtualizadas = new List<Alternativa>();
-            // Adicione a lógica para preencher alternativasAtualizadas com os dados do formulário
+           
             return alternativasAtualizadas;
         }
 

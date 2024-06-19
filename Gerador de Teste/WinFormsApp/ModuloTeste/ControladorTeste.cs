@@ -251,7 +251,6 @@ namespace WinFormsApp.ModuloTeste
             TelaPrincipalForm
             .Instancia
             .AtualizarRodape($"O gabarito do teste foi gerado no com (C:\\temp\\GeradorDeTestes\\gabarito {testeSelecionado.Titulo}.pdf) sucesso!");
-
         }
 
         public void GerarTestePDF()

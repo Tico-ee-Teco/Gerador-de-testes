@@ -65,8 +65,6 @@ namespace WinFormsApp.ModuloQuestao
         public override string ToString()
         {         
             return $"{Enunciado}";
-        }
-
-       
+        }       
     }
 }
