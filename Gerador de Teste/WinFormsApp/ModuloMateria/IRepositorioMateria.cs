@@ -8,6 +8,7 @@
        Materia SelecionarPorId(int idSelecionado);
        List<Materia> SelecionarTodos();
        bool ExisteTesteComMateria(int materiaId);
+       bool ExisteMateriaComQuestao(int materiaId);
 
     }
 }

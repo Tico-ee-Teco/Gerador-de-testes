@@ -1,4 +1,6 @@
 ﻿using WinFormsApp.Compartilhado;
+using WinFormsApp.ModuloMateria;
+using WinFormsApp.ModuloQuestao;
 using WinFormsApp.ModuloTeste;
 
 namespace WinFormsApp.Modulo_disciplina
@@ -20,6 +22,20 @@ namespace WinFormsApp.Modulo_disciplina
             {
                 if (teste.Disciplina != null && teste.Disciplina.Id == Disciplinaid)
                 {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool ExisteDisciplinaComMateria(int DisciplinaId)
+        {
+            List<Materia> materias = contexto.Materias;
+
+            foreach (Materia materia in materias)
+            {
+                if(materia.Id == DisciplinaId)
+                    {
                     return true;
                 }
             }

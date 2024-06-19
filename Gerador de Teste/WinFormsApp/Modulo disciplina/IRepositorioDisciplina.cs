@@ -8,5 +8,6 @@
         Disciplina SelecionarPorId(int idSelecionado);
         List<Disciplina> SelecionarTodos();
         bool ExisteTesteComDisciplina(int DiscipinaId);
+        bool ExisteDisciplinaComMateria(int DisciplinaId);
     }    
 }
