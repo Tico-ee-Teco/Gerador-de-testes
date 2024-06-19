@@ -130,6 +130,16 @@ namespace WinFormsApp.Modulo_disciplina
                 );
                 return;
             }
+            if (repositorioDisciplina.ExisteDisciplinaComMateria(DisciplinaSelecionada.Id))
+            {
+                MessageBox.Show(
+                    "Não é possível excluir esta matéria pois ela está associada a um ou mais disciplinas.",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
             DialogResult resultado = MessageBox.Show(
                  $"Você deseja realmente excluir o registro \"{DisciplinaSelecionada.Nome}\"?",
                  "Confirmar Exclusão",
