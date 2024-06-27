@@ -8,7 +8,6 @@ namespace WinFormsApp.ModuloMateria
         public string Nome { get; set; }
         public Disciplina Disciplina { get; set; } 
         public string Serie { get; set; } 
-
         public Materia() { }
 
         public Materia(string nome, Disciplina disciplina, string serie)
@@ -39,6 +38,7 @@ namespace WinFormsApp.ModuloMateria
         }
         public override string ToString()
         {
+            
             return $" {Nome} {Serie}";
         }  
     }

@@ -6,12 +6,25 @@ namespace WinFormsApp.ModuloQuestao
     public class Questao : EntidadeBase
     {
         public string Enunciado { get; set; }
+    
+        public string resposta = string.Empty;
         public string Resposta
         {
             get
             {
+                if(Alternativas.Count == 0)
+                    return resposta;
+
                 Alternativa alternativaCorreta = Alternativas.FirstOrDefault(a => a.AlternativaCorreta);
-                return alternativaCorreta != null ? alternativaCorreta.TextoAlternativa : string.Empty;
+                return alternativaCorreta.TextoAlternativa;
+
+                //Alternativa alternativaCorreta = Alternativas.FirstOrDefault(a => a.AlternativaCorreta);
+                //return alternativaCorreta != null ? alternativaCorreta.TextoAlternativa : string.Empty;
+
+            }
+            set
+            {
+                resposta = value;
             }
         }       
 
