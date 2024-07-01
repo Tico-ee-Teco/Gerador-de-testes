@@ -69,7 +69,7 @@ namespace WinFormsApp.ModuloTeste
                     
                     foreach (var alternativa in questao.Alternativas)
                     {
-                        gfx.DrawString($"{alternativa.Letra}) {alternativa.TextoAlternativa}", fonteQuestao, XBrushes.Black, new XRect(60, yPoint, pagina.Width - 80, pagina.Height), XStringFormats.TopLeft);
+                        gfx.DrawString($"{alternativa.Letra}) {alternativa.Resposta}", fonteQuestao, XBrushes.Black, new XRect(60, yPoint, pagina.Width - 80, pagina.Height), XStringFormats.TopLeft);
                         yPoint += 20;
                     }
                     yPoint += 20;
@@ -81,7 +81,7 @@ namespace WinFormsApp.ModuloTeste
                                         
                     foreach (var alternativa in questao.Alternativas)
                     {
-                        gfx.DrawString($"{alternativa.Letra}) {alternativa.TextoAlternativa}", fonteQuestao, XBrushes.Black, new XRect(60, yPoint, pagina.Width - 80, pagina.Height), XStringFormats.TopLeft);
+                        gfx.DrawString($"{alternativa.Letra}) {alternativa.Resposta}", fonteQuestao, XBrushes.Black, new XRect(60, yPoint, pagina.Width - 80, pagina.Height), XStringFormats.TopLeft);
                         yPoint += 20;
                     }
                     yPoint += 20;
@@ -162,11 +162,11 @@ namespace WinFormsApp.ModuloTeste
                 {
                     if (alternativa.AlternativaCorreta)
                     {
-                        gfx.DrawString($"{alternativa.Letra}) {alternativa.TextoAlternativa}", fonteQuestao, XBrushes.Green, new XRect(60, yPoint, pagina.Width - 80, pagina.Height), XStringFormats.TopLeft);
+                        gfx.DrawString($"{alternativa.Letra}) {alternativa.Resposta}", fonteQuestao, XBrushes.Green, new XRect(60, yPoint, pagina.Width - 80, pagina.Height), XStringFormats.TopLeft);
                     }
                     else
                     {
-                        gfx.DrawString($"{alternativa.Letra}) {alternativa.TextoAlternativa}", fonteQuestao, XBrushes.Black, new XRect(60, yPoint, pagina.Width - 80, pagina.Height), XStringFormats.TopLeft);
+                        gfx.DrawString($"{alternativa.Letra}) {alternativa.Resposta}", fonteQuestao, XBrushes.Black, new XRect(60, yPoint, pagina.Width - 80, pagina.Height), XStringFormats.TopLeft);
                     }
                     yPoint += 20;
                 }

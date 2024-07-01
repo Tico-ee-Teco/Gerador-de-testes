@@ -29,7 +29,7 @@ namespace WinFormsApp
             contexto = new ContextoDados(carregarDados: true);
             repositorioDisciplina = new RepositorioDisciplinaEmSql();
             repositorioMateria = new RepositorioMateriaEmSql();
-            repositorioQuestao = new RepositorioQuestaoEmArquivo(contexto);
+            repositorioQuestao = new RepositorioQuestaoEmSql();
             repositorioTeste = new RepositorioTesteEmArquivo(contexto);
 
         }

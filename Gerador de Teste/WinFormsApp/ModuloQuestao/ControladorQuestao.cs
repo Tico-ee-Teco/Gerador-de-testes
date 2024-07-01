@@ -37,7 +37,7 @@ namespace WinFormsApp.ModuloQuestao
             if (resultado != DialogResult.OK)
                 return;
 
-            Questao novaQuestao = telaQuestao.Questao;
+            Questao novaQuestao = telaQuestao.Questao;//Aqui é onde a questão é criada
 
             if (repositorioQuestao.SelecionarTodos().Any(q => q.Enunciado.Equals(novaQuestao.Enunciado.Trim(), StringComparison.OrdinalIgnoreCase)))
             {
@@ -61,9 +61,9 @@ namespace WinFormsApp.ModuloQuestao
                 );
                 return;
             }
-            repositorioQuestao.Cadastrar(novaQuestao);
-
-            CarregarQuestao();
+            repositorioQuestao.Cadastrar(novaQuestao);//Aqui é onde a questão é cadastrada
+            
+            CarregarQuestao();//Aqui é onde a questão é carregada
 
             TelaPrincipalForm
                .Instancia
