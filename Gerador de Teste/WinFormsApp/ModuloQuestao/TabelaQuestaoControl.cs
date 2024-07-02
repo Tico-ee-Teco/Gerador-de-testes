@@ -1,4 +1,5 @@
 ﻿using WinFormsApp.Compartilhado;
+using WinFormsApp.Dominio.ModuloQuestao;
 
 namespace WinFormsApp.ModuloQuestao
 {

@@ -1,8 +1,16 @@
 using WinFormsApp.Compartilhado;
+using WinFormsApp.Dominio.Modulo_disciplina;
+using WinFormsApp.Dominio.ModuloMateria;
+using WinFormsApp.Dominio.ModuloQuestao;
+using WinFormsApp.Dominio.ModuloTeste;
 using WinFormsApp.Modulo_disciplina;
 using WinFormsApp.ModuloMateria;
 using WinFormsApp.ModuloQuestao;
 using WinFormsApp.ModuloTeste;
+using WinFormsApp.Infra.Sql.Modulo_disciplina;
+using WinFormsApp.Infra.Sql.ModuloMateria;
+using WinFormsApp.Infra.Sql.ModuloQuestao;
+using WinFormsApp.Infra.Sql.ModuloTeste;
 
 namespace WinFormsApp
 {
@@ -30,7 +38,7 @@ namespace WinFormsApp
             repositorioDisciplina = new RepositorioDisciplinaEmSql();
             repositorioMateria = new RepositorioMateriaEmSql();
             repositorioQuestao = new RepositorioQuestaoEmSql();
-            repositorioTeste = new RepositorioTesteEmArquivo(contexto);
+            repositorioTeste = new RepositorioTesteEmSql();
 
         }
         private void disciplinaMenuItem_Click(object sender, EventArgs e)

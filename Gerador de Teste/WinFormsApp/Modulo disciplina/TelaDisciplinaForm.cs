@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp.Modulo_disciplina
+﻿using WinFormsApp.Dominio.Modulo_disciplina;
+
+namespace WinFormsApp.Modulo_disciplina
 {
     public partial class TelaDisciplinaForm : Form
     {

@@ -18,6 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GeradorDeTeste.Dominio\GeradorDeTeste.Dominio.csproj" />
+    <ProjectReference Include="..\GeradorDeTeste.Infra.Arquivos\GeradorDeTeste.Infra.Arquivos.csproj" />
+    <ProjectReference Include="..\GeradorDeTeste.Infra.Sql\GeradorDeTeste.Infra.Sql.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

@@ -1,4 +1,6 @@
-﻿namespace WinFormsApp.ModuloTeste
+﻿using WinFormsApp.Dominio.ModuloTeste;
+
+namespace WinFormsApp.ModuloTeste
 {
     public partial class TelaVisualizaTesteForm : Form
     {

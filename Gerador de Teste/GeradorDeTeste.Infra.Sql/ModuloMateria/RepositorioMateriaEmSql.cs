@@ -1,9 +1,9 @@
 ﻿
 using Microsoft.Data.SqlClient;
-using WinFormsApp.Modulo_disciplina;
-using WinFormsApp.ModuloQuestao;
+using WinFormsApp.Dominio.Modulo_disciplina;
+using WinFormsApp.Dominio.ModuloMateria;
 
-namespace WinFormsApp.ModuloMateria
+namespace WinFormsApp.Infra.Sql.ModuloMateria
 {
     public class RepositorioMateriaEmSql : IRepositorioMateria
     {

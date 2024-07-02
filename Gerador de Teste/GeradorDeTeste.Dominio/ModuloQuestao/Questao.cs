@@ -1,7 +1,7 @@
-﻿using WinFormsApp.Compartilhado;
-using WinFormsApp.ModuloMateria;
+﻿using WinFormsApp.Dominio.Compartilhado;
+using WinFormsApp.Dominio.ModuloMateria;
 
-namespace WinFormsApp.ModuloQuestao
+namespace WinFormsApp.Dominio.ModuloQuestao
 {
     public class Questao : EntidadeBase
     {

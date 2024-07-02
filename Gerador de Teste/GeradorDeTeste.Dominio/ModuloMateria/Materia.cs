@@ -1,7 +1,7 @@
-﻿using WinFormsApp.Compartilhado;
-using WinFormsApp.Modulo_disciplina;
+﻿using WinFormsApp.Dominio.Compartilhado;
+using WinFormsApp.Dominio.Modulo_disciplina;
 
-namespace WinFormsApp.ModuloMateria
+namespace WinFormsApp.Dominio.ModuloMateria
 {
     public class Materia : EntidadeBase
     {

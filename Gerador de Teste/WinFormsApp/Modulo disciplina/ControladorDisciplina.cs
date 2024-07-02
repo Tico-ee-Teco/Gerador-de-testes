@@ -1,4 +1,5 @@
 ﻿using WinFormsApp.Compartilhado;
+using WinFormsApp.Dominio.Modulo_disciplina;
 
 namespace WinFormsApp.Modulo_disciplina
 {

@@ -1,5 +1,6 @@
 ﻿using WinFormsApp.Compartilhado;
-using WinFormsApp.ModuloMateria;
+using WinFormsApp.Dominio.ModuloMateria;
+using WinFormsApp.Dominio.ModuloQuestao;
 
 namespace WinFormsApp.ModuloQuestao
 {

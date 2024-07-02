@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.ModuloQuestao
+﻿namespace WinFormsApp.Dominio.ModuloQuestao
 {
     public interface IRepositorioQuestao
     {

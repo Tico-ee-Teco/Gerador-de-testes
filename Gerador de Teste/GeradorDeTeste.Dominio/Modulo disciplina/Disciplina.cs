@@ -1,7 +1,6 @@
-﻿
-using WinFormsApp.Compartilhado;
+﻿using WinFormsApp.Dominio.Compartilhado;
 
-namespace WinFormsApp.Modulo_disciplina
+namespace WinFormsApp.Dominio.Modulo_disciplina
 {
     public class Disciplina : EntidadeBase
     {

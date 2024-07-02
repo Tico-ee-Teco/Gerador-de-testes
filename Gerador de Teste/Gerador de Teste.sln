@@ -3,7 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp", "WinFormsApp\WinFormsApp.csproj", "{AEC76EEA-175F-45E8-A9E0-0EF12C811EC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp", "WinFormsApp\WinFormsApp.csproj", "{AEC76EEA-175F-45E8-A9E0-0EF12C811EC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Apresentação", "1.Apresentação", "{BF6F97F1-395B-47CF-8361-9C2A60928A65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Dominio", "2.Dominio", "{DFB892FF-5239-4C14-8175-3D20EBF641F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeradorDeTeste.Dominio", "GeradorDeTeste.Dominio\GeradorDeTeste.Dominio.csproj", "{9682675E-2387-4D85-8529-38E4B32AA377}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Infraestrutura", "3.Infraestrutura", "{2B65B548-3252-4439-948F-F544B55BF1DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1.Arquivos", "3.1.Arquivos", "{8A785544-4638-405F-847B-2836FC1567E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2.Sql", "3.2.Sql", "{89C4ADC2-C510-4897-A929-0E78377C0BED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeradorDeTeste.Infra.Arquivos", "GeradorDeTeste.Infra.Arquivos\GeradorDeTeste.Infra.Arquivos.csproj", "{5309BA4F-FC57-4CEB-9327-ACD8BEBC09A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeradorDeTeste.Infra.Sql", "GeradorDeTeste.Infra.Sql\GeradorDeTeste.Infra.Sql.csproj", "{490E33B8-8542-42CC-AFEC-BF9B8C6D1ABB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +31,29 @@ Global
 		{AEC76EEA-175F-45E8-A9E0-0EF12C811EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEC76EEA-175F-45E8-A9E0-0EF12C811EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEC76EEA-175F-45E8-A9E0-0EF12C811EC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9682675E-2387-4D85-8529-38E4B32AA377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9682675E-2387-4D85-8529-38E4B32AA377}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9682675E-2387-4D85-8529-38E4B32AA377}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9682675E-2387-4D85-8529-38E4B32AA377}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5309BA4F-FC57-4CEB-9327-ACD8BEBC09A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5309BA4F-FC57-4CEB-9327-ACD8BEBC09A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5309BA4F-FC57-4CEB-9327-ACD8BEBC09A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5309BA4F-FC57-4CEB-9327-ACD8BEBC09A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{490E33B8-8542-42CC-AFEC-BF9B8C6D1ABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{490E33B8-8542-42CC-AFEC-BF9B8C6D1ABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{490E33B8-8542-42CC-AFEC-BF9B8C6D1ABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{490E33B8-8542-42CC-AFEC-BF9B8C6D1ABB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AEC76EEA-175F-45E8-A9E0-0EF12C811EC8} = {BF6F97F1-395B-47CF-8361-9C2A60928A65}
+		{9682675E-2387-4D85-8529-38E4B32AA377} = {DFB892FF-5239-4C14-8175-3D20EBF641F8}
+		{8A785544-4638-405F-847B-2836FC1567E8} = {2B65B548-3252-4439-948F-F544B55BF1DB}
+		{89C4ADC2-C510-4897-A929-0E78377C0BED} = {2B65B548-3252-4439-948F-F544B55BF1DB}
+		{5309BA4F-FC57-4CEB-9327-ACD8BEBC09A4} = {8A785544-4638-405F-847B-2836FC1567E8}
+		{490E33B8-8542-42CC-AFEC-BF9B8C6D1ABB} = {89C4ADC2-C510-4897-A929-0E78377C0BED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D6D4CA75-7F66-4A1E-AD8C-0B79999D245F}

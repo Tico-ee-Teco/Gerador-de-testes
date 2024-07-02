@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.Compartilhado
+﻿namespace WinFormsApp.Dominio.Compartilhado
 {
     public abstract class EntidadeBase
     {

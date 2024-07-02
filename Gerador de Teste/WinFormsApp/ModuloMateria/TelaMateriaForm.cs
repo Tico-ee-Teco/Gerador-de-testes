@@ -1,4 +1,5 @@
-﻿using WinFormsApp.Modulo_disciplina;
+﻿using WinFormsApp.Dominio.Modulo_disciplina;
+using WinFormsApp.Dominio.ModuloMateria;
 
 namespace WinFormsApp.ModuloMateria
 {

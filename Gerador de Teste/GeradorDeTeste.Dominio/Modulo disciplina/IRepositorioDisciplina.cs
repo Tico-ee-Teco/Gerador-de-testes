@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.Modulo_disciplina
+﻿namespace WinFormsApp.Dominio.Modulo_disciplina
 {   
     public interface IRepositorioDisciplina
     {

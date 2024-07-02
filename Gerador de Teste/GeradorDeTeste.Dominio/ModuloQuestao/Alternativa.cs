@@ -1,6 +1,6 @@
-﻿using WinFormsApp.Compartilhado;
+﻿using WinFormsApp.Dominio.Compartilhado;
 
-namespace WinFormsApp.ModuloQuestao
+namespace WinFormsApp.Dominio.ModuloQuestao
 {
     public class Alternativa : EntidadeBase
     {        

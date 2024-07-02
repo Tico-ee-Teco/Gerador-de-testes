@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.ModuloMateria
+﻿namespace WinFormsApp.Dominio.ModuloMateria
 {
    public interface IRepositorioMateria 
    {

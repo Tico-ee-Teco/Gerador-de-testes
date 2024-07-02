@@ -1,7 +1,8 @@
 ﻿using WinFormsApp.Compartilhado;
-using WinFormsApp.Modulo_disciplina;
-using WinFormsApp.ModuloMateria;
-using WinFormsApp.ModuloQuestao;
+using WinFormsApp.Dominio.Modulo_disciplina;
+using WinFormsApp.Dominio.ModuloMateria;
+using WinFormsApp.Dominio.ModuloQuestao;
+using WinFormsApp.Dominio.ModuloTeste;
 
 namespace WinFormsApp.ModuloTeste
 {

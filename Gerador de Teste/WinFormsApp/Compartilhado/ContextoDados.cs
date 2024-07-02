@@ -1,9 +1,9 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
-using WinFormsApp.Modulo_disciplina;
-using WinFormsApp.ModuloMateria;
-using WinFormsApp.ModuloQuestao;
-using WinFormsApp.ModuloTeste;
+using WinFormsApp.Dominio.Modulo_disciplina;
+using WinFormsApp.Dominio.ModuloMateria;
+using WinFormsApp.Dominio.ModuloQuestao;
+using WinFormsApp.Dominio.ModuloTeste;
 
 namespace WinFormsApp.Compartilhado
 {

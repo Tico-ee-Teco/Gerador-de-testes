@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
+using WinFormsApp.Dominio.Modulo_disciplina;
 
-namespace WinFormsApp.Modulo_disciplina
+namespace WinFormsApp.Infra.Sql.Modulo_disciplina
 {
     public class RepositorioDisciplinaEmSql : IRepositorioDisciplina
     {

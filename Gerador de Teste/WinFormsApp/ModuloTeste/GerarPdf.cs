@@ -1,6 +1,7 @@
 ﻿using PdfSharp;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
+using WinFormsApp.Dominio.ModuloTeste;
 
 namespace WinFormsApp.ModuloTeste
 {

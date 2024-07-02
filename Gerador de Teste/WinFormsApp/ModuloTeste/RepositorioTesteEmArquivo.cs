@@ -1,4 +1,5 @@
 ﻿using WinFormsApp.Compartilhado;
+using WinFormsApp.Dominio.ModuloTeste;
 
 namespace WinFormsApp.ModuloTeste
 {

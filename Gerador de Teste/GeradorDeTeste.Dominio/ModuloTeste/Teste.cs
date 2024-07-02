@@ -1,9 +1,9 @@
-﻿using WinFormsApp.Compartilhado;
-using WinFormsApp.Modulo_disciplina;
-using WinFormsApp.ModuloMateria;
-using WinFormsApp.ModuloQuestao;
+﻿using WinFormsApp.Dominio.Compartilhado;
+using WinFormsApp.Dominio.Modulo_disciplina;
+using WinFormsApp.Dominio.ModuloMateria;
+using WinFormsApp.Dominio.ModuloQuestao;
 
-namespace WinFormsApp.ModuloTeste
+namespace WinFormsApp.Dominio.ModuloTeste
 {
     public class Teste : EntidadeBase
     {
@@ -13,6 +13,7 @@ namespace WinFormsApp.ModuloTeste
         public int QtdeQuestoes { get; set; }
         public bool ProvaRecuperacao { get; set; }
         public List<Questao> Questoes { get; set; }
+
         public Teste() { }      
 
         public Teste(string titulo, Disciplina disciplina, Materia materia, List<Questao> questoes)

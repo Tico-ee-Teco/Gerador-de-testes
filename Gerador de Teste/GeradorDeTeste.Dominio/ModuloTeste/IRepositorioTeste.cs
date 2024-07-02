@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp.ModuloTeste
+﻿namespace WinFormsApp.Dominio.ModuloTeste
 {
     public interface IRepositorioTeste
     {

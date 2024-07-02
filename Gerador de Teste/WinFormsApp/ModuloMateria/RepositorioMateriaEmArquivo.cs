@@ -1,4 +1,7 @@
 ﻿using WinFormsApp.Compartilhado;
+using WinFormsApp.Dominio.ModuloMateria;
+using WinFormsApp.Dominio.ModuloQuestao;
+using WinFormsApp.Dominio.ModuloTeste;
 using WinFormsApp.ModuloQuestao;
 using WinFormsApp.ModuloTeste;
 
