@@ -8,7 +8,7 @@ namespace WinFormsApp.ModuloQuestao
         public string Enunciado { get; set; }
     
         public string resposta = string.Empty;
-        public string Resposta //retorna as alternativas
+        public string Resposta
         {
             get
             {
@@ -16,7 +16,7 @@ namespace WinFormsApp.ModuloQuestao
                     return resposta;
 
                 Alternativa alternativaCorreta = Alternativas.FirstOrDefault(a => a.AlternativaCorreta);
-                return alternativaCorreta.Resposta;
+                return alternativaCorreta.TextoAlternativa;
 
                 //Alternativa alternativaCorreta = Alternativas.FirstOrDefault(a => a.AlternativaCorreta);
                 //return alternativaCorreta != null ? alternativaCorreta.TextoAlternativa : string.Empty;
@@ -32,15 +32,14 @@ namespace WinFormsApp.ModuloQuestao
 
         public Materia Materia { get; set; }
 
-        public Questao()
-        {
-            Alternativas = new List<Alternativa>();
-        }
+        public Questao() { }
 
-        public Questao(string enunciado, Materia materia) : this()
+        public Questao(string enunciado, Materia materia)
         {
             Enunciado = enunciado;            
-            Materia = materia;           
+            Materia = materia;
+
+            Alternativas = new List<Alternativa>();
         }
 
 
@@ -49,7 +48,6 @@ namespace WinFormsApp.ModuloQuestao
             Questao questao = (Questao)novoRegistro;
 
             Enunciado = questao.Enunciado;
-            Resposta = questao.Resposta;
         }
 
         public override List<string> Validar()

@@ -5,16 +5,15 @@ namespace WinFormsApp.ModuloQuestao
     public class Alternativa : EntidadeBase
     {        
         public char Letra { get; set; }
-        public string Resposta{ get; set; }
+        public string TextoAlternativa { get; set; }
         public bool AlternativaCorreta {  get; set; }
-        public Questao Questao { get; set; }
 
         public Alternativa() { }
 
-        public Alternativa(char letra, string reposta, bool alternativaCorreta)
+        public Alternativa(char letra, string textoAlternativa, bool alternativaCorreta)
         {
             Letra = letra;
-            Resposta = reposta;
+            TextoAlternativa = textoAlternativa;
             AlternativaCorreta = alternativaCorreta;
         }
 
@@ -23,7 +22,7 @@ namespace WinFormsApp.ModuloQuestao
             Alternativa alternativa = (Alternativa)novoRegistro;
 
             Letra = alternativa.Letra;
-            Resposta = alternativa.Resposta;
+            TextoAlternativa = alternativa.TextoAlternativa;
             AlternativaCorreta = alternativa.AlternativaCorreta;
         }
 
@@ -31,7 +30,7 @@ namespace WinFormsApp.ModuloQuestao
         {
             List<string> erros = new List<string>();
 
-            if (string.IsNullOrEmpty(Resposta.Trim()))
+            if (string.IsNullOrEmpty(TextoAlternativa.Trim()))
                 erros.Add("O campo \"enunciado\" é obrigatório");
 
             return erros;
@@ -39,7 +38,7 @@ namespace WinFormsApp.ModuloQuestao
 
         public override string ToString()
         {
-            return $"({Letra}) -> {Resposta}";
+            return $"({Letra}) -> {TextoAlternativa}";
         }
     }
 }
